@@ -1,0 +1,25 @@
+{
+  "name": "api-score-preferred-movie",
+  "version": "1.0.0",
+  "description": "api to store and retrive users preferred movies and their score",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodjs",
+    "express",
+    "sequelize",
+    "rest",
+    "qpi"
+  ],
+  "author": "Alessandro Paci",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.19.0"
+  }
+}
