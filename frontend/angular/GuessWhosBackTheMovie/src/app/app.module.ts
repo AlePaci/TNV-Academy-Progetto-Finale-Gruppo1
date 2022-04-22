@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GuessWhosBackTheMovieComponent } from './appComponents/guess-whos-back-the-movie/guess-whos-back-the-movie.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GuessWhosBackTheMovieComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
