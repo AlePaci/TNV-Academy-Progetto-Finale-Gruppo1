@@ -4,6 +4,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 
 const routes: Routes = [
   { path: 'registration', component: RegistrationComponent},
+  { path: '', redirectTo: '/', pathMatch: 'full'}
   
 ];
 
