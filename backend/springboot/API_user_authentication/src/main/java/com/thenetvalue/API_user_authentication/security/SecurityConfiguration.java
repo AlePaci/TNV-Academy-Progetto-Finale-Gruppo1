@@ -12,7 +12,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+
 import javax.sql.DataSource;
+
 
 @Configuration
 @EnableWebSecurity
@@ -36,27 +38,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedHeaders(List.of("Authorization", "Cache-Control", "Content-Type"));
-        corsConfiguration.setAllowedOrigins(List.of("*"));
-        corsConfiguration.setAllowedMethods(List.of("GET", "POST", "DELETE", "PUT" "DELETE"));
-        corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.setExposedHeaders(List.of("Authorization"));
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/registration/")
                 .permitAll()
                 .antMatchers(HttpMethod.PUT)
-                .hasAnyRole("USER","ADMIN")
+                .hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic()
-                ;
+        ;
     }
 
     @Bean
     PasswordEncoder passwordEncoder() {
         return passwordEncoder;
     }
+}
 
  

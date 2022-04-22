@@ -14,7 +14,6 @@ public class ApiUserAuthenticationApplication {
 		SpringApplication.run(ApiUserAuthenticationApplication.class, args);
 	}
 
-
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurerAdapter() {
@@ -23,4 +22,6 @@ public class ApiUserAuthenticationApplication {
 				registry.addMapping("/products").allowedOrigins("http://localhost:8080");
 			}
 		};
+
 	}
+}
