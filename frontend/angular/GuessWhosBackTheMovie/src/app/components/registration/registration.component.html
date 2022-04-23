@@ -1,5 +1,5 @@
 <h1>Registration</h1>
-<form #loginForm="ngForm" (submit)="login(loginForm)">
+<form #registrationForm="ngForm" (submit)="registration(registrationForm)">
     <div class="mb-3"> 
         <label for="username" class="form-lable">Username</label>
     <input [ngModel] name="username" type="text" class="form-control" id="username" placeholder="username">
@@ -8,6 +8,6 @@
     <label for="password" class="form-lable">Password</label>
     <input [ngModel] name="password" type="text" class="form-control" id="password" placeholder="password">
     </div>
-    <button type="submit" class="btn btn-primary">Login</button>
+    <button type="submit" class="btn btn-primary">Registration</button>
 </form>
 

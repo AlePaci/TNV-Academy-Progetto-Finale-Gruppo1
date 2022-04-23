@@ -10,3 +10,8 @@ export interface UserDataObject {
     user: User;
     message: string;
 }
+
+export interface RegistrationUser{
+    username: string;
+    password: string;
+}
