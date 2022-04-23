@@ -2,6 +2,7 @@
 /public/hot
 /public/storage
 /storage/*.key
+/database/migration
 /vendor
 .env
 .env.backup

@@ -80,6 +80,14 @@ namespace Comments.Db
             var entityList =  _context.Comments.Where(c => c.MovieId == movieId).ToList();
             return entityList.Select(c =>DbCommentMapper.From(c)).ToList();
         }
+
+        public Comment? GetCommentByMovieIdUserId(int movieId, int userId)
+        {
+            var commentEntity = _context.Comments.Where(c =>
+            (c.UserId == userId)&&(c.MovieId == movieId)).ToList();
+            if(commentEntity != null) return DbCommentMapper.From(commentEntity[0]);
+            return null;
+        }
         /// <summary>
         /// method to update a comment and save changes in database.
         /// </summary>
