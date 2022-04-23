@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent
+  
   ],
   imports: [
    
