@@ -13,11 +13,11 @@ export class PreferredMovieService {
   return this.http.post<Prefferd>("http://localhost:8081/movies/",newPreff);
   }
 
-  findAllMoviesbyUserId(){
-
+  findAllMoviesbyUserId(userId:number){
+    return this.http.get<Prefferd[]>(`http://localhost:8081/usermovies/${{userId}}`);
   }
 
-  deletePreferredMovie(){
-
+  deletePreferredMovie(id:number){
+    return this.http.delete(`http://localhost:8080/movies/${{id}}`)
   }
 }
