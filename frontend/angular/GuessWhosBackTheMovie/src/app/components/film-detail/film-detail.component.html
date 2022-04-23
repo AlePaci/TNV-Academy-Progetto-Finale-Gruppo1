@@ -1,0 +1,18 @@
+<h1><a [routerLink]="['','movieId']">{{movieId}}</a></h1>
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">genere</div>
+      <div class="col-md-4 offset-md-4">regia</div>
+      <div class="col-md-4 offset-md-4">attori</div>
+      <div class="col-md-4 offset-md-4">durata</div>
+    </div>
+  </div>
+</div>
+
+<div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+  <label for="floatingTextarea2">Scrivi la tua recensione</label>
+</div>
+<button (click)="navigate(-1)">Previous</button>
+<button (click)="navigate(1)">Next</button>
