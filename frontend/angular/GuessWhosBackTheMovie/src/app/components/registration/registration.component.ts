@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Prefferd } from 'src/app/model/prefferd.model';
 import { User, UserDataObject } from 'src/app/model/user.model';
 import { AccessApiService } from 'src/app/services/access-api.service';
+import { PreferredMovieService } from 'src/app/services/preferred-movie.service';
 
 
 @Component({
@@ -11,11 +13,15 @@ import { AccessApiService } from 'src/app/services/access-api.service';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
-
+  movies: Prefferd[]= [];
+  userid:number = 11;
   user: UserDataObject| null = null
-  constructor(private accessApi: AccessApiService) { }
+  constructor(private accessApi: AccessApiService, private api: PreferredMovieService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+    this.api.findAllMoviesbyUserId(this.userid).subscribe({
+      next: (res) => this.movies = res
+    });
   }
   registration(registrationForm: NgForm) {
     this.accessApi.registerUser(registrationForm.value).subscribe({
@@ -24,5 +30,8 @@ export class RegistrationComponent implements OnInit {
     
     });
     console.log(this.user)
+   
+    console.log("this.movies");
+    
 }
 }

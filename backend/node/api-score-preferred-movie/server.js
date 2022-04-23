@@ -2,6 +2,7 @@ import express from "express";
 import db from "./config/database.js"
 import Movie from "./model/preferred_movie.js";
 import router from "./routes/preff-movie-routes.js";
+import cors from "cors";
 
 
 
@@ -12,7 +13,9 @@ const app = express();
 // parse requests of content-type - application/json
 app.use(express.json());
 
-
+app.use(cors({
+  origin: "http://localhost:4200"
+}))
 // database connection e sync
 db.movie = Movie;
 try {
