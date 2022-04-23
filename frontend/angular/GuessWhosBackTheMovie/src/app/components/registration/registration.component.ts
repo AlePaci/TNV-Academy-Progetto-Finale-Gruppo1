@@ -19,9 +19,6 @@ export class RegistrationComponent implements OnInit {
   constructor(private accessApi: AccessApiService, private api: PreferredMovieService) { }
 
   ngOnInit(): void { 
-    this.api.findAllMoviesbyUserId(this.userid).subscribe({
-      next: (res) => this.movies = res
-    });
   }
   registration(registrationForm: NgForm) {
     this.accessApi.registerUser(registrationForm.value).subscribe({
@@ -31,7 +28,7 @@ export class RegistrationComponent implements OnInit {
     });
     console.log(this.user)
    
-    console.log("this.movies");
+    
     
 }
 }
