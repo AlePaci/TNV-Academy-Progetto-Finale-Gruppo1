@@ -13,13 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ratings',function(Blueprint $table){
-            $table->id();
-            $table->integer('movie_rating');
-            $table->unsignedInteger('movie_id');
-            $table->unsignedInteger('user_id');
-            $table->timestamps();
-        });
+        //
     }
 
     /**
@@ -29,6 +23,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ratings');
+        //
     }
 };

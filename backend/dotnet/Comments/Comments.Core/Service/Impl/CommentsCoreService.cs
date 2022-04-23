@@ -33,6 +33,13 @@ namespace Comments.Core.Service.Impl
             }
             throw new InvalidCommentTextLenghtException(commentText.Length);
         }
+        public Comment GetCommentByMovieIdUserId( int movieId, int userId){
+            var comment = _efService.GetCommentByMovieIdUserId(movieId,userId);
+              if (comment != null) return comment;
+            throw new CommentNotFoundException("id", movieId);
+        }
+
+
         /// <summary>
         /// Method to retrive all comments, apply controls and redirects to database layer
         /// </summary>

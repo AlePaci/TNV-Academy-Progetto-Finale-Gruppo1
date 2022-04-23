@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\RatingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,5 +27,7 @@ Route::apiResource('/ratings',RatingController::class);
 Route::get('/ratingsByMovie/{movie_id}','App\Http\Controllers\RatingController@getRatingByMovieId');
 
 Route::get('/ratingByUser/{user_id}','App\Http\Controllers\RatingController@getRatingByUserId');
+
+Route::get('/ratingsUserMovie/{user_id}/{movie_id}','App\Http\Controllers\RatingController@getRatingByUserMovie');
 
 
