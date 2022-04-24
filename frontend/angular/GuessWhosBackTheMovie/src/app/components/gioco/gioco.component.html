@@ -10,6 +10,7 @@
                         <img [src]="this.newMovieService.getMoviePoster(this.movieDetails?.poster_path)" alt="poster image" width="100%">
                     </div>
                     <div class="col-6">
+                        <app-count-down></app-count-down>
                         <h2>{{movieDetails?.title}}</h2>
                     </div>
                 </div>
