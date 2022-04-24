@@ -1,8 +1,12 @@
+
+
+import { TMDBApiService } from './../../services/tmdb-api.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MovieDetails } from '../../model/movieDetails.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TMDBApiService } from '../../services/tmdb-api.service';
+import { MovieCredits } from '../../model/movieCredits.model';
+
 
 @Component({
   selector: 'app-film-detail',
@@ -11,30 +15,30 @@ import { TMDBApiService } from '../../services/tmdb-api.service';
 })
 export class FilmDetailComponent implements OnInit {
 
-  movieId: number;
-  movieDetail: MovieDetails | null = null
+
+  detail: MovieDetails |null = null
+  credits: MovieCredits |null = null
 
   constructor(activatedRoute: ActivatedRoute,
     private router : Router,
-    private httpClient: HttpClient) {
-    this.movieId = +activatedRoute.snapshot.params['movieId']
+    private TMDBApiService:TMDBApiService) {
+    activatedRoute.params.subscribe(val => this.credits)
+    activatedRoute.params.subscribe(val => this.detail)
    }
 
   ngOnInit(): void {
-  this.httpClient.get<MovieDetails>(`https://api.themoviedb.org/3/movie/${this.movieId}`).subscribe({
-    next: (res) => this.movieDetail = res
-  })
-  }
-
-  navigate(amount:number) {
-    const movieId = this.movieId + amount
-    this.movieId = movieId;
-    this.router.navigateByUrl(`${movieId}`)
     this.getData();
 
   }
-  private getData() {
 
+
+  private getData() {
+    this.TMDBApiService.getMovieCredits(1).subscribe({
+      next: (res) => this.credits = res
+    }),
+    this.TMDBApiService.getMovieDetails(1).subscribe({
+      next: (res) => this.detail = res
+    })
   }
 }
 
