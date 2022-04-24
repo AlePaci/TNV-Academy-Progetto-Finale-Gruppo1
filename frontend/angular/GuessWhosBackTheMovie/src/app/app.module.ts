@@ -10,7 +10,7 @@ import { FilmDetailComponent } from './components/film-detail/film-detail.compon
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { GiocoComponent } from './components/gioco/gioco.component';
-import { CountDownComponent } from './components/count-down/count-down.component';
+
 
 
 
@@ -23,7 +23,7 @@ import { CountDownComponent } from './components/count-down/count-down.component
     NavbarComponent,
     HomeComponent,
     GiocoComponent,
-    CountDownComponent
+    
 
   ],
   imports: [
