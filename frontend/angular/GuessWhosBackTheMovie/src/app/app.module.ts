@@ -17,13 +17,13 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    FilmDetailComponent
+    FilmDetailComponent,
     NavbarComponent,
     HomeComponent
 
   ],
   imports: [
-   
+
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

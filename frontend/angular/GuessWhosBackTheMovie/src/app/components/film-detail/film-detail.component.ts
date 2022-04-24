@@ -33,10 +33,10 @@ export class FilmDetailComponent implements OnInit {
 
 
   private getData() {
-    this.TMDBApiService.getMovieCredits(1).subscribe({
+    this.TMDBApiService.getMovieCredits(343611).subscribe({
       next: (res) => this.credits = res
     }),
-    this.TMDBApiService.getMovieDetails(1).subscribe({
+    this.TMDBApiService.getMovieDetails(343611).subscribe({
       next: (res) => this.detail = res
     })
   }
