@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-8">
+            <div *ngIf="this.start; then thenBlock else elseBlock"></div>
+            <ng-template #thenBlock>
+                <div class="row">
+                    <div class="col-6">
+                        <img [src]="this.newMovieService.getMoviePoster(this.movieDetails?.poster_path)" alt="poster image" width="100%">
+                    </div>
+                    <div class="col-6">
+                        <h2>{{movieDetails?.title}}</h2>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template #elseBlock>
+                <div class="text-center">
+                <button (click)="onStart()" type="button" class="btn btn-primary">Inizia</button></div>
+            </ng-template>
+            
+        </div>
+        <div class="col-2">
+        </div> 
+
+    </div>
+</div>
