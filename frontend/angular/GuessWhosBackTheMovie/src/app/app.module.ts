@@ -13,6 +13,7 @@ import { GiocoComponent } from './components/gioco/gioco.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { GiocoComponent } from './components/gioco/gioco.component';
     FilmDetailComponent,
     NavbarComponent,
     HomeComponent,
-    GiocoComponent
+    GiocoComponent,
+    
 
   ],
   imports: [

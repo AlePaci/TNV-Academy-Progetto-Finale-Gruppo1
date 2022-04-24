@@ -1,4 +1,4 @@
- export interface timeComponents {
+ export interface TimeComponents {
     secondsToEnd: number;
     minutesToEnd: number;
  }

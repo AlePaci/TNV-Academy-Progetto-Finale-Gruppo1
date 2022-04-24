@@ -7,15 +7,47 @@
             <ng-template #thenBlock>
                 <div class="row">
                     <div class="col-6">
-                        <img [src]="this.newMovieService.getMoviePoster(this.movieDetails?.poster_path)" alt="poster image" width="100%">
+                        <h2>{{movieDetails?.title}}</h2>
+                        <img [src]="this.newMovieService.getMoviePoster(this.movieDetails?.poster_path)" alt="poster image" width="60%%">
                     </div>
                     <div class="col-6">
-                        <h2>{{movieDetails?.title}}</h2>
+                       <h2>{{minutes}}:{{seconds}}</h2>
+                       <h3></h3>
+                       <dl class="row">
+                        <dt class="col-sm-4">Data di Uscita:</dt>
+                        <dd class="col-sm-8">{{movieDetails?.release_date}}</dd> 
+                        <dt class="col-sm-4">Regista:</dt>
+                        <dd class="col-sm-8">{{director[0].name}}</dd>
+                        <dt class="col-sm-4">Attori:</dt>
+                        <dd class="col-sm-8">
+                            <p > {{cast[0].name}} </p>
+                            <p > {{cast[1].name}} </p>
+                            <p > {{cast[2].name}} </p>
+
+                            
+                        </dd>
+
+                        <dt class="col-sm-4">Genere:</dt>
+                        <dd class="col-sm-8">
+                            <p > {{genres[0].name}} </p>
+                            <p > {{genres[1].name}} </p>
+                            
+                        </dd>
+                      </dl>
+                    
                     </div>
                 </div>
+                <form>
+                    <div class="mb-3">
+                      <label for="guessTitle" class="form-label">Titolo:</label>
+                      <input type="text" class="form-control" id="GuessTitle" aria-describedby="guess">
+                      <div id="guess" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Indovina</button>
+                  </form>
             </ng-template>
             <ng-template #elseBlock>
-                <div class="text-center">
+                <div class="text-center"> 
                 <button (click)="onStart()" type="button" class="btn btn-primary">Inizia</button></div>
             </ng-template>
             
