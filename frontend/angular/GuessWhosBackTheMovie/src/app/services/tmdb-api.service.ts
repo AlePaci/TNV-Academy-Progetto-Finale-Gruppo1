@@ -19,4 +19,8 @@ export class TMDBApiService {
   getMovieCredits(movieId:number){
     return this.http.get<MovieCredits>(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${this.apiKey}&language=en-US`)
   }
+
+  getMoviePoster(path: string | null){
+    return `https://image.tmdb.org/t/p/original/${path}`;
+  }
 }
