@@ -1,4 +1,5 @@
 import {Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { MovieCredits } from 'src/app/model/movieCredits.model';
 import { MovieDetails } from 'src/app/model/movieDetails.model';
@@ -16,7 +17,12 @@ export class GiocoComponent implements OnInit {
   maxRandom: number = 5000;
   movieDetails: MovieDetails| null = null;
   movieCredits: MovieCredits| null = null;
-  constructor(public newMovieService: TMDBApiService) { }
+
+
+
+
+
+  constructor(public newMovieService: TMDBApiService, private subscription : Subscription) { }
 
   ngOnInit(): void {
   }
@@ -24,25 +30,25 @@ export class GiocoComponent implements OnInit {
    getRandomInt(max:number) {
     return Math.floor(Math.random() * max);
   }
+  
+  retirveMovie(){
 
- 
-  onStart(){
-    this.start = true;
-    
     this.movieId = this.getRandomInt(this.maxRandom);
-    console.log(this.movieId);
+
     this.newMovieService.getMovieDetails(this.movieId).subscribe({
       next: (res)=> {
         this.movieDetails = res;
-    
-        },  
+        if(this.movieDetails === null || this.movieDetails.poster_path === null) this.retirveMovie();},  
       error: (res)=> {
           console.log(res);
-          
-        },
-        
-      })
-      console.log(this.movieId)
+          this.retirveMovie(); },
+        });
+  }
+ 
+  onStart(){
+    this.start = true;
+    this.retirveMovie();
+     
     }
   }
 
