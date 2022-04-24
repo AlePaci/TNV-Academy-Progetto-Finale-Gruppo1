@@ -19,6 +19,7 @@ export class FilmDetailComponent implements OnInit {
   detail: MovieDetails |null = null
   credits: MovieCredits |null = null
 
+
   constructor(activatedRoute: ActivatedRoute,
     private router : Router,
     private TMDBApiService:TMDBApiService) {
