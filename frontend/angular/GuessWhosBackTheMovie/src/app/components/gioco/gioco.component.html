@@ -13,12 +13,14 @@
                     </div>
                     <div class="col-6">
                         <h2 *ngIf="!this.finish" >{{minutes}}:{{seconds}}</h2>
+                        <h2 *ngIf="this.win"> Hai vinto! {{points}}pt. </h2>
+                        <h2 *ngIf="!this.win && this.finish">Hai perso! {{points}}pt.</h2>
                     </div>
                 </div>
                      <!--   Sezione dati da indovinare   -->
                 <div class="row">
                     <div class="col-6">
-                        <img  [ngStyle]="{'filter': blurString}" [src]="this.newMovieService.getMoviePoster(this.movieDetails?.poster_path)" alt="poster image" width="60%%">
+                        <img  [ngStyle]="{'filter': blurString}" [src]="this.newMovieService.getMoviePoster(this.movieDetails?.poster_path)" alt="poster image" width="60%">
                     </div>
                     <div class="col-6">
                        
@@ -62,8 +64,8 @@
                 </ng-template>
                      <!-- sezione dedicata rigioca salva-->
                 <ng-template #conclusionBlock>
-                    <button  type="button" class="btn btn-primary">Rigioca</button>
-                    <button  type="button" class="btn btn-primary">Salva Film</button>
+                    <button  type="button" class="btn btn-primary" (click)="playAgain()">Rigioca</button>
+                    <button  type="button" class="btn btn-primary" (click)="save()">Salva Film</button>
                 </ng-template>
                 
 

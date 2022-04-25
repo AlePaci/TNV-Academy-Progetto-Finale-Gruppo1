@@ -10,6 +10,7 @@ import { FilmDetailComponent } from './components/film-detail/film-detail.compon
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { GiocoComponent } from './components/gioco/gioco.component';
+import { SaveComponent } from './components/save/save.component';
 
 
 
@@ -23,6 +24,7 @@ import { GiocoComponent } from './components/gioco/gioco.component';
     NavbarComponent,
     HomeComponent,
     GiocoComponent,
+    SaveComponent,
     
 
   ],

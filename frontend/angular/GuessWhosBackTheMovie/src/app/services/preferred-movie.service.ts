@@ -18,6 +18,6 @@ export class PreferredMovieService {
   }
 
   deletePreferredMovie(id:number){
-    return this.http.delete(`http://localhost:8080/movies/${id}`);
+    return this.http.delete(`http://localhost:8080/movie/${id}`);
   }
 }

@@ -1,5 +1,6 @@
 import {Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { timer } from 'rxjs';
 
 import { MovieCredits,Cast, Crew} from 'src/app/model/movieCredits.model';
@@ -16,7 +17,7 @@ export class GiocoComponent implements OnInit {
   // booleani usati per mostrare o meno contenuto
   start: boolean = false;
   finish:boolean = false;
-  win: boolean | null = null;
+  win: boolean = false;
 
   // booleani usati per mostrare o meno info film
   showActors: boolean[] = [false,false,false];
@@ -41,15 +42,21 @@ export class GiocoComponent implements OnInit {
   seconds : string |null = null;
   minutes : string |null = null;
   
+
+  // valori utilizzati per il blur dell immagine
   blur: number =3;
   blurString: string = "string";
+
+  points: number | null = 0;
   
 
 
 
 
-  constructor(public newMovieService: TMDBApiService)
-     { }
+  constructor(
+    public newMovieService: TMDBApiService,
+    private router:Router
+    ){ }
 
   ngOnInit(): void {
   }
@@ -61,7 +68,7 @@ export class GiocoComponent implements OnInit {
   }
   
  
- 
+ // metodo che fa partire la partita
   onStart(){
     this.start = true;
     this.retirveMovie();
@@ -70,7 +77,7 @@ export class GiocoComponent implements OnInit {
      
     }
     
-  
+  // metodo che crea il countdown e cambia valore ai cari campi per renderli visibili
     countDownTimer() {
       const source = timer(1000, 1000);
       const abc = source.subscribe(val => {
@@ -85,6 +92,7 @@ export class GiocoComponent implements OnInit {
           this.finish = true;
           this.win = false;
           return }
+        if(this.finish && this.win) return
         this.subscribeTimer = this.timeLeft - val,
         this.minutes = Math.floor(this.subscribeTimer % 3600 / 60).toString().padStart(2,'0'),
         this.seconds = Math.floor(this.subscribeTimer % 60).toString().padStart(2,'0')
@@ -93,9 +101,10 @@ export class GiocoComponent implements OnInit {
         
       });
     }
-
-    
-     retirveMovie(){
+  
+  
+  // metodo che recupera tutte le informazioni utili dall Api esterna e fa controli su presenza poster e gia giocati  
+    retirveMovie(){
 
     this.movieId = this.getRandomInt(this.maxRandom);
 
@@ -118,16 +127,29 @@ export class GiocoComponent implements OnInit {
     });
   }
   
-
+// Metodo per valutare l input sul tentativo titolo
   guess(guessForm: NgForm){
     if(this.movieDetails?.title.toLowerCase()===guessForm.value.guessTitle){
       this.finish = true;
       this.win = true;
+      this.points = this.subscribeTimer;
+      this.blurString = `blur(0)`;      
       console.log("indovinato");
     }
     else{
       console.log("Sbagliato");
     }
-
   }
+
+  // metodo per fare una nuova partita
+  playAgain(){
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(["gioco"])
+  }
+
+  save(){
+    this.router.navigate(['/gioco', this.movieId, this.points]);
+  }
+
 }
