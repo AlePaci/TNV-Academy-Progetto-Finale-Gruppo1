@@ -9,6 +9,8 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { FilmDetailComponent } from './components/film-detail/film-detail.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { GiocoComponent } from './components/gioco/gioco.component';
+
 
 
 
@@ -19,7 +21,9 @@ import { HomeComponent } from './components/home/home.component';
     RegistrationComponent,
     FilmDetailComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    GiocoComponent,
+    
 
   ],
   imports: [
