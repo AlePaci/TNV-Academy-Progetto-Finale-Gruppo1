@@ -18,6 +18,8 @@ namespace Comments.Core.Service
 
         List<Comment> GetCommentsByMovieId(int movieId);
 
+        Comment? GetCommentByMovieIdUserId(int movieId,int userId);
+
         Comment? UpdateComment(int commentId, string updatedCommentProp);
 
         bool DeleteComment(int commentId);

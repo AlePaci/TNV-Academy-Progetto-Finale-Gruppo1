@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FilmDetailComponent } from './components/film-detail/film-detail.component';
+import { GiocoComponent } from './components/gioco/gioco.component';
 
 
 const routes: Routes = [
   { path: 'registration', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'film-detail', component: FilmDetailComponent},
-  { path: '', redirectTo: '/', pathMatch: 'full'}
+  {path: "home", component: HomeComponent},
+  {path: 'film-detail', component: FilmDetailComponent}, 
+  {path: 'gioco', component: GiocoComponent}, 
+  {path: '', redirectTo: '/home', pathMatch: 'full'}
 
 ];
 

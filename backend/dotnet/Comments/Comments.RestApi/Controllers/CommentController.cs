@@ -108,6 +108,30 @@ namespace Comments.RestApi.Controllers
                 });
             }
         }
+
+
+         [HttpGet]
+        [Route("byid/{movie-id}/{user-id}")]
+        public ActionResult<CommentDTO> GetCommentById([FromRoute(Name = "movie-id")] int movieId, [FromRoute(Name = "user-id")]int userId)
+        {
+            try
+            {
+                var comment = _coreService.GetCommentByMovieIdUserId(movieId, userId);
+                return Ok(new DataResponse()
+                {
+                    Data = CommentMapper.From(comment),
+                    TimeStamp = DateTime.Now
+                });
+            }
+            catch (CommentNotFoundException ex)
+            {
+                return NotFound(new ErrorResponse()
+                {
+                    ErrorMessage = ex.Message,
+                    TimeStamp = DateTime.Now
+                });
+            }
+        }
         /// <summary>
         /// Method to search for comments by user id, gets the request from client side and redirects to the business layer
         /// </summary>
