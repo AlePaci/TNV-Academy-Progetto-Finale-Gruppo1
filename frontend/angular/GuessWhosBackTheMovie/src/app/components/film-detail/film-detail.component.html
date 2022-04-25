@@ -1,2 +1,63 @@
-<h1>{{detail}}</h1>
-<h1>{{credits}}</h1>
+<h1>{{detail?.title}}</h1>
+<div class="container-fluid">
+  <img [src]="this.TMDBApiService.getMoviePoster( this.detail?.poster_path)">
+
+</div>
+<div class="row justify-content-end">
+  <div class="col-4">
+    Genere:
+  </div>
+
+
+  <div class="col-4">
+    <li *ngFor="let genres of detail?.genres"></li>
+   {{detail?.genres}}
+  </div>
+
+</div>
+<div class="row justify-content-end">
+  <div class="col-4">
+    Durata:
+  </div>
+  <div class="col-4">
+   {{detail?.runtime}} min.
+  </div>
+</div>
+<div class="row justify-content-end">
+  <div class="col-4">
+    Lingua Originale:
+  </div>
+  <div class="col-4">
+   {{detail?.original_language}}
+  </div>
+</div>
+<div class="row justify-content-end">
+  <div class="col-4">
+    Anno di Uscita:
+  </div>
+  <div class="col-4">
+   {{detail?.release_date}}
+  </div>
+</div>
+<div class="row justify-content-end">
+  <div class="col-4">
+    Titolo Originale:
+  </div>
+  <div class="col-4">
+   {{detail?.original_title}}
+  </div>
+</div>
+<div class="row justify-content-end">
+  <div class="col-4">
+    Voti in media:
+  </div>
+  <div class="col-4">
+   {{detail?.vote_average}}
+  </div>
+</div>
+<div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+  <label for="floatingTextarea">Scrivi la tua recensione</label>
+</div>
+
+

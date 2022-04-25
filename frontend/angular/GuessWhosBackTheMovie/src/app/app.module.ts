@@ -27,7 +27,7 @@ import { GiocoComponent } from './components/gioco/gioco.component';
 
   ],
   imports: [
-   
+
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
