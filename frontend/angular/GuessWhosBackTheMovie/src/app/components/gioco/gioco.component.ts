@@ -41,6 +41,8 @@ export class GiocoComponent implements OnInit {
   seconds : string |null = null;
   minutes : string |null = null;
   
+  blur: number =3;
+  blurString: string = "string";
   
 
 
@@ -86,6 +88,9 @@ export class GiocoComponent implements OnInit {
         this.subscribeTimer = this.timeLeft - val,
         this.minutes = Math.floor(this.subscribeTimer % 3600 / 60).toString().padStart(2,'0'),
         this.seconds = Math.floor(this.subscribeTimer % 60).toString().padStart(2,'0')
+        this.blur -= 0.035;
+        this.blurString = `blur(${this.blur}rem)`;
+        
       });
     }
 

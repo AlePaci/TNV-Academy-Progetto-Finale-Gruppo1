@@ -17,8 +17,8 @@
                 </div>
                      <!--   Sezione dati da indovinare   -->
                 <div class="row">
-                    <div class="col-6 ">
-                        <img  [src]="this.newMovieService.getMoviePoster(this.movieDetails?.poster_path)" alt="poster image" width="60%%">
+                    <div class="col-6">
+                        <img  [ngStyle]="{'filter': blurString}" [src]="this.newMovieService.getMoviePoster(this.movieDetails?.poster_path)" alt="poster image" width="60%%">
                     </div>
                     <div class="col-6">
                        
