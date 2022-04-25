@@ -1,51 +1,74 @@
-<div class="container-fluid">
+<div class="container-fluid text-center">
     <div class="row">
         <div class="col-2">
         </div>
         <div class="col-8">
             <div *ngIf="this.start; then thenBlock else elseBlock"></div>
+                    <!--    MACRO-SEZIONE GIOCO     -->
             <ng-template #thenBlock>
+                    <!-- sezione titolo e timer     -->
                 <div class="row">
                     <div class="col-6">
-                        <h2>{{movieDetails?.title}}</h2>
-                        <img [src]="this.newMovieService.getMoviePoster(this.movieDetails?.poster_path)" alt="poster image" width="60%%">
+                        <h2 *ngIf="this.finish">{{movieDetails?.title}}</h2>
                     </div>
                     <div class="col-6">
-                       <h2>{{minutes}}:{{seconds}}</h2>
-                       <h3></h3>
+                        <h2 *ngIf="!this.finish" >{{minutes}}:{{seconds}}</h2>
+                    </div>
+                </div>
+                     <!--   Sezione dati da indovinare   -->
+                <div class="row">
+                    <div class="col-6 ">
+                        <img  [src]="this.newMovieService.getMoviePoster(this.movieDetails?.poster_path)" alt="poster image" width="60%%">
+                    </div>
+                    <div class="col-6">
+                       
+                       
                        <dl class="row">
                         <dt class="col-sm-4">Data di Uscita:</dt>
-                        <dd class="col-sm-8">{{movieDetails?.release_date}}</dd> 
+                        <dd class="col-sm-8" ><p [hidden]="!showDate" >{{movieDetails?.release_date}}</p></dd> 
+                        
                         <dt class="col-sm-4">Regista:</dt>
-                        <dd class="col-sm-8">{{director[0].name}}</dd>
+                        <dd class="col-sm-8" ><p [hidden]="!showDirector"> {{director[0].name}}</p></dd>
+                        
                         <dt class="col-sm-4">Attori:</dt>
                         <dd class="col-sm-8">
-                            <p > {{cast[0].name}} </p>
-                            <p > {{cast[1].name}} </p>
-                            <p > {{cast[2].name}} </p>
-
-                            
+                            <p [hidden]="!showActors[0]"> {{cast[0].name}} </p>
+                            <p [hidden]="!showActors[1]"> {{cast[1].name}} </p>
+                            <p [hidden]="!showActors[2]"> {{cast[2].name}} </p>                            
                         </dd>
 
                         <dt class="col-sm-4">Genere:</dt>
                         <dd class="col-sm-8">
-                            <p > {{genres[0].name}} </p>
-                            <p > {{genres[1].name}} </p>
-                            
+                            <p [hidden]="!showGenres[0]" > {{genres[0].name}} </p>
+                            <p [hidden]="!showGenres[1]"> {{genres[1].name}} </p>
                         </dd>
                       </dl>
                     
                     </div>
                 </div>
-                <form>
+                    <!--    MACRO-SEZIONE INDOVINA/RIGIOCA/SALVA-->
+                 <div *ngIf="this.finish; then conclusionBlock else guessingBlock"></div>
+
+                    <!--    sezione dedicata ad inserimento titolo       -->
+                <ng-template #guessingBlock>
+                <form  #guessForm="ngForm" (submit)="guess(guessForm)">
                     <div class="mb-3">
                       <label for="guessTitle" class="form-label">Titolo:</label>
-                      <input type="text" class="form-control" id="GuessTitle" aria-describedby="guess">
-                      <div id="guess" class="form-text">We'll never share your email with anyone else.</div>
+                      <input [ngModel] name="guessTitle" type="text" class="form-control" id="guessTitle" aria-describedby="guess">
+                      <div id="guess" class="form-text">Concentrati e cerca di indovinare prima che il tempo scada. Hai tutti i tentativi che desideri!</div>
                     </div>
                     <button type="submit" class="btn btn-primary">Indovina</button>
-                  </form>
+                </form>
+                </ng-template>
+                     <!-- sezione dedicata rigioca salva-->
+                <ng-template #conclusionBlock>
+                    <button  type="button" class="btn btn-primary">Rigioca</button>
+                    <button  type="button" class="btn btn-primary">Salva Film</button>
+                </ng-template>
+                
+
             </ng-template>
+                    <!--   MACRO-SESSIONE PREGIOCO    sezione del pulsante di inizio       -->
             <ng-template #elseBlock>
                 <div class="text-center"> 
                 <button (click)="onStart()" type="button" class="btn btn-primary">Inizia</button></div>
@@ -54,6 +77,5 @@
         </div>
         <div class="col-2">
         </div> 
-
     </div>
 </div>
