@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Prefferd } from 'src/app/model/prefferd.model';
-import { User, UserDataObject } from 'src/app/model/user.model';
+import { RegistrationUser, UserDataObject } from 'src/app/model/user.model';
 import { AccessApiService } from 'src/app/services/access-api.service';
 import { PreferredMovieService } from 'src/app/services/preferred-movie.service';
 
@@ -16,7 +16,8 @@ import { PreferredMovieService } from 'src/app/services/preferred-movie.service'
 export class RegistrationComponent implements OnInit {
   
   
-  user: UserDataObject| null = null
+  user: UserDataObject| null = null;
+  error: boolean = false;
   constructor(
     private accessApi: AccessApiService,
      private api: PreferredMovieService,
@@ -25,6 +26,7 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void { 
   }
   registration(registrationForm: NgForm) {
+    if(registrationForm.value.password === registrationForm.value.confirmPassword){
     this.accessApi.registerUser(registrationForm.value).subscribe({
       next: (res) =>{ 
         this.user = res;
@@ -33,6 +35,8 @@ export class RegistrationComponent implements OnInit {
       error: () => console.log('error'),
     
     });
+  }
+  else this.error = true;
     console.log(this.user)
    
     

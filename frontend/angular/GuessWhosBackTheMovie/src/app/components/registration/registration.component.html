@@ -1,22 +1,52 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-2">
-        </div>
-        <div class="col-8">
-            <h1>Registration</h1>
-            <form #registrationForm="ngForm" (submit)="registration(registrationForm)">
-            <div class="mb-3"> 
-                <label for="username" class="form-lable">Username</label>
-                <input [ngModel] name="username" type="text" class="form-control" id="username" placeholder="username">
+        <div class="col-12 col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-center">Registrazione</h1>
+                    <p class="text-center">Inserisci i dati nuovo utente</p>
+                </div>
+                <div class="card-body">
+                    <form #registrationForm="ngForm" (ngSubmit)="registration(registrationForm)">
+                    <div class="form-group mb-3"> 
+                        <label for="username" class="form-lable">Username</label>
+                        <input  type="text" class="form-control" id="username" placeholder="username"
+                        required
+                        [ngModel] name="username" #username="ngModel">
+                        <div [hidden]="username.valid"
+                        class="alert alert-danger">
+                        Inserisci un username
+                        </div>
+                    </div>
+                    <div class="form-group mb-3" >
+                        <label for="password" class="form-lable">Password</label>
+                        <input  type="text" class="form-control" id="password" placeholder="password" 
+                        required
+                        [ngModel] name="password" #password="ngModel">
+                        <div [hidden]="password.valid "
+                        class="alert alert-danger">
+                        Inserisci una password
+                        </div>
+                    </div>
+                    <div class="form-group mb-3" >
+                        <label for="confirmPassword" class="form-lable">Conferma Password</label>
+                        <input  type="text" class="form-control" id="confirmPassword" placeholder="conferma password" 
+                        required
+                        [ngModel] name="confirmPassword" #confirmPassword="ngModel">
+                        <div [hidden]="confirmPassword.valid"
+                        class="alert alert-danger">
+                        Conferma la password
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div *ngIf="error" class="alert alert-danger" role="alert">
+                             Password differenti!
+                         </div>
+                        <button type="submit" class="btn btn-primary"  [disabled]="!registrationForm.form.valid">Registration</button>
+                    </div>
+                    </form>
+                </div> 
             </div>
-            <div class="mb-3" >
-                <label for="password" class="form-lable">Password</label>
-                <input [ngModel] name="password" type="text" class="form-control" id="password" placeholder="password">
-            </div>
-                <button type="submit" class="btn btn-primary">Registration</button>
-            </form>
-        </div>
-        <div class="col-2">
         </div>
     </div>
 </div>

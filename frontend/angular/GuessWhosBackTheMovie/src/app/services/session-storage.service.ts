@@ -16,7 +16,9 @@ export class SessionStorageService {
 
   }
   getUserId(){
-    return sessionStorage.getItem("userId");
+    let stringId : string| null = sessionStorage.getItem("userId");
+     if(stringId !== null) return +stringId;
+    return 0
   }
 
   setUserId(userid: number){
