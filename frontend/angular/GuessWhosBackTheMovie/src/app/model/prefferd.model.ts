@@ -6,3 +6,9 @@ export interface Prefferd {
     createdAt: Date;
     updatedAt: Date;
 }
+
+export interface SavePrefferd{
+    movieId:   number | null;
+    userId:    number;
+    gameScore: number | null; 
+}

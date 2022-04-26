@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { GiocoComponent } from './components/gioco/gioco.component';
 import { SaveComponent } from './components/save/save.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -29,7 +30,7 @@ import { SaveComponent } from './components/save/save.component';
 
   ],
   imports: [
-
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

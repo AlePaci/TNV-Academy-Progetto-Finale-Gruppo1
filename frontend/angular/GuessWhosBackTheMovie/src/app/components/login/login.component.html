@@ -1,31 +1,54 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-2">
-     
-    </div>
-    <div class="col-8">
-      <h1 class="text-center">Bentornato</h1>
-      <p class="text-center">Non perdere tempo accedi subito e inizia a giocare!!</p>
-      <form #loginForm="ngForm" (submit)="login(loginForm)">
-    <div class="mb-3"> 
-        <label for="username" class="form-lable">Username</label>
-    <input [ngModel] name="username" type="text" class="form-control" id="username" placeholder="username">
-    </div>
-    <div class="mb-3" >
-    <label for="password" class="form-lable">Password</label>
-    <input [ngModel] name="password" type="text" class="form-control" id="password" placeholder="password">
-    </div>
-    <div class="text-center">
-    <button type="submit" class="btn btn-primary">Login</button>
-    <p><a routerLink="/registration">Se non hai ancora un account registrati subito!</a></p>
-   </div>
-  </form>
-    </div>
-    <div class="col-2">
-      
-    </div>
+    <div class="col-12 col-md-8 offset-md-2">
+      <div *ngIf="this.logged; then isLogged else notLogged"></div>
+      <ng-template #notLogged>
+      <div class="card">
+        <!-- MACRO SEZIONE HEADER-->
+        <div class="card-header">
+          <h1 class="text-center">Bentornato</h1>
+          <p class="text-center">Non perdere tempo accedi subito e inizia a giocare!!</p>
+        </div>
+        <!-- MACRO SEZIONE FORM-->
+        <div class="card-body">
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                  <!-- richiesta username-->
+        <div class=" form-group mb-3"> 
+            <label for="username" class="form-lable">Username</label>
+        <input type="text" class="form-control " id="username" 
+            required
+          [(ngModel)]="logUser.username" name="username" #username="ngModel"> 
+        <div [hidden]="username.valid || username.pristine"
+             class="alert alert-danger">
+          Inserisci un username
+        </div>
+        </div>
+                  <!-- richiesta password-->
+        <div class=" form-group mb-3" >
+        <label for="password" class="form-lable">Password</label>
+        <input  type="text" class="form-control" id="password"
+          required
+          [(ngModel)]="logUser.password" name="password" #password="ngModel">
+          <div [hidden]="username.valid || username.pristine"
+          class="alert alert-danger">
+       Inserisci una password
+     </div>
+        </div>
+        <!--   sezione pulsante o reindirizzamento registrazione-->
+        <div class="text-center">
+          <div *ngIf="error" class="alert alert-danger" role="alert">
+            Username o Password errati!
+          </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <p><a routerLink="/registration">Se non hai ancora un account registrati subito!</a></p>
+        </div>
+        </form>
+        </div>
+      </div>
+   </ng-template>
+   <ng-template #isLogged> <h1 class="text-center align-item-center">Login Avvenuto...</h1></ng-template>
   </div>
-
+</div>
 
     </div>
 
