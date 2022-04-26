@@ -11,7 +11,12 @@ export interface UserDataObject {
     message: string;
 }
 
+export interface LoginUser{
+    username: string;
+    password: string;
+}
 export interface RegistrationUser{
     username: string;
     password: string;
+    confirmPassword: string;
 }

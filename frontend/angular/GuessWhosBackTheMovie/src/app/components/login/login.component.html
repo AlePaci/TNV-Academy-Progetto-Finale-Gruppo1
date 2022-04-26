@@ -15,10 +15,10 @@
                   <!-- richiesta username-->
         <div class=" form-group mb-3"> 
             <label for="username" class="form-lable">Username</label>
-        <input type="text" class="form-control " id="username" 
+        <input type="text" class="form-control " id="username" placeholder="username" 
             required
-          [(ngModel)]="logUser.username" name="username" #username="ngModel"> 
-        <div [hidden]="username.valid || username.pristine"
+          [ngModel] name="username" #username="ngModel"> 
+        <div [hidden]="username.valid "
              class="alert alert-danger">
           Inserisci un username
         </div>
@@ -26,10 +26,10 @@
                   <!-- richiesta password-->
         <div class=" form-group mb-3" >
         <label for="password" class="form-lable">Password</label>
-        <input  type="text" class="form-control" id="password"
+        <input  type="text" class="form-control" id="password" placeholder="password"
           required
-          [(ngModel)]="logUser.password" name="password" #password="ngModel">
-          <div [hidden]="username.valid || username.pristine"
+          [ngModel] name="password" #password="ngModel">
+          <div [hidden]="password.valid"
           class="alert alert-danger">
        Inserisci una password
      </div>
@@ -39,14 +39,17 @@
           <div *ngIf="error" class="alert alert-danger" role="alert">
             Username o Password errati!
           </div>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Login</button>
         <p><a routerLink="/registration">Se non hai ancora un account registrati subito!</a></p>
         </div>
         </form>
         </div>
       </div>
    </ng-template>
-   <ng-template #isLogged> <h1 class="text-center align-item-center">Login Avvenuto...</h1></ng-template>
+   <ng-template #isLogged> 
+    <div class="alert alert-success" role="alert">
+       Ciao {{this.user?.username}} login avvenuto con sucesso.....
+    </div></ng-template>
   </div>
 </div>
 

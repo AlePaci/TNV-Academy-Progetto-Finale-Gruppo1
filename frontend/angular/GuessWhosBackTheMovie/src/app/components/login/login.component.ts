@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegistrationUser, User } from 'src/app/model/user.model';
+import { LoginUser, User } from 'src/app/model/user.model';
 import { AccessApiService } from 'src/app/services/access-api.service';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
 
@@ -12,7 +12,6 @@ import { SessionStorageService } from 'src/app/services/session-storage.service'
 })
 export class LoginComponent implements OnInit {
   user: User |null = null;
-  logUser: RegistrationUser ={username:"username",password:"password"};
   logged: boolean = false;
   error: boolean = false;
 
