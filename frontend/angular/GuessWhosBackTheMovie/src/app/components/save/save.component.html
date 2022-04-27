@@ -18,8 +18,8 @@
                     <form #savingForm="ngForm" (submit)="save(savingForm)">
                         <!-- sezione voto-->
                     <div class="mb-3">
-                        <label for="inputRange" class="form-label">Dai un voto:</label>
-                        <input [ngModel] name="rating" type="range" class="form-range" min="0" max="5" value="3" id="inputRange" oninput="ageOutputId.value = inputRange.value" >
+                        <label for="rating" class="form-label">Dai un voto:</label>
+                        <input [ngModel] name="rating" type="range" class="form-range" min="0" max="5" value="3" id="rating" oninput="ageOutputId.value = rating.value" >
                         <output name="ageOutputName" id="ageOutputId">3</output>
                     </div>
                     <!--   sezione recensione-->

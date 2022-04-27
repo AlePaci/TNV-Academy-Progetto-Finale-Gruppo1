@@ -52,7 +52,7 @@ class RatingController extends Controller
    
         return response()->json([
             'Ratings'=>new RatingResource($rating),
-            'Response Status'=>Response::HTTP_OK
+            'ResponseStatus'=>Response::HTTP_OK
             ]);
     }
 
@@ -66,7 +66,7 @@ class RatingController extends Controller
     {
         return response()->json([
             'Ratings'=>new RatingResource($rating),
-            'Response Status'=>Response::HTTP_OK
+            'ResponseStatus'=>Response::HTTP_OK
             ]);
     }
 
@@ -95,7 +95,7 @@ class RatingController extends Controller
 
         return response()->json([
             'Ratings'=>new RatingResource($rating),
-            'Response Status' => Response::HTTP_OK
+            'ResponseStatus' => Response::HTTP_OK
         ]);
     }
 
@@ -111,7 +111,7 @@ class RatingController extends Controller
         $rating->delete();
         return response()->json([
             'message'=>'Rating deleted.',
-            'Response Status'=>Response::HTTP_NO_CONTENT
+            'ResponseStatus'=>Response::HTTP_NO_CONTENT
         ]);
     }
 
@@ -125,7 +125,7 @@ class RatingController extends Controller
         
         return response()->json([
             'Ratings'=>new RatingCollection( Rating::where('movie_id','LIKE',$movie_id)->get()),
-            'Response Status'=>Response::HTTP_OK
+            'ResponseStatus'=>Response::HTTP_OK
         ]);
 
     }
@@ -141,7 +141,7 @@ class RatingController extends Controller
         
         return response()->json([
             'Ratings'=>new RatingCollection( Rating::where('user_id','LIKE',$user_id)->get()),
-            'Response Status'=>Response::HTTP_OK
+            'ResponseStatus'=>Response::HTTP_OK
         ]);
     }
 
@@ -149,7 +149,7 @@ class RatingController extends Controller
         
         return response()->json([
             'Ratings'=>new RatingCollection( Rating::where('user_id','LIKE',$user_id)->where('movie_id','LIKE',$movie_id)->get()),
-            'Response Status'=>Response::HTTP_OK
+            'ResponseStatus'=>Response::HTTP_OK
         ]);
     }
 
