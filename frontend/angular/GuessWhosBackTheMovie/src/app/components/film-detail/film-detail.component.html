@@ -1,19 +1,17 @@
-<h1>{{detail?.title}}</h1>
-<div class="container-fluid">
-  <img [src]="this.TMDBApiService.getMoviePoster( this.detail?.poster_path)">
 
+<div class="container-fluid">
+<h1>{{detail?.title}}</h1>
+<div class="col-6" widhth="100%">
+  <img [src]="this.TMDBApiService.getMoviePoster( this.detail?.poster_path)">
 </div>
 <div class="row justify-content-end">
   <div class="col-4">
     Genere:
   </div>
-
-
-  <div class="col-4">
+<div class="col-4">
     <li *ngFor="let genres of detail?.genres"></li>
    {{detail?.genres}}
   </div>
-
 </div>
 <div class="row justify-content-end">
   <div class="col-4">
@@ -55,9 +53,20 @@
    {{detail?.vote_average}}
   </div>
 </div>
+<div class="row justify-content-end">
+  <div class="col-4">
+    Sinossi:
+  </div>
+  <div class="col-4">
+   {{detail?.overview}}
+  </div>
+</div>
 <div class="form-floating">
   <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
   <label for="floatingTextarea">Scrivi la tua recensione</label>
 </div>
+
+
+
 
 
