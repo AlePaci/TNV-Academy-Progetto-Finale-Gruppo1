@@ -54,6 +54,19 @@ export const getPrefMoviesbyUserId = async (req, res) => {
     }
 }
 
+export const getPrefMoviesbyUserIdMovieId = async (req, res) => {
+    try {
+        const prefMovies = await Movie.findOne({
+            where : {
+                userId : req.params.userId,
+                movieId : req.params.movieId
+            }
+        });
+        res.send(prefMovies);
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 
 export const deletePrefMovie = async (req, res) => {
