@@ -1,66 +1,70 @@
 
 <div class="container-fluid">
 <h1>{{detail?.title}}</h1>
-<div class="col-6" widhth="100%">
-  <img [src]="this.TMDBApiService.getMoviePoster( this.detail?.poster_path)">
+<div class="col 12">
+<div class="row ">
+<div class="col-6">
+  <img [src]="this.TMDBApiService.getMoviePoster( this.detail?.poster_path) " width="100%">
 </div>
-<div class="row justify-content-end">
-  <div class="col-4">
+  <div class="col-6 ">
+   <dl>
+    <dt>Sinossi:</dt>
+
+   <dd>{{detail?.overview}}</dd>
+   </dl>
+</div>
+</div>
+<div class="row">
+  <div class="col-6">
     Genere:
   </div>
-<div class="col-4">
-    <li *ngFor="let genres of detail?.genres"></li>
-   {{detail?.genres}}
+<div class="col-6 " >
+    <li *ngFor="let g of genres"> {{g.name}}</li>
+
   </div>
 </div>
-<div class="row justify-content-end">
-  <div class="col-4">
+<div class="row ">
+  <div class="col-6 ">
     Durata:
   </div>
-  <div class="col-4">
+  <div class="col-6 ">
    {{detail?.runtime}} min.
   </div>
 </div>
-<div class="row justify-content-end">
-  <div class="col-4">
+<div class="row ">
+  <div class="col-6 ">
     Lingua Originale:
   </div>
-  <div class="col-4">
+  <div class="col-6 ">
    {{detail?.original_language}}
   </div>
 </div>
-<div class="row justify-content-end">
-  <div class="col-4">
+<div class="row">
+  <div class="col-6 ">
     Anno di Uscita:
   </div>
-  <div class="col-4">
+  <div class="col-6 ">
    {{detail?.release_date}}
   </div>
 </div>
-<div class="row justify-content-end">
-  <div class="col-4">
+<div class="row ">
+  <div class="col-6 ">
     Titolo Originale:
   </div>
-  <div class="col-4">
+  <div class="col-6 ">
    {{detail?.original_title}}
   </div>
 </div>
-<div class="row justify-content-end">
-  <div class="col-4">
+<div class="row">
+  <div class="col-6 ">
     Voti in media:
   </div>
-  <div class="col-4">
+  <div class="col-6 ">
    {{detail?.vote_average}}
-  </div>
+   </div>
+ </div>
 </div>
-<div class="row justify-content-end">
-  <div class="col-4">
-    Sinossi:
-  </div>
-  <div class="col-4">
-   {{detail?.overview}}
-  </div>
-</div>
+<br>
 <div class="form-floating">
   <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
   <label for="floatingTextarea">Scrivi la tua recensione</label>

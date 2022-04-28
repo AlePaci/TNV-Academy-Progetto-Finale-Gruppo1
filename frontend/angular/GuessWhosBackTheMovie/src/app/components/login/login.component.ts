@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { LoginUser, User } from 'src/app/model/user.model';
 import { AccessApiService } from 'src/app/services/access-api.service';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
-import { faEye} from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +14,6 @@ export class LoginComponent implements OnInit {
   user: User |null = null;
   logged: boolean = false;
   error: boolean = false;
-  show: boolean = false;
-  eyeOpen = faEye;
 
   constructor( 
     private accessService: AccessApiService,
@@ -43,9 +40,6 @@ export class LoginComponent implements OnInit {
         this.error = true;
       }
     });
-  }
-  password(){
-    this.show = !this.show;
   }
   
  

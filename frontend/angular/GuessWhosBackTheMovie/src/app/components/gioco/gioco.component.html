@@ -1,54 +1,50 @@
-<div class="container-fluid ">
+<div class="container-fluid text-center">
     <div class="row">
     
-        <div class="col-12 col-md-8 offset-md-2 border rounded-2  mt-2">
+        <div class="col-12 col-md-8 offset-md-2 border border-top-0 border-bottom-0">
             <div *ngIf="this.start; then thenBlock else elseBlock"></div>
                     <!--    MACRO-SEZIONE GIOCO     -->
             <ng-template #thenBlock>
                     <!-- sezione titolo e timer     -->
-                <div class="row pt-2">
-                    <div class="col-6 text-center">
-                        <h2 class="mt-1" *ngIf="this.finish">{{movieDetails?.title}}</h2>
+                <div class="row">
+                    <div class="col-6">
+                        <h2 *ngIf="this.finish">{{movieDetails?.title}}</h2>
                     </div>
-                    <div class="col-6 text-center">
+                    <div class="col-6">
                         <h2 *ngIf="!this.finish" >{{minutes}}:{{seconds}}</h2>
-                        <div class="alert alert-success" role="alert" *ngIf="this.win" > Hai vinto! {{points}}pt.</div>
-                        <div class="alert alert-danger" role="alert" *ngIf="!this.win && this.finish">Hai perso! {{points}}pt.</div>
+                        <h2 *ngIf="this.win"> Hai vinto! {{points}}pt. </h2>
+                        <h2 *ngIf="!this.win && this.finish">Hai perso! {{points}}pt.</h2>
                     </div>
                 </div>
                      <!--   Sezione dati da indovinare   -->
                 <div class="row">
+
                     <div class="col-12 col-md-8">
                         <img  [ngStyle]="{'filter': blurString}" [src]="this.newMovieService.getMoviePoster(this.movieDetails?.poster_path)" alt="poster image" width="70%">
+
                     </div>
-
-                    <div class="col-12 col-md-4 align-self-center justify-content-center ">  
+                    <div class="col-6 align-self-center">
+                       
+                       
+                       <dl class="row">
+                        <dt class="col-sm-4">Data di Uscita:</dt>
+                        <dd class="col-sm-8" ><p [hidden]="!showDate" >{{movieDetails?.release_date}}</p></dd> 
                         
-                      <dl class="row ">
+                        <dt class="col-sm-4">Regista:</dt>
+                        <dd class="col-sm-8" ><p [hidden]="!showDirector"> {{director[0].name}}</p></dd>
                         
-                        <div class="col-6 col-md-12 justify-content-center">
-                        <dt class="col-sm-5 ">Data di Uscita:</dt>
-                        <dd class="col-sm-7 " ><p [hidden]="!showDate" >{{movieDetails?.release_date}}</p></dd> 
-                        
-                        <dt class="col-sm-4 ">Genere:</dt>
-                        <dd class="col-sm-8 ">
-                            <p [hidden]="!showGenres[0]" > {{genres[0].name}} </p>
-                            <p [hidden]="!showGenres[1]"> {{genres[1].name}} </p>
-                        </dd>
-                        </div>
-
-                        <div class="col-6 col-md-12 ">
-                        <dt class="col-sm-4 ">Regista:</dt>
-                        <dd class="col-sm-8 " ><p [hidden]="!showDirector"> {{director[0].name}}</p></dd>
-
-                        <dt class="col-sm-4 ">Attori:</dt>
-                        <dd class="col-sm-8 ">
+                        <dt class="col-sm-4">Attori:</dt>
+                        <dd class="col-sm-8">
                             <p [hidden]="!showActors[0]"> {{cast[0].name}} </p>
                             <p [hidden]="!showActors[1]"> {{cast[1].name}} </p>
                             <p [hidden]="!showActors[2]"> {{cast[2].name}} </p>                            
                         </dd>
 
-                        </div>
+                        <dt class="col-sm-4">Genere:</dt>
+                        <dd class="col-sm-8">
+                            <p [hidden]="!showGenres[0]" > {{genres[0].name}} </p>
+                            <p [hidden]="!showGenres[1]"> {{genres[1].name}} </p>
+                        </dd>
                       </dl>
                     
                     </div>
@@ -59,13 +55,12 @@
                     <!--    sezione dedicata ad inserimento titolo       -->
                 <ng-template #guessingBlock>
                 <form  #guessForm="ngForm" (submit)="guess(guessForm)">
-                    <div class="mb-3 text-center">
+                    <div class="mb-3">
                       <label for="guessTitle" class="form-label">Titolo:</label>
                       <input [ngModel] name="guessTitle" type="text" class="form-control" id="guessTitle" aria-describedby="guess">
                       <div id="guess" class="form-text">Concentrati e cerca di indovinare prima che il tempo scada. Hai tutti i tentativi che desideri!</div>
-                    <button type="submit" class="btn btn-primary mt-2">Indovina</button>
                     </div>
-                    
+                    <button type="submit" class="btn btn-primary">Indovina</button>
                 </form>
                 </ng-template>
                      <!-- sezione dedicata rigioca salva-->
@@ -78,7 +73,7 @@
             </ng-template>
                     <!--   MACRO-SESSIONE PREGIOCO    sezione del pulsante di inizio       -->
             <ng-template #elseBlock>
-                <div class="text-center mb-2 mt-2"> 
+                <div class="text-center"> 
                 <button (click)="onStart()" type="button" class="btn btn-primary">Inizia</button></div>
             </ng-template>
         </div> 

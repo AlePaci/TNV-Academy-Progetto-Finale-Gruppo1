@@ -16,7 +16,7 @@ export class TMDBApiService {
     return this.http.get<MovieDetails>(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiKey}&language=en-US`);
   }
 
-  getMovieCredits(movieId:number | null){
+  getMovieCredits(movieId:number){
     return this.http.get<MovieCredits>(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${this.apiKey}&language=en-US`)
   }
 

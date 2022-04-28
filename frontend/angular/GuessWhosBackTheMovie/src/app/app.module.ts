@@ -19,6 +19,7 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,9 +39,7 @@ import { MovieListComponent } from './movie-list/movie-list.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    FontAwesomeModule
-    
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
