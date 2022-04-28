@@ -22,6 +22,7 @@ export class SaveComponent implements OnInit {
   posterPath: string | null = null;
   movieTitle: string | null = null;
   range: number = 0;
+  userId: number = 1;
 
   constructor(
     private route: ActivatedRoute,
@@ -46,8 +47,8 @@ export class SaveComponent implements OnInit {
 
 
   save(savingForm: NgForm){
-  
-    let userId: number  = this.sessionService.getUserId();
+
+    let userId: number  = this.userId;
     console.log(userId);
     console.log(savingForm.value)
     let newMovie: SavePrefferd ={movieId: this.movieId, userId: userId, gameScore:this.points};
@@ -68,7 +69,7 @@ export class SaveComponent implements OnInit {
       next:(res)=>console.log(res),
       error:(res)=>console.log(res)
     })
-    
+
 
   }
 
