@@ -18,10 +18,13 @@
             
           </li>
           <li class="nav-item">
-            <div *ngIf="this.sessionService.getLogged()"><a class="nav-link" href="#" (click)="isShown = false">FilmPreferiti</a></div>
+
+            <div *ngIf="this.sessionService.getLogged()"><a class="nav-link" routerLink="/film" >FilmPreferiti</a></div>
           </li>
           <li class="nav-item">
-            <div *ngIf="this.sessionService.getLogged()"><a class="nav-link" href="#" (click)="isShown = false">Logout</a></div>
+            <div *ngIf="this.sessionService.getLogged()"><a class="nav-link" href="#" (click)="logout()" >Logout</a></div>
+
+
           </li>
         </ul>
       </div>

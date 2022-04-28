@@ -6,6 +6,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { FilmDetailComponent } from './components/film-detail/film-detail.component';
 import { GiocoComponent } from './components/gioco/gioco.component';
 import { SaveComponent } from './components/save/save.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'film-detail/:movieId', component: FilmDetailComponent},
   {path: 'gioco', component: GiocoComponent},
   {path: 'gioco/:movieId/:points', component: SaveComponent},
+  {path: 'film', component: MovieListComponent},  
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 
 ];

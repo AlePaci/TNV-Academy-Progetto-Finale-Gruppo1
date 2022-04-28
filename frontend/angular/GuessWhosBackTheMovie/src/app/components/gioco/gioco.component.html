@@ -18,8 +18,10 @@
                 </div>
                      <!--   Sezione dati da indovinare   -->
                 <div class="row">
-                    <div class="col-6">
-                        <img  [ngStyle]="{'filter': blurString}" [src]="this.newMovieService.getMoviePoster(this.movieDetails?.poster_path)" alt="poster image" width="80%">
+
+                    <div class="col-12 col-md-8">
+                        <img  [ngStyle]="{'filter': blurString}" [src]="this.newMovieService.getMoviePoster(this.movieDetails?.poster_path)" alt="poster image" width="70%">
+
                     </div>
                     <div class="col-6 align-self-center">
                        

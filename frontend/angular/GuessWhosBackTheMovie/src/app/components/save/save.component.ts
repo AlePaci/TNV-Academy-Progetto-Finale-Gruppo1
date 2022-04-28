@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PartComment } from 'src/app/model/comment.model';
 import { NewRating } from 'src/app/model/ratings.model';
 import { CommentsService } from 'src/app/services/comments.service';
@@ -17,6 +17,8 @@ import { Prefferd, SavePrefferd } from '../../model/prefferd.model';
 })
 export class SaveComponent implements OnInit {
 
+  isSaved:boolean = false;
+
   points: number | null = null;
   movieId: number  = 0;
   posterPath: string | null = null;
@@ -26,6 +28,7 @@ export class SaveComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     public movieService: TMDBApiService,
     private preffService: PreferredMovieService,
     private reviewService: CommentsService,
@@ -54,6 +57,7 @@ export class SaveComponent implements OnInit {
     let newMovie: SavePrefferd ={movieId: this.movieId, userId: userId, gameScore:this.points};
     let newComment: PartComment ={userId: userId, movieId: this.movieId, commentText:savingForm.value.review};
     let newRating: NewRating ={ movie_rating:savingForm.value.rating, movie_id:this.movieId, user_id: userId};
+
     this.preffService.savePrefferredMovie(newMovie).subscribe({
       next: (res)=> console.log(res),
       error: (res)=> console.log(res)
@@ -69,6 +73,13 @@ export class SaveComponent implements OnInit {
       next:(res)=>console.log(res),
       error:(res)=>console.log(res)
     })
+
+
+    setTimeout(() => {
+      console.log('sleep');
+      this.router.navigate(["/film"]);
+      }, 2000); 
+    
 
 
   }
