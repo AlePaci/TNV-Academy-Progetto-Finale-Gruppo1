@@ -2,10 +2,8 @@ import {Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { timer } from 'rxjs';
-
 import { MovieCredits,Cast, Crew} from 'src/app/model/movieCredits.model';
 import { MovieDetails,Genre } from 'src/app/model/movieDetails.model';
-
 import { TMDBApiService } from 'src/app/services/tmdb-api.service';
 
 @Component({
