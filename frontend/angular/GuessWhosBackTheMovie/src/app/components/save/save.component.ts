@@ -16,7 +16,7 @@ import { Prefferd, SavePrefferd } from '../../model/prefferd.model';
   styleUrls: ['./save.component.scss']
 })
 export class SaveComponent implements OnInit {
-  
+  isSaved:boolean = false;
   points: number | null = null;
   movieId: number  = 0;
   posterPath: string | null = null;

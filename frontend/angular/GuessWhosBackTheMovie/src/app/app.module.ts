@@ -13,6 +13,8 @@ import { GiocoComponent } from './components/gioco/gioco.component';
 import { SaveComponent } from './components/save/save.component';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MovieListComponent } from './movie-list/movie-list.component';
+
 
 
 
@@ -27,6 +29,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HomeComponent,
     GiocoComponent,
     SaveComponent,
+    MovieListComponent
     
 
   ],
