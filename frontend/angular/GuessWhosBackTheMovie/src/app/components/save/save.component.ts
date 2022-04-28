@@ -16,12 +16,12 @@ import { Prefferd, SavePrefferd } from '../../model/prefferd.model';
   styleUrls: ['./save.component.scss']
 })
 export class SaveComponent implements OnInit {
-
+  
   points: number | null = null;
   movieId: number  = 0;
   posterPath: string | null = null;
   movieTitle: string | null = null;
-  range: number = 0;
+  
 
   constructor(
     private route: ActivatedRoute,

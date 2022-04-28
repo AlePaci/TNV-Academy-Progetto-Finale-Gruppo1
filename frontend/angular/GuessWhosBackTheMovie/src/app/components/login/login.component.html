@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-12 col-md-8 offset-md-2 ">
+    <div class="col-12 col-md-8 offset-md-2 rounded-2 mt-2 ">
       <div *ngIf="this.logged; then isLogged else notLogged"></div>
       <ng-template #notLogged>
       <div class="card">
@@ -25,10 +25,14 @@
         </div>
                   <!-- richiesta password-->
         <div class=" form-group mb-3" >
+          <div class="row">
+            <div class="col-11">
         <label for="password" class="form-lable">Password</label>
-        <input  type="text" class="form-control" id="password" placeholder="password"
+        <input  [type]="show ? 'text' : 'password'" class="form-control" id="password" placeholder="password"
           required
-          [ngModel] name="password" #password="ngModel">
+          [ngModel] name="password" #password="ngModel"></div>
+          <div class="col-1 pt-4 ps-0 mt-2">
+            <fa-icon (mousedown)="show = !show" (mouseup)="show = !show" class=" icon " size="lg" [icon]="eyeOpen"></fa-icon></div></div>
           <div [hidden]="password.valid"
           class="alert alert-danger">
        Inserisci una password
@@ -47,7 +51,7 @@
       </div>
    </ng-template>
    <ng-template #isLogged> 
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-success mt-5" role="alert">
        Ciao {{this.user?.username}} login avvenuto con sucesso.....
     </div></ng-template>
   </div>
