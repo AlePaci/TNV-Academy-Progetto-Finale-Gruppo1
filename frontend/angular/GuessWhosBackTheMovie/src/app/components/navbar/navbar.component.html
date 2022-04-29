@@ -10,6 +10,7 @@
           <li class="nav-item" [class.active]="router.url==='/home'">   
             <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
           </li>
+
           <div *ngIf="this.sessionService.getLogged(); then thenBlock else elseBlock"></div>
           <ng-template #thenBlock>
           <li class="nav-item" [class.active]="router.url==='/gioco'">  
@@ -24,6 +25,7 @@
           </li>
           <li class="nav-item">
             <div *ngIf="this.sessionService.getLogged()"><a class="nav-link" href="#" (click)="logout()" >Logout</a></div>
+
           </li>
         </ul>
       </div>

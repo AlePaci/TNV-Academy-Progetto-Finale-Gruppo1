@@ -16,12 +16,17 @@ import { Prefferd, SavePrefferd } from '../../model/prefferd.model';
   styleUrls: ['./save.component.scss']
 })
 export class SaveComponent implements OnInit {
-  
+
+
+  isSaved:boolean = false;
+
   points: number | null = null;
   movieId: number  = 0;
   posterPath: string | null = null;
   movieTitle: string | null = null;
-  
+
+  range: number = 0;
+  userId: number = 1;
 
   constructor(
     private route: ActivatedRoute,
@@ -47,8 +52,8 @@ export class SaveComponent implements OnInit {
 
 
   save(savingForm: NgForm){
-  
-    let userId: number  = this.sessionService.getUserId();
+
+    let userId: number  = this.userId;
     console.log(userId);
     console.log(savingForm.value)
     let newMovie: SavePrefferd ={movieId: this.movieId, userId: userId, gameScore:this.points};
@@ -76,6 +81,7 @@ export class SaveComponent implements OnInit {
       this.router.navigate(["/film"]);
       }, 2000); 
     
+
 
   }
 

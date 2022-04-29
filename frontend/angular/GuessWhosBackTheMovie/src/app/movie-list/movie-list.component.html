@@ -1,0 +1,16 @@
+<div class="container-fluid ">
+        <div class="col-12 col-md-8 offset-md-2 border rounded-2  mt-2">
+                <h1 class="text-center border rounded-2 pb-2">Film preferiti</h1>
+                <div class="row">
+                    <div *ngFor="let movie of movieList" class="col-12 col-md-4 justify-content-center" >      
+                    <div  class="card">
+                        <img [src]="this.movieService.getMoviePoster(movie.poster_path)" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">{{movie.title}}</h5>
+                        <p class="card-text">{{movie.overview}}</p>
+                        <a href="#" class="btn btn-primary">Dettagli</a>
+                    </div></div></div> 
+                  </div>
+        </div>
+    </div>
+
