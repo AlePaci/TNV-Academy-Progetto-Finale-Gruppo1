@@ -721,19 +721,19 @@
     ]
   },
   "packageFolders": {
-    "/home/al/.nuget/packages/": {}
+    "C:\\Users\\Marco\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj",
+      "projectUniqueName": "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Db\\Comments.Db.csproj",
       "projectName": "Comments.Db",
-      "projectPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj",
-      "packagesPath": "/home/al/.nuget/packages/",
-      "outputPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/",
+      "projectPath": "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Db\\Comments.Db.csproj",
+      "packagesPath": "C:\\Users\\Marco\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Db\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/al/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Marco\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -745,8 +745,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj": {
-              "projectPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj"
+            "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Core\\Comments.Core.csproj": {
+              "projectPath": "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Core\\Comments.Core.csproj"
             }
           }
         }
@@ -787,7 +787,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

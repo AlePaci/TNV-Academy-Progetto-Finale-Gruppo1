@@ -5,7 +5,16 @@
 <div class="row ">
 <div class="col-6">
   <img [src]="this.TMDBApiService.getMoviePoster( this.detail?.poster_path) " width="100%">
-</div>
+  </div>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Cast:
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li *ngFor="let a of actors"><a class="dropdown-item" href="#"> {{a.name}}</a></li>
+
+    </ul>
+  </div>
   <div class="col-6 ">
    <dl>
     <dt>Sinossi:</dt>
@@ -13,6 +22,21 @@
    <dd>{{detail?.overview}}</dd>
    </dl>
 </div>
+</div>
+<div class="row">
+  <div class="col-6">
+    Regia:
+  </div>
+<div class="col-6 " >
+    <li *ngFor="let r of director"> {{r.name}}</li>
+  </div>
+      <div class="row">
+      <div class="col-6">
+        Cast:
+    <div class="col-6 " >
+        <li *ngFor="let a of actors"> {{a.name}}</li>
+
+  </div>
 </div>
 <div class="row">
   <div class="col-6">
@@ -56,18 +80,20 @@
   </div>
 </div>
 <div class="row">
+
   <div class="col-6 ">
-    Voti in media:
+    Pareri dei cinefili:
   </div>
   <div class="col-6 ">
-   {{detail?.vote_average}}
+   {{comment?.commentText}}
    </div>
+ </div>
  </div>
 </div>
 <br>
 <div class="form-floating">
   <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-  <label for="floatingTextarea">Scrivi la tua recensione</label>
+  <label for="floatingTextarea">Commenta il tuo film</label>
 </div>
 
 
