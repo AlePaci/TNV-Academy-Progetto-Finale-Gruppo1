@@ -17,12 +17,14 @@ import { Prefferd, SavePrefferd } from '../../model/prefferd.model';
 })
 export class SaveComponent implements OnInit {
 
+
   isSaved:boolean = false;
 
   points: number | null = null;
   movieId: number  = 0;
   posterPath: string | null = null;
   movieTitle: string | null = null;
+
   range: number = 0;
   userId: number = 1;
 
@@ -73,7 +75,6 @@ export class SaveComponent implements OnInit {
       next:(res)=>console.log(res),
       error:(res)=>console.log(res)
     })
-
 
     setTimeout(() => {
       console.log('sleep');

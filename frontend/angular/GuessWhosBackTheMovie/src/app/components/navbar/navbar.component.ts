@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
 
 
@@ -8,8 +9,11 @@ import { SessionStorageService } from 'src/app/services/session-storage.service'
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  isShown:boolean = false;
-  constructor(public sessionService: SessionStorageService) { }
+  
+  constructor(
+    public sessionService: SessionStorageService,
+    public router: Router
+    ) { }
 
   ngOnInit(): void {
   }

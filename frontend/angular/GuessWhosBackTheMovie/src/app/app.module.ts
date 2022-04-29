@@ -12,10 +12,11 @@ import { HomeComponent } from './components/home/home.component';
 import { GiocoComponent } from './components/gioco/gioco.component';
 import { SaveComponent } from './components/save/save.component';
 import { CommonModule } from '@angular/common';
-//import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MovieListComponent } from './movie-list/movie-list.component';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
+import { MovieListComponent } from './components/movie-list/movie-list.component';
 
 
 
@@ -40,7 +41,9 @@ import { MovieListComponent } from './movie-list/movie-list.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    //FontAwesomeModule
+
+    FontAwesomeModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
