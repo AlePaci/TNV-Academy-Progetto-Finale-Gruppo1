@@ -7,6 +7,7 @@ import { FilmDetailComponent } from './components/film-detail/film-detail.compon
 import { GiocoComponent } from './components/gioco/gioco.component';
 
 import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { SaveComponent } from './components/save/save.component';
 
 
 
