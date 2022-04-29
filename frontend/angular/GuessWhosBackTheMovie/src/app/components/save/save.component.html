@@ -1,6 +1,7 @@
 <div class="container-fluid text-center">
     <div class="row">
 
+
         <div class="col-12 col-md-8 offset-md-2 rounded-2 border">
             <div class="row">
                 <div *ngif="!this.isSaved then okSave else notSaved"></div>
@@ -10,6 +11,7 @@
                     <h1>{{movieTitle}}</h1>
                     <img   [src]="this.movieService.getMoviePoster(this.posterPath)" alt="poster image" width="80%">
                 </div>
+
 
 
                         <!-- MACRO SEZIONE FORM-->
@@ -22,10 +24,10 @@
                     <form #savingForm="ngForm" (submit)="save(savingForm)">
                         <!-- sezione voto-->
                     <div class="mb-3">
-                        <label for="rating" class="form-label">Dai un voto:</label>
-                        <input [ngModel] name="rating" type="range" class="form-range" min="0" max="5" value="3" id="rating" oninput="ageOutputId.value = rating.value" >
-                        <output name="ageOutputName" id="ageOutputId">3</output>
+                        <label for="rating" class="form-label">Dai un voto:{{savingForm.value.rating}}</label>
+                        <input [ngModel] name="rating" type="range" class="form-range" min="0" max="5" step="0.25" id="range" >
                     </div>
+                 
                     <!--   sezione recensione-->
                     <div class="mb-3">
                         <label for="review" class="form-label">Scrivi una recensione:</label>
