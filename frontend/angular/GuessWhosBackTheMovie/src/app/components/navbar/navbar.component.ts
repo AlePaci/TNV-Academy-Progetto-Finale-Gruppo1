@@ -8,7 +8,7 @@ import { SessionStorageService } from 'src/app/services/session-storage.service'
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  isShown:boolean = false;
+  
   constructor(public sessionService: SessionStorageService) { }
 
   ngOnInit(): void {

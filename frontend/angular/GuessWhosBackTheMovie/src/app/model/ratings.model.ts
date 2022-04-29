@@ -14,3 +14,8 @@ export interface RatingData {
     Ratings: Ratings;
     ResponseStatus: number;
 }
+
+export interface DeleteMessage {
+    message: string;
+    ResponseStatus: number;
+}
