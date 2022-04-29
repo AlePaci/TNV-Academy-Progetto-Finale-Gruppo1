@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "irEu2xftU8XhA1c+t1ivTrXNWQoaHSe1G3zVPE9VDsyN1W7iu93N53e6H4PmtMYxiqThhv/f7tbgLkgD6T0Juw==",
+  "dgSpecHash": "lBhgM/vRvJZdNLsZDOS/gMFoXwy2hkMBG6Rc2LVmwR81u8EAJIibEhZlSrWsQ+ivy3R3JOe9s1GhXzWEnEQwIg==",
   "success": true,
-  "projectFilePath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj",
+  "projectFilePath": "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Core\\Comments.Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
