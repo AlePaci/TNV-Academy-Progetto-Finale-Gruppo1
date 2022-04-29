@@ -24,5 +24,9 @@ export class SessionStorageService {
   setUserId(userid: number){
     sessionStorage.setItem("userId",`${userid}`);
   }
+
+  deleteUser(){
+    sessionStorage.removeItem("userId");
+  }
 }
 

@@ -13,5 +13,8 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  logout(){
+    this.sessionService.setLogged(false);
+    this.sessionService.deleteUser();
+  }
 }
