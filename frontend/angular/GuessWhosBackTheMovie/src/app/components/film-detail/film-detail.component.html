@@ -1,11 +1,30 @@
 
 <div class="container-fluid">
-<h1>{{detail?.title}}</h1>
-<div class="col 12">
+<h1 class="text-center">{{detail?.title}}</h1>
+<div class="col-12 col-md-8 offset-md-2">
 <div class="row ">
-<div class="col-6">
-  <img [src]="this.TMDBApiService.getMoviePoster( this.detail?.poster_path) " width="100%">
+<div class="col-8">
+  <img [src]="this.TMDBApiService.getMoviePoster( this.detail?.poster_path) " width="80%">
   </div>
+  <div class="col-4">
+<div class="col-4 ">
+   <dl>
+    <dt>Sinossi:</dt>
+
+   <dd>{{detail?.overview}}</dd>
+
+   </dl>
+ <div class="col-6 ">
+    Durata:
+  </div>
+<div class="col-6 ">
+    Lingua Originale:
+  </div>
+  <div class="col-6 ">
+    Anno di Uscita:
+  </div>
+</div>
+</div>
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
       Cast:
@@ -15,13 +34,7 @@
 
     </ul>
   </div>
-  <div class="col-6 ">
-   <dl>
-    <dt>Sinossi:</dt>
-
-   <dd>{{detail?.overview}}</dd>
-   </dl>
-</div>
+  
 </div>
 <div class="row">
   <div class="col-6">
@@ -31,13 +44,7 @@
     <li *ngFor="let r of director"> {{r.name}}</li>
   </div>
       <div class="row">
-      <div class="col-6">
-        Cast:
-    <div class="col-6 " >
-        <li *ngFor="let a of actors"> {{a.name}}</li>
-
-  </div>
-</div>
+  
 <div class="row">
   <div class="col-6">
     Genere:
@@ -48,25 +55,19 @@
   </div>
 </div>
 <div class="row ">
-  <div class="col-6 ">
-    Durata:
-  </div>
+ 
   <div class="col-6 ">
    {{detail?.runtime}} min.
   </div>
 </div>
 <div class="row ">
-  <div class="col-6 ">
-    Lingua Originale:
-  </div>
+  
   <div class="col-6 ">
    {{detail?.original_language}}
   </div>
 </div>
 <div class="row">
-  <div class="col-6 ">
-    Anno di Uscita:
-  </div>
+  
   <div class="col-6 ">
    {{detail?.release_date}}
   </div>
@@ -85,16 +86,13 @@
     Pareri dei cinefili:
   </div>
   <div class="col-6 ">
-   {{comment?.commentText}}
+   {{this.comment?.commentText}}
    </div>
  </div>
  </div>
 </div>
 <br>
-<div class="form-floating">
-  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-  <label for="floatingTextarea">Commenta il tuo film</label>
-</div>
+
 
 
 

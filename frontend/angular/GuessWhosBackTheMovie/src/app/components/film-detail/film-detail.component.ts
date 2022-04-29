@@ -29,7 +29,7 @@ export class FilmDetailComponent implements OnInit {
   crew : MovieCredits | null=null;
   cast : MovieCredits | null=null;
 
-  movie1 : number = 343611;
+  movie1: number = 1948
   user : number = 1;
 
 
