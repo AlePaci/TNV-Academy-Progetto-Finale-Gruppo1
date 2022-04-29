@@ -68,9 +68,18 @@ export class GiocoComponent implements OnInit {
  
  // metodo che fa partire la partita
   onStart(){
-    this.start = true;
     this.retirveMovie();
-    this.countDownTimer();
+      setTimeout(() => {
+      this.start = true;
+      this.countDownTimer();
+      console.log('sleep');
+     
+      }, 1000);
+      
+
+    
+    
+    
     
      
     }
@@ -110,19 +119,21 @@ export class GiocoComponent implements OnInit {
       next: (res)=> {
         this.movieDetails = res;
         this.genres = res.genres;
-        if(this.movieDetails === null || this.movieDetails.poster_path === null) this.retirveMovie();},  
+        if(this.movieDetails === null || this.movieDetails.poster_path === null) this.retirveMovie();
+        this.newMovieService.getMovieCredits(this.movieId).subscribe({
+        next:(res)=>{
+          this.movieCredits = res;
+          this.director = this.movieCredits.crew?.filter(crew => crew.job ==="Director");
+          this.cast = this.movieCredits.cast;
+        }
+      });
+      },
       error: (res)=> {
-          console.log(res);
-          this.retirveMovie(); },
+        console.log(res);
+        this.retirveMovie(); },
         });
 
-    this.newMovieService.getMovieCredits(this.movieId).subscribe({
-      next:(res)=>{
-        this.movieCredits = res;
-        this.director = this.movieCredits.crew?.filter(crew => crew.job ==="Director");
-        this.cast = this.movieCredits.cast;
-      }
-    });
+    
   }
   
 // Metodo per valutare l input sul tentativo titolo

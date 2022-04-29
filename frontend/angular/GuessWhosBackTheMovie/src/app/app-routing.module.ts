@@ -6,7 +6,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { FilmDetailComponent } from './components/film-detail/film-detail.component';
 import { GiocoComponent } from './components/gioco/gioco.component';
 import { SaveComponent } from './components/save/save.component';
-import { MovieListComponent } from './movie-list/movie-list.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
 
 
 const routes: Routes = [

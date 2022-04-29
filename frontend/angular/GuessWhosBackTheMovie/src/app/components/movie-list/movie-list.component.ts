@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { PreferredMovieService } from 'src/app/services/preferred-movie.service';
-import { MovieDetails } from '../model/movieDetails.model';
-import { Prefferd } from '../model/prefferd.model';
-import { SessionStorageService } from '../services/session-storage.service';
-import { TMDBApiService } from '../services/tmdb-api.service';
+import { MovieDetails } from '../../model/movieDetails.model';
+import { Prefferd } from '../../model/prefferd.model';
+import { SessionStorageService } from '../../services/session-storage.service';
+import { TMDBApiService } from '../../services/tmdb-api.service';
 
 @Component({
   selector: 'app-movie-list',
