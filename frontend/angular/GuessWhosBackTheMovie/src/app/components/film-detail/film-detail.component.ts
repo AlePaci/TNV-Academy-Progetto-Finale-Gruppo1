@@ -19,31 +19,31 @@ export class FilmDetailComponent implements OnInit {
   poster: string = ''
   genres: Genre[] | undefined = [];
 
-  movie1:number = 343611;
+  movieid:number = 343611;
 
 
 
   constructor(private activatedRoute: ActivatedRoute,
 
-    public TMDBApiService:TMDBApiService) {
+    public movieService:TMDBApiService) {
 
    }
    private getData() {}
 
   ngOnInit(): void {
-      this.activatedRoute.params.subscribe((val) => this.movie1 = +val['movieId'])
+      this.activatedRoute.params.subscribe((val) => this.movieid = +val['movieId'])
 
 
-      this.TMDBApiService.getMovieCredits( this.movie1).subscribe({
+      this.movieService.getMovieCredits( this.movieid).subscribe({
         next: (res: MovieCredits | null) => this.credits = res
       }),
-      this.TMDBApiService.getMovieDetails(this.movie1).subscribe({
+      this.movieService.getMovieDetails(this.movieid).subscribe({
         next: (res: MovieDetails | null) =>{
            this.detail = res;
            this.genres = res?.genres;
               }
            })
-     this.TMDBApiService.getMoviePoster(`https://image.tmdb.org/t/p/original/${this.movie1}`)
+
   }
 
 
