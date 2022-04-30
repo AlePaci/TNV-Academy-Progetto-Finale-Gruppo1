@@ -1,11 +1,11 @@
-<div class="container-fluid">
+<div class="container-fluid fs-3">
   <div class="row">
     <div class="col-12 col-md-8 offset-md-2 rounded-2 mt-2 ">
       <div *ngIf="this.logged; then isLogged else notLogged"></div>
       <ng-template #notLogged>
       <div class="card">
         <!-- MACRO SEZIONE HEADER-->
-        <div class="card-header">
+        <div class="card-header bg-light">
           <h1 class="text-center">Bentornato</h1>
           <p class="text-center">Non perdere tempo accedi subito e inizia a giocare!!</p>
         </div>
