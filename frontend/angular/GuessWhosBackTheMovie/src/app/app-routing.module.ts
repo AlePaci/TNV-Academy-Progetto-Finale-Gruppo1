@@ -15,10 +15,8 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
   {path: "home", component: HomeComponent},
-
-  {path: 'film-detail/:movieId', component: FilmDetailComponent},
+  {path: 'film/:movieId', component: FilmDetailComponent},
   {path: 'gioco', component: GiocoComponent},
-
   {path: 'gioco/:movieId/:points', component: SaveComponent},
   {path: 'film', component: MovieListComponent},  
   {path: '', redirectTo: '/home', pathMatch: 'full'}

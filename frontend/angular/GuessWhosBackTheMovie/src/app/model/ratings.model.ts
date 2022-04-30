@@ -11,7 +11,7 @@ export interface Ratings {
 }
 
 export interface RatingData {
-    Ratings: Ratings;
+    Ratings: Ratings[];
     ResponseStatus: number;
 }
 

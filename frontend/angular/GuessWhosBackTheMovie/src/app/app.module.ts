@@ -49,6 +49,7 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    FontAwesomeModule
 
 
   ],
