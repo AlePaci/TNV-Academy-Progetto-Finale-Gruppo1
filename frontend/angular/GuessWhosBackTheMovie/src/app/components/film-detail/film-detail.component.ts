@@ -3,9 +3,13 @@ import { TMDBApiService } from './../../services/tmdb-api.service';
 import { Component, OnInit } from '@angular/core';
 import { MovieDetails, Genre } from '../../model/movieDetails.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MovieCredits, Crew, Cast } from '../../model/movieCredits.model';
+import { Cast, Crew, MovieCredits } from '../../model/movieCredits.model';
+import { SessionStorageService } from 'src/app/services/session-storage.service';
+import { faStar } from '@fortawesome/free-regular-svg-icons';
+import { Comment } from 'src/app/model/comment.model';
+import { RatingData, Ratings } from 'src/app/model/ratings.model';
 import { RatingsService } from '../../services/ratings.service';
-import { Comment } from '../../model/comment.model';
+
 
 
 
@@ -20,62 +24,68 @@ export class FilmDetailComponent implements OnInit {
 // info film
   detail: MovieDetails |null = null
   credits: MovieCredits |null = null
+  director: Crew[] | null = null
   poster: string = ''
   genres: Genre[] | undefined = [];
-  comment: Comment |null = null;
-  rating: RatingsService| null = null;
-  director : Crew  [] = [];
-  actors : Cast [] = [];
-  crew : MovieCredits | null=null;
-  cast : MovieCredits | null=null;
-
-  movie1: number = 1948
-  user : number = 1;
+  comment: Comment | null= null;
+  rating: Ratings[]| null = null;
+  movieid:number = 0;
+  star = faStar
+  starArray: number[] = []
 
 
 
-  constructor(private activatedRoute: ActivatedRoute,
-              private commenService: CommentsService,
-              private ratingService: RatingsService,
-
-    public TMDBApiService:TMDBApiService) {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    public movieService:TMDBApiService,
+    private commentService:CommentsService,
+    private ratingService: RatingsService,
+    private sessionServise:SessionStorageService) {
 
    }
    private getData() {}
 // metodo che recupera tutte le informazioni utili dall Api esterna
   ngOnInit(): void {
+      this.activatedRoute.params.subscribe((val) => this.movieid = +val['movieId'])
 
-      this.commenService.getComment(this.user, this.movie1).subscribe({
-      next: (res)=>
-       this.comment = res
-    }),
-      this.activatedRoute.params.subscribe((val) => this.movie1 = +val['movieId'])
-      this.TMDBApiService.getMovieCredits( this.movie1).subscribe({
-        next: (res: MovieCredits | null) =>
-        this.credits = res
 
-       }),
-      this.TMDBApiService.getMovieDetails(this.movie1).subscribe({
-        next: (res: MovieDetails | null) =>{
+      this.movieService.getMovieCredits( this.movieid).subscribe({
+        next: (res) =>{
+          this.credits = res;
+          this.director = this.credits.crew?.filter(crew => crew.job ==="Director");
+        },
+        error:(res) => console.log(res)
+      });
+      this.movieService.getMovieDetails(this.movieid).subscribe({
+        next: (res) =>{
            this.detail = res;
            this.genres = res?.genres;
-              }
-           })
+              },
+        error: (res) => console.log(res)    
+      });
+      this.commentService.getComment(this.sessionServise.getUserId(),this.movieid).subscribe({
+        next: (res)=>{
+          this.comment = res.data;
+          console.log(this.comment);
+        },
+        error: (res)=>console.log(res) 
+      });
+      this.ratingService.getRating(this.sessionServise.getUserId(),this.movieid).subscribe({
+        next: (res)=>{
+          this.rating = res.Ratings;
+         
+          
+          console.log(this.rating);
+        },
+        error: (res)=> console.log(res)
+      });
 
-           this.TMDBApiService.getMovieCredits(this.movie1).subscribe({
-      next:(res)=> {
-        this.crew = res;
-      this.director = this.crew.crew.filter(crew => crew.job ==="Director")}
-       });
-       this.TMDBApiService.getMovieCredits(this.movie1).subscribe({
-        next:(res)=> {
-          this.cast = res;
-        this.actors = this.cast.cast.filter(cast => cast.name )}
-         });
+      
+  }
+
 
 
   }
-}
 
 
 
@@ -86,19 +96,4 @@ export class FilmDetailComponent implements OnInit {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-//function cc(cc: any) {
-//  throw new Error('Function not implemented.');
-//}
 

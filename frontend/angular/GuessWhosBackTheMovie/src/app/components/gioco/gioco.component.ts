@@ -5,6 +5,7 @@ import { timer } from 'rxjs';
 import { MovieCredits,Cast, Crew} from 'src/app/model/movieCredits.model';
 import { MovieDetails,Genre } from 'src/app/model/movieDetails.model';
 import { TMDBApiService } from 'src/app/services/tmdb-api.service';
+import { faFloppyDisk } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-gioco',
@@ -46,6 +47,9 @@ export class GiocoComponent implements OnInit {
   blurString: string = "string";
 
   points: number | null = 0;
+  trys:number = 0;
+
+  saveIcon = faFloppyDisk;
   
 
 
@@ -146,6 +150,7 @@ export class GiocoComponent implements OnInit {
       console.log("indovinato");
     }
     else{
+      this.trys+=1;
       console.log("Sbagliato");
     }
   }

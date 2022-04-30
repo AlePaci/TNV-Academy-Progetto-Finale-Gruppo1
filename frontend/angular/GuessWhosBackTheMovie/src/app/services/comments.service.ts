@@ -14,7 +14,7 @@ export class CommentsService {
   }
 
   getComment(userId: number, movieId: number){
-    return this.http.get<Comment>(`http://localhost:5201/comment/byid/${movieId}/${userId}`);
+    return this.http.get<CommentData>(`http://localhost:5201/comment/byid/${movieId}/${userId}`);
   }
 
   deleteComment(id: number){

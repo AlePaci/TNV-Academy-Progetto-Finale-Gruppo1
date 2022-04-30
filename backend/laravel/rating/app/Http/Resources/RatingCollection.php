@@ -16,7 +16,7 @@ class RatingCollection extends ResourceCollection
     {
         return [
             'data'=> $this->collection,
-            'Author'=>'Alessandro Paci'
+            'Author'=>'Gruppo1'
         ];
     }
 }
