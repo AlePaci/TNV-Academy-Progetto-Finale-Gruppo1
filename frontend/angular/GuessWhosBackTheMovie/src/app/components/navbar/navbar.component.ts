@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
+import { faFilm } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { SessionStorageService } from 'src/app/services/session-storage.service'
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  
+  film = faFilm;
   constructor(
     public sessionService: SessionStorageService,
     public router: Router

@@ -9,6 +9,7 @@ import { RatingsService } from 'src/app/services/ratings.service';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
 import { TMDBApiService } from 'src/app/services/tmdb-api.service';
 import { Prefferd, SavePrefferd } from '../../model/prefferd.model';
+import { faFloppyDisk } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-save',
@@ -16,7 +17,7 @@ import { Prefferd, SavePrefferd } from '../../model/prefferd.model';
   styleUrls: ['./save.component.scss']
 })
 export class SaveComponent implements OnInit {
-
+  saveIcon = faFloppyDisk;
 
   isSaved:boolean = false;
 
