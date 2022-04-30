@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from 'src/app/model/movie.model';
-import { PreferredMovieService } from 'src/app/services/preferred-movie.service';
+import { Movie } from '../../model/movie.model';
+import { PreferredMovieService } from '../../services/preferred-movie.service';
 import { MovieDetails } from '../../model/movieDetails.model';
 import { Prefferd } from '../../model/prefferd.model';
 import { SessionStorageService } from '../../services/session-storage.service';

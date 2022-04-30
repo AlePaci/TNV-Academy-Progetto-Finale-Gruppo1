@@ -1,3 +1,4 @@
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,9 +13,14 @@ import { HomeComponent } from './components/home/home.component';
 import { GiocoComponent } from './components/gioco/gioco.component';
 import { SaveComponent } from './components/save/save.component';
 import { CommonModule } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
 import { MovieListComponent } from './components/movie-list/movie-list.component';
+
+
+
+
+
+
+
 
 
 
@@ -29,10 +35,14 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
     HomeComponent,
     GiocoComponent,
     SaveComponent,
-    MovieListComponent
-    
-
+   MovieListComponent
   ],
+
+
+
+
+
+
   imports: [
     CommonModule,
     BrowserModule,
@@ -40,7 +50,8 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
     HttpClientModule,
     FormsModule,
     FontAwesomeModule
-    
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,15 +1,16 @@
+import { CommentsService } from './../../services/comments.service';
 import { TMDBApiService } from './../../services/tmdb-api.service';
 import { Component, OnInit } from '@angular/core';
-
 import { MovieDetails, Genre } from '../../model/movieDetails.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cast, Crew, MovieCredits } from '../../model/movieCredits.model';
-import { CommentsService } from 'src/app/services/comments.service';
-import { RatingsService } from 'src/app/services/ratings.service';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { Comment } from 'src/app/model/comment.model';
 import { RatingData, Ratings } from 'src/app/model/ratings.model';
+import { RatingsService } from '../../services/ratings.service';
+
+
 
 
 @Component({
@@ -17,9 +18,10 @@ import { RatingData, Ratings } from 'src/app/model/ratings.model';
   templateUrl: './film-detail.component.html',
   styleUrls: ['./film-detail.component.scss']
 })
+
 export class FilmDetailComponent implements OnInit {
 
-
+// info film
   detail: MovieDetails |null = null
   credits: MovieCredits |null = null
   director: Crew[] | null = null
@@ -42,7 +44,7 @@ export class FilmDetailComponent implements OnInit {
 
    }
    private getData() {}
-
+// metodo che recupera tutte le informazioni utili dall Api esterna
   ngOnInit(): void {
       this.activatedRoute.params.subscribe((val) => this.movieid = +val['movieId'])
 
@@ -81,14 +83,9 @@ export class FilmDetailComponent implements OnInit {
       
   }
 
-  getarray(lenght:number){
-    return new Array(lenght);
+
+
   }
-
-}
-
-
-
 
 
 
