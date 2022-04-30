@@ -7,6 +7,9 @@ import { Cast, Crew, MovieCredits } from '../../model/movieCredits.model';
 import { CommentsService } from 'src/app/services/comments.service';
 import { RatingsService } from 'src/app/services/ratings.service';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
+import { faStar } from '@fortawesome/free-regular-svg-icons';
+import { Comment } from 'src/app/model/comment.model';
+import { RatingData, Ratings } from 'src/app/model/ratings.model';
 
 
 @Component({
@@ -22,9 +25,11 @@ export class FilmDetailComponent implements OnInit {
   director: Crew[] | null = null
   poster: string = ''
   genres: Genre[] | undefined = [];
-  comment: string |null= null;
-  rating: number[]| null = null;
+  comment: Comment | null= null;
+  rating: Ratings[]| null = null;
   movieid:number = 0;
+  star = faStar
+  starArray: number[] = []
 
 
 
@@ -49,7 +54,6 @@ export class FilmDetailComponent implements OnInit {
         },
         error:(res) => console.log(res)
       });
-
       this.movieService.getMovieDetails(this.movieid).subscribe({
         next: (res) =>{
            this.detail = res;
@@ -58,15 +62,23 @@ export class FilmDetailComponent implements OnInit {
         error: (res) => console.log(res)    
       });
       this.commentService.getComment(this.sessionServise.getUserId(),this.movieid).subscribe({
-        next: (res)=> this.comment = res.commentText,
+        next: (res)=>{
+          this.comment = res.data;
+          console.log(this.comment);
+        },
         error: (res)=>console.log(res) 
       });
       this.ratingService.getRating(this.sessionServise.getUserId(),this.movieid).subscribe({
-        next: (res)=> this.rating = this.getarray(res.Ratings.movie_rating),
+        next: (res)=>{
+          this.rating = res.Ratings;
+         
+          
+          console.log(this.rating);
+        },
         error: (res)=> console.log(res)
       });
 
-
+      
   }
 
   getarray(lenght:number){
