@@ -7,6 +7,9 @@ import { MovieDetails,Genre } from 'src/app/model/movieDetails.model';
 import { TMDBApiService } from 'src/app/services/tmdb-api.service';
 import { faFloppyDisk, faCircleQuestion, faPlayCircle} from '@fortawesome/free-regular-svg-icons';
 import { faBurst, faTrophy, faHourglassStart, faHourglassEnd, faHourglassHalf, } from '@fortawesome/free-solid-svg-icons';
+import { PreferredMovieService } from 'src/app/services/preferred-movie.service';
+import { SessionStorageService } from 'src/app/services/session-storage.service';
+import { Prefferd } from 'src/app/model/prefferd.model';
 
 
 @Component({
@@ -50,7 +53,10 @@ export class GiocoComponent implements OnInit {
 
   points: number | null = 0;
   trys:number = 0;
+  giaGiocati: number[]=[]
+  myMovies: Prefferd[]=[];
 
+ //Icone 
   saveIcon = faFloppyDisk;
   loseIcon = faBurst;
   winIcon = faTrophy;
@@ -66,10 +72,24 @@ export class GiocoComponent implements OnInit {
 
   constructor(
     public newMovieService: TMDBApiService,
-    private router:Router
+    private router:Router,
+    private prefferredService:PreferredMovieService,
+    private sessionService: SessionStorageService
     ){ }
 
   ngOnInit(): void {
+    this.prefferredService.findAllMoviesbyUserId(this.sessionService.getUserId()).subscribe({
+      next: (res)=> {
+        this.myMovies = res;
+        for (const movie of this.myMovies) {
+      this.giaGiocati.push(movie.movieId)  
+    }
+      },
+      error: (res) => console.log(res)
+    });
+    
+    
+
   }
 
 
@@ -125,9 +145,9 @@ export class GiocoComponent implements OnInit {
   
   // metodo che recupera tutte le informazioni utili dall Api esterna e fa controli su presenza poster e gia giocati  
     retirveMovie(){
-
+    console.log(this.giaGiocati)
     this.movieId = this.getRandomInt(this.maxRandom);
-
+    if(!this.giaGiocati.includes(this.movieId)){
     this.newMovieService.getMovieDetails(this.movieId).subscribe({
       next: (res)=> {
         this.movieDetails = res;
@@ -146,7 +166,7 @@ export class GiocoComponent implements OnInit {
         this.retirveMovie(); },
         });
 
-    
+      }else this.retirveMovie();
   }
   
 // Metodo per valutare l input sul tentativo titolo
