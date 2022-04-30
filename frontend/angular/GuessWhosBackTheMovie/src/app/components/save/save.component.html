@@ -4,8 +4,8 @@
 
         <div class="col-12 col-md-8 offset-md-2 rounded-2 border">
             <div class="row">
-                <div *ngif="!this.isSaved then okSave else notSaved"></div>
-                <ng-template #notSaved>
+                
+               
                     <!-- MACRO SEZIONE DETTAGLI FILM-->
                 <div class="col-12 col-md-6 pb-2">
                     <h1>{{movieTitle}}</h1>
@@ -25,7 +25,7 @@
                         <!-- sezione voto-->
                     <div class="mb-3">
                         <label for="rating" class="form-label">Dai un voto:{{savingForm.value.rating}}</label>
-                        <input [ngModel] name="rating" type="range" class="form-range" min="0" max="5" step="0.25" id="range" >
+                        <input [ngModel] name="rating" type="range" class="form-range" min="0" max="5"  id="range" required >
                     </div>
                  
                     <!--   sezione recensione-->
@@ -37,17 +37,13 @@
                             Inserisci recensione di almeno 10 caratteri!
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Salva</button>
+                    <button type="submit" class="btn btn-primary text-white"[disabled]="!savingForm.form.valid" ><fa-icon [icon]="saveIcon"></fa-icon> Salva</button>
                     </form>
                     </div>
                 </div>           
             </div>
-            </ng-template>
-            <ng-template #okSaved>
-                <div class="alert alert-success mt-5" role="alert">
-                    Film salvato con sucesso....
-                 </div>
-            </ng-template>
+            
+            
         </div>
         </div>
     </div>

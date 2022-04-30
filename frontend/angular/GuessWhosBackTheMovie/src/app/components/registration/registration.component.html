@@ -1,10 +1,10 @@
-<div class="container-fluid">
+<div class="container-fluid fs-3">
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2 rounded-2 mt-2">
             <div *ngIf="this.registered; then isRegistered else notRegistered"></div>
             <ng-template #notRegistered>
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-light">
                     <h1 class="text-center">Registrazione</h1>
                     <p class="text-center">Inserisci i dati nuovo utente</p>
                 </div>
@@ -56,7 +56,7 @@
                         <div *ngIf="error" class="alert alert-danger" role="alert">
                              Password differenti!
                          </div>
-                        <button type="submit" class="btn btn-primary"  [disabled]="!registrationForm.form.valid">Registration</button>
+                        <button type="submit" class="btn btn-primary text-white"  [disabled]="!registrationForm.form.valid">Registration</button>
                     </div>
                     </form>
                 </div> 

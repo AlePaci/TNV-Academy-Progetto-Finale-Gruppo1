@@ -17,9 +17,12 @@
               <li class="list-group-item"><div class="row"> <div class="col-6">Lingua Originale:</div> <div class="col-6">{{detail?.original_language}}</div></div></li>
               <li class="list-group-item"><div class="row"> <div class="col-6">Titolo Originale: </div> <div class="col-6">{{detail?.original_title}}</div></div></li>
             </ul>
+
         <p>
           <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
             Genere - Cast - Regia
+
+
           </button>
         </p>
         <div style="min-height: 120px;">
@@ -34,6 +37,7 @@
                   <li *ngFor="let a of credits?.cast"><a class="dropdown-item" href="#"> {{a.name}}</a></li>
                 </ul>
                 </div>
+
           <div class="dropdown col 6">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Regia:
@@ -70,6 +74,12 @@
 
 
 
+  
+    
+  </div>
+
+    
+  
 
 
 
