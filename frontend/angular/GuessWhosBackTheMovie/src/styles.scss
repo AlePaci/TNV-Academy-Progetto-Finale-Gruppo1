@@ -1,10 +1,10 @@
 
-$white: #f8fafb;
+$white: #ffffff;
 
 $theme-colors: (
-    "light":      #e5dff8e8,
+    "light":      #fcc7a8e8,
     "dark":       #151215,
-    "primary":    #7a72e9,
+    "primary":    #da4d3a,
     "secondary":  #326ce3,
     "info":       #9d57ff,
     "success":    #009e56,
@@ -13,3 +13,8 @@ $theme-colors: (
 );
 
 @import 'bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300&display=swap');
+ body{
+    font-family: 'Roboto', sans-serif;
+ }
+

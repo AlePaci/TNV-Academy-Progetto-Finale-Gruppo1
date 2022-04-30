@@ -5,8 +5,8 @@ import { timer } from 'rxjs';
 import { MovieCredits,Cast, Crew} from 'src/app/model/movieCredits.model';
 import { MovieDetails,Genre } from 'src/app/model/movieDetails.model';
 import { TMDBApiService } from 'src/app/services/tmdb-api.service';
-import { faFloppyDisk, faCircleQuestion } from '@fortawesome/free-regular-svg-icons';
-import { faBurst, faTrophy } from '@fortawesome/free-solid-svg-icons';
+import { faFloppyDisk, faCircleQuestion, faPlayCircle} from '@fortawesome/free-regular-svg-icons';
+import { faBurst, faTrophy, faHourglassStart, faHourglassEnd, faHourglassHalf, } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -55,6 +55,10 @@ export class GiocoComponent implements OnInit {
   loseIcon = faBurst;
   winIcon = faTrophy;
   guessIcon = faCircleQuestion;
+  time = faHourglassStart;
+  half = faHourglassHalf;
+  end = faHourglassEnd;
+  playIcon = faPlayCircle;
   
 
 
@@ -99,10 +103,10 @@ export class GiocoComponent implements OnInit {
       const abc = source.subscribe(val => {
         if(val === 10) this.showDate = true;
         if(val === 20) this.showActors[2] = true;
-        if(val === 30) this.showGenres[0] = true;
+        if(val === 30){ this.showGenres[0] = true; this.time= this.half;}
         if(val === 40) this.showDirector = true;
-        if(val === 50) this.showActors[1] = true;
-        if(val === 60) this.showGenres[1] = true;
+        if(val === 50) this.showGenres[1] = true;
+        if(val === 60){ this.showActors[1] = true; this.time = this.end;}
         if(val === 70) this.showActors[0] = true;
         if(this.subscribeTimer === 0) {
           this.finish = true;
