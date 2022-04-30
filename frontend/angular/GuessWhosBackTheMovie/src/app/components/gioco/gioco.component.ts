@@ -5,6 +5,7 @@ import { timer } from 'rxjs';
 import { MovieCredits,Cast, Crew} from 'src/app/model/movieCredits.model';
 import { MovieDetails,Genre } from 'src/app/model/movieDetails.model';
 import { TMDBApiService } from 'src/app/services/tmdb-api.service';
+
 import { faFloppyDisk, faCircleQuestion, faPlayCircle} from '@fortawesome/free-regular-svg-icons';
 import { faBurst, faTrophy, faHourglassStart, faHourglassEnd, faHourglassHalf, } from '@fortawesome/free-solid-svg-icons';
 import { PreferredMovieService } from 'src/app/services/preferred-movie.service';
@@ -53,6 +54,7 @@ export class GiocoComponent implements OnInit {
 
   points: number | null = 0;
   trys:number = 0;
+
   giaGiocati: number[]=[]
   myMovies: Prefferd[]=[];
 
@@ -65,6 +67,7 @@ export class GiocoComponent implements OnInit {
   half = faHourglassHalf;
   end = faHourglassEnd;
   playIcon = faPlayCircle;
+
   
 
 
