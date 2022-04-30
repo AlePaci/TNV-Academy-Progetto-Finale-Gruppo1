@@ -5,7 +5,9 @@ import { timer } from 'rxjs';
 import { MovieCredits,Cast, Crew} from 'src/app/model/movieCredits.model';
 import { MovieDetails,Genre } from 'src/app/model/movieDetails.model';
 import { TMDBApiService } from 'src/app/services/tmdb-api.service';
-import { faFloppyDisk } from '@fortawesome/free-regular-svg-icons';
+import { faFloppyDisk, faCircleQuestion } from '@fortawesome/free-regular-svg-icons';
+import { faBurst, faTrophy } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-gioco',
@@ -50,6 +52,9 @@ export class GiocoComponent implements OnInit {
   trys:number = 0;
 
   saveIcon = faFloppyDisk;
+  loseIcon = faBurst;
+  winIcon = faTrophy;
+  guessIcon = faCircleQuestion;
   
 
 
