@@ -5,10 +5,11 @@ import { MovieDetails, Genre } from '../../model/movieDetails.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cast, Crew, MovieCredits } from '../../model/movieCredits.model';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
-import { faStar } from '@fortawesome/free-regular-svg-icons';
+import { faStar,faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import { Comment } from 'src/app/model/comment.model';
 import { RatingData, Ratings } from 'src/app/model/ratings.model';
 import { RatingsService } from '../../services/ratings.service';
+import { PreferredMovieService } from 'src/app/services/preferred-movie.service';
 
 
 
@@ -25,13 +26,16 @@ export class FilmDetailComponent implements OnInit {
   detail: MovieDetails |null = null
   credits: MovieCredits |null = null
   director: Crew[] | null = null
-  poster: string = ''
   genres: Genre[] | undefined = [];
   comment: Comment | null= null;
-  rating: Ratings[]| null = null;
+  commentId:number = 0;
+  ratingId:number = 0;
   movieid:number = 0;
+  preffId:number = 0;
   star = faStar
+  trash = faTrashCan
   starArray: number[] = []
+  ratingValue:number |null = null;
 
 
 
@@ -40,13 +44,21 @@ export class FilmDetailComponent implements OnInit {
     public movieService:TMDBApiService,
     private commentService:CommentsService,
     private ratingService: RatingsService,
-    private sessionServise:SessionStorageService) {
+    private sessionServise:SessionStorageService,
+    private preffService:PreferredMovieService,
+    private router: Router
+    ) {
 
    }
    private getData() {}
 // metodo che recupera tutte le informazioni utili dall Api esterna
   ngOnInit(): void {
       this.activatedRoute.params.subscribe((val) => this.movieid = +val['movieId'])
+
+      this.preffService.findPreffUserMovie(this.sessionServise.getUserId(),this.movieid).subscribe({
+        next: (res)=> this.preffId = res.id,
+
+      });
 
 
       this.movieService.getMovieCredits( this.movieid).subscribe({
@@ -66,21 +78,50 @@ export class FilmDetailComponent implements OnInit {
       this.commentService.getComment(this.sessionServise.getUserId(),this.movieid).subscribe({
         next: (res)=>{
           this.comment = res.data;
+          this.commentId = res.data.id;
           console.log(this.comment);
         },
         error: (res)=>console.log(res) 
       });
       this.ratingService.getRating(this.sessionServise.getUserId(),this.movieid).subscribe({
         next: (res)=>{
-          this.rating = res.Ratings;
-         
+          console.log(res)
+          this.ratingValue = res.Ratings.data[0].movie_rating;
+          this.ratingId = res.Ratings.data[0].id;
           
-          console.log(this.rating);
+          for(let i=0;i<this.ratingValue;i++){
+            this.starArray.push(0);
+          }
+          
+          console.log(this.starArray);
         },
         error: (res)=> console.log(res)
       });
 
       
+  }
+
+  cancella(){
+    this.commentService.deleteComment(this.commentId).subscribe({
+      next: (res)=> console.log(res),
+      error: (res)=> console.log(res)
+    })
+
+    this.ratingService.deleteRating(this.ratingId).subscribe({
+      next: (res)=>console.log(res),
+      error: (res) => console.log(res)
+    });
+    console.log(this.preffId)
+    this.preffService.deletePreferredMovie(this.preffId).subscribe({
+      next: (res)=> console.log(res),
+      error: (res)=> console.log(res)
+    });
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(['/film'])
+    
+
+   
   }
 
 

@@ -1,96 +1,106 @@
 <div class="container-fluid ">
   <div class="row">
-      <div class="col-12 col-md-8 offset-md-2   mt-2">
-         <h1 class="text-center">{{this.detail?.title}}</h1>
+      <div class="col-12 col-md-8 offset-md-2 border border-primary rounded-2  mt-2">
         <div class="row">
-          <div class="col-12 col-md-6 ">
+          <div class="col-4 text-center text-primary fs-2"><fa-icon *ngFor="let s of this.starArray" [icon]="star"></fa-icon></div>
+          <div class="col-8">
+         <h1 class="text-center">{{this.detail?.title}}</h1></div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6 text-center">
               <img   [src]="this.movieService.getMoviePoster(this.detail?.poster_path)" alt="poster image" width="80%">
         </div>
-        <div class="col-12 col-md-6 " >
+        <div class="col-12 col-md-6 align-self-center " >
             <h3 class="text-center">Sinossi:</h3>
-            <p class="text-center">{{this.detail?.overview}}</p>
-            <ul class="list-group">
-              <li class="list-group-item"><div class="row"> <div class="col-6">Data di uscita:</div><div class="col-6"> {{detail?.release_date |date}}</div></div></li>
-              <li class="list-group-item"><div class="row"> <div class="col-6">Durata:</div><div class="col-6"> {{detail?.runtime }} min</div></div></li>
-              <li class="list-group-item"><div class="row"> <div class="col-6">Budget:</div><div class="col-6">{{detail?.budget | currency }}</div></div></li>
-              <li class="list-group-item"><div class="row"> <div class="col-6">Incassi:</div><div class="col-6">{{detail?.revenue |currency}}</div></div></li>
-              <li class="list-group-item"><div class="row"> <div class="col-6">Lingua Originale:</div> <div class="col-6">{{detail?.original_language}}</div></div></li>
-              <li class="list-group-item"><div class="row"> <div class="col-6">Titolo Originale: </div> <div class="col-6">{{detail?.original_title}}</div></div></li>
-            </ul>
-
-        <p>
-          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-            Genere - Cast - Regia
-
-
-          </button>
-        </p>
-        <div style="min-height: 120px;">
-          <div class="collapse collapse-horizontal" id="collapseWidthExample">
-            <div class="card card-body" style="width: 300px;">
-                <div class="row">
-                <div class="dropdown col-6">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Attori:
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li *ngFor="let a of credits?.cast"><a class="dropdown-item" href="#"> {{a.name}}</a></li>
-                </ul>
-                </div>
-
-          <div class="dropdown col 6">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Regia:
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-               <li *ngFor="let r of director"> {{r.name}}</li>
-            </ul>
-          </div>
-          <div class="row ">
-            <div class="dropdown">
-               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                 Genere:
-               </button>
-               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li *ngFor="let g of genres"> {{g.name}}</li>
-               </ul>
-             </div>
+            <p class=>{{this.detail?.overview}}</p>
+            <h3 class="text-center">Parere personale:</h3>
+            <p>{{this.comment?.commentText}}</p>
+           
+         </div> 
          </div>
+         <div class="row mt-2">
+           <div class="col-6"> 
+            <ul class="list-group ">
+              <li class="list-group-item border-light"><div class="row"> <div class="col-6">Data di uscita:</div><div class="col-6"> {{detail?.release_date |date}}</div></div></li>
+              <li class="list-group-item border-light"><div class="row"> <div class="col-6">Durata:</div><div class="col-6"> {{detail?.runtime }} min</div></div></li>
+              <li class="list-group-item border-light"><div class="row"> <div class="col-6">Budget:</div><div class="col-6">{{detail?.budget | currency }}</div></div></li>
+              <li class="list-group-item border-light"><div class="row"> <div class="col-6">Incassi:</div><div class="col-6">{{detail?.revenue |currency}}</div></div></li>
+              <li class="list-group-item border-light"><div class="row"> <div class="col-6">Lingua Originale:</div> <div class="col-6">{{detail?.original_language}}</div></div></li>
+              <li class="list-group-item border-light"><div class="row"> <div class="col-6">Titolo Originale: </div> <div class="col-6">{{detail?.original_title}}</div></div></li>
+            </ul>
+        </div>
+        <div class="col-6 align-self-center ">
+          <button class="btn btn-primary text-white" type="button" data-bs-toggle="collapse"
+           data-bs-target="#cast" aria-expanded="false" aria-controls="cast">
+            Cast - Regia</button>
+          <div style="min-height: 80px;">
+          <div class="collapse collapse-horizontal" id="cast">
+            <div class="card card-body border-light" style="width: 300px;">
+                <div class="row">
+
+                <div class="dropdown col-6">
+                  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Attori:
+                  </button>
+                  <ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton1">
+                    <li *ngFor="let a of credits?.cast">{{a.name}}</li>
+                  </ul>
+                  </div>
+
+                  <div class="dropdown col-6">
+                    <button class="btn btn-light dropdown-toggle" type="button" id="regia" data-bs-toggle="dropdown" aria-expanded="false">
+                      Regia:
+                    </button>
+                    <ul class="dropdown-menu scrollable-menu" aria-labelledby="regia">
+                      <li *ngFor="let r of director"> {{r.name}}</li>
+                    </ul>
+                  </div>
+         
                 </div>
             </div>
           </div>
         </div>
-        </div>
-          </div>
 
+        <button class="btn btn-primary text-white" type="button" data-bs-toggle="collapse"
+        data-bs-target="#produzione" aria-expanded="false" aria-controls="produzione">
+         Produzione</button>
+       <div style="min-height: 80px;">
+       <div class="collapse collapse-horizontal" id="produzione">
+         <div class="card card-body border-light" style="width: 300px;">
+             <div class="row">
+            <div class="dropdown col-6">
+              <button class="btn btn-light dropdown-toggle" type="button" id="paesi" data-bs-toggle="dropdown" aria-expanded="false">
+                Paesi:
+              </button>
+              <ul class="dropdown-menu scrollable-menu" aria-labelledby="paesi">
+                <li *ngFor="let p of detail?.production_countries"> {{p.name}}</li>
+              </ul>
+            </div>
+            <div class="dropdown col-6">
+              <button class="btn btn-light dropdown-toggle" type="button" id="paesi" data-bs-toggle="dropdown" aria-expanded="false">
+                Compagnie:
+              </button>
+              <ul class="dropdown-menu scrollable-menu" aria-labelledby="paesi">
+                <li *ngFor="let p of detail?.production_companies"> {{p.name}}</li>
+              </ul>
+            </div>
+
+          </div>
+          
+         </div>
+
+        </div>
+       
+      </div>
+      
+    </div>
+    <div class="text-center mt-2"><button class="btn btn-primary text-white" type="submit" id="cancella" (click)="cancella()"><fa-icon [icon]="trash"></fa-icon> Cancella</button></div>
+    
+     
+   
   </div>
 </div>
 
 
-
-
-  </div>
-
-
-
-
-  
-    
-  </div>
-
-    
-  
-
-
-
-
-
-  <div class="row">
-  <div class="col-6 ">
-      Pareri dei cinefili:
-
-     {{this.comment?.commentText}}
-     </div>
-   </div>
 
 

@@ -5,13 +5,18 @@ export interface NewRating {
 }
 
 export interface Ratings {
+    id: number;
     movie_rating: number;
     movie_id: number;
     user_id: number;
 }
 
+export interface Data {
+    data: Ratings[];
+    Author: string;
+}
 export interface RatingData {
-    Ratings: Ratings[];
+    Ratings: Data;
     ResponseStatus: number;
 }
 

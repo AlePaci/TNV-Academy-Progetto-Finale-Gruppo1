@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.RestApi\\Comments.RestApi.csproj": {}
+    "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.RestApi/Comments.RestApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Core\\Comments.Core.csproj": {
+    "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Core\\Comments.Core.csproj",
+        "projectUniqueName": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj",
         "projectName": "Comments.Core",
-        "projectPath": "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Core\\Comments.Core.csproj",
-        "packagesPath": "C:\\Users\\Marco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Core\\obj\\",
+        "projectPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj",
+        "packagesPath": "/home/al/.nuget/packages/",
+        "outputPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Marco\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/al/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -52,21 +52,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Db\\Comments.Db.csproj": {
+    "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Db\\Comments.Db.csproj",
+        "projectUniqueName": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj",
         "projectName": "Comments.Db",
-        "projectPath": "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Db\\Comments.Db.csproj",
-        "packagesPath": "C:\\Users\\Marco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Db\\obj\\",
+        "projectPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj",
+        "packagesPath": "/home/al/.nuget/packages/",
+        "outputPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Marco\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/al/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -78,8 +78,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Core\\Comments.Core.csproj": {
-                "projectPath": "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Core\\Comments.Core.csproj"
+              "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj": {
+                "projectPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj"
               }
             }
           }
@@ -120,21 +120,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.RestApi\\Comments.RestApi.csproj": {
+    "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.RestApi/Comments.RestApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.RestApi\\Comments.RestApi.csproj",
+        "projectUniqueName": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.RestApi/Comments.RestApi.csproj",
         "projectName": "Comments.RestApi",
-        "projectPath": "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.RestApi\\Comments.RestApi.csproj",
-        "packagesPath": "C:\\Users\\Marco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.RestApi\\obj\\",
+        "projectPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.RestApi/Comments.RestApi.csproj",
+        "packagesPath": "/home/al/.nuget/packages/",
+        "outputPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.RestApi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Marco\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/al/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -146,8 +146,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Db\\Comments.Db.csproj": {
-                "projectPath": "C:\\Users\\Marco\\Collaudo\\TNV-Academy-Progetto-Finale-Gruppo1\\backend\\dotnet\\Comments\\Comments.Db\\Comments.Db.csproj"
+              "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj": {
+                "projectPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj"
               }
             }
           }
@@ -185,7 +185,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
         }
       }
     }
