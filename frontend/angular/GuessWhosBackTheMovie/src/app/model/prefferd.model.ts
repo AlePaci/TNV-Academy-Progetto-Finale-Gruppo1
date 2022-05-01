@@ -12,3 +12,7 @@ export interface SavePrefferd{
     userId:    number;
     gameScore: number | null; 
 }
+export interface PreffDelete {
+    message: string;
+    timestamp: Date;
+}

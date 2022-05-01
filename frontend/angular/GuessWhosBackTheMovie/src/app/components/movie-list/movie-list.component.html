@@ -3,7 +3,7 @@
         <div class="col-12 col-md-8 offset-md-2   mt-2">
             <div class="row">
 
-            <div *ngFor="let movie of this.movieList" class="card col-6 col-sm-4 col-md-4 col-lg-3 text-center mt-2 " >
+            <div *ngFor="let movie of this.movieList" class="card col-6 col-sm-4 col-md-4 col-lg-3 text-center mt-2 border-primary " >
               <div class="position-relative">
                 <img [src]="this.movieService.getMoviePoster(movie.movieDetail.poster_path)" class="card-img-top" alt="...">
                 <div class="position-absolute rounded-3 bg-primary punti top-0"><p class="ms-1 mb-0 me-1">{{movie.movieScore}}<fa-icon  [icon]="coins"></fa-icon> </p></div>
@@ -13,7 +13,7 @@
                   <h5 class="card-title">{{movie.movieDetail.title}}</h5>
                 
 
-                  <a [routerLink]="['/film', movie.movieDetail.id]" class="btn btn-primary mt-auto text-white ">Dettagli</a>
+                  <a [routerLink]="['/film', movie.movieDetail.id]" class="btn btn-primary mt-auto text-white btn-sm ">Dettagli</a>
 
                 </div>
               </div>
