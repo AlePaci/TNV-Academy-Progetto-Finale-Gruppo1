@@ -102,13 +102,23 @@ export class FilmDetailComponent implements OnInit {
   }
 
   cancella(){
-    this.commentService.deleteComment(this.commentId);
+    this.commentService.deleteComment(this.commentId).subscribe({
+      next: (res)=> console.log(res),
+      error: (res)=> console.log(res)
+    })
+
     this.ratingService.deleteRating(this.ratingId).subscribe({
       next: (res)=>console.log(res),
       error: (res) => console.log(res)
     });
-    this.preffService.deletePreferredMovie(this.preffId);
-    
+    console.log(this.preffId)
+    this.preffService.deletePreferredMovie(this.preffId).subscribe({
+      next: (res)=> console.log(res),
+      error: (res)=> console.log(res)
+    });
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(['/film'])
     
 
    

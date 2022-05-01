@@ -14,5 +14,4 @@ export interface SavePrefferd{
 }
 export interface PreffDelete {
     message: string;
-    timestamp: Date;
 }

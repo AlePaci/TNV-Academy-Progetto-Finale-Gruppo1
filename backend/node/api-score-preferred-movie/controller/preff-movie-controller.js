@@ -4,7 +4,7 @@ export const createPreffMovie = async (req, res) => {
     try {
         const prefMovie = await Movie.create(req.body);
         res.json({
-            "message": "Pizza Created",
+            "message": "Movie Created",
             "data" : prefMovie
         });
     } catch (err) {
@@ -77,7 +77,7 @@ export const deletePrefMovie = async (req, res) => {
             }
         });
         res.json({
-            "message": "Pizza Deleted"
+            "message": "Movie Deleted"
         });
     } catch (err) {
         console.log(err);

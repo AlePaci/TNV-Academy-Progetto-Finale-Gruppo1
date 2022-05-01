@@ -18,7 +18,7 @@ export class PreferredMovieService {
   }
 
   deletePreferredMovie(id:number){
-    return this.http.delete<PreffDelete>(`http://localhost:8080/movie/${id}`);
+    return this.http.delete<PreffDelete>(`http://localhost:8081/movies/${id}`);
   }
 
   findPreffUserMovie(user_id : number | null, movie_id : number| null){

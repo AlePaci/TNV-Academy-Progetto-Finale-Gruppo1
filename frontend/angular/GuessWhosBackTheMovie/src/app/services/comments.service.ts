@@ -18,7 +18,7 @@ export class CommentsService {
   }
 
   deleteComment(id: number){
-     this.http.delete<CommentDelete>(`http://localhost:5201/comment/delete/${id}`);
+    return this.http.delete<CommentDelete>(`http://localhost:5201/comment/delete/${id}`);
   }
 
 }
