@@ -11,7 +11,8 @@ $theme-colors: (
     "warning":    #e2c800,
     "danger":     #f20300,
 );
-
+$form-range-thumb-bg: #da4d3a;
+$form-range-track-bg: #fcc7a8e8;
 @import 'bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300&display=swap');
  body{
