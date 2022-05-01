@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MS5OtZU9RAY3kew0dq7mcn1oqqbp/ywFD0ixPqXekBM1wqvbcvrACc/qTZN3Ar/CoVCEjB3NoHUIuGNv/iHcYA==",
+  "dgSpecHash": "fpqfWtfX1S+FcpxrDq4Ev4BQgyvSfZ1gllAD4Sskq+mLGRl75FVu71ypilcbEAlg4pjd6UrAzNJDi35TbLxgdQ==",
   "success": true,
-  "projectFilePath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.RestApi/Comments.RestApi.csproj",
+  "projectFilePath": "/home/al/Desktop/convalida/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.RestApi/Comments.RestApi.csproj",
   "expectedPackageFiles": [
     "/home/al/.nuget/packages/microsoft.entityframeworkcore/6.0.1/microsoft.entityframeworkcore.6.0.1.nupkg.sha512",
     "/home/al/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.1/microsoft.entityframeworkcore.abstractions.6.0.1.nupkg.sha512",
