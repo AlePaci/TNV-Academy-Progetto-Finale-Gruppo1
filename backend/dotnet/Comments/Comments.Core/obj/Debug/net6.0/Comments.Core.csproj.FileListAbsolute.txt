@@ -70,3 +70,15 @@ C:/Users/Marco/Collaudo/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comme
 /home/al/Desktop/convalida/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/obj/Debug/net6.0/refint/Comments.Core.dll
 /home/al/Desktop/convalida/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/obj/Debug/net6.0/Comments.Core.pdb
 /home/al/Desktop/convalida/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/obj/Debug/net6.0/ref/Comments.Core.dll
+/home/al/Desktop/progetto finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/bin/Debug/net6.0/Comments.Core.deps.json
+/home/al/Desktop/progetto finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/bin/Debug/net6.0/Comments.Core.dll
+/home/al/Desktop/progetto finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/bin/Debug/net6.0/Comments.Core.pdb
+/home/al/Desktop/progetto finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/obj/Debug/net6.0/Comments.Core.csproj.AssemblyReference.cache
+/home/al/Desktop/progetto finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/obj/Debug/net6.0/Comments.Core.GeneratedMSBuildEditorConfig.editorconfig
+/home/al/Desktop/progetto finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/obj/Debug/net6.0/Comments.Core.AssemblyInfoInputs.cache
+/home/al/Desktop/progetto finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/obj/Debug/net6.0/Comments.Core.AssemblyInfo.cs
+/home/al/Desktop/progetto finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/obj/Debug/net6.0/Comments.Core.csproj.CoreCompileInputs.cache
+/home/al/Desktop/progetto finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/obj/Debug/net6.0/Comments.Core.dll
+/home/al/Desktop/progetto finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/obj/Debug/net6.0/refint/Comments.Core.dll
+/home/al/Desktop/progetto finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/obj/Debug/net6.0/Comments.Core.pdb
+/home/al/Desktop/progetto finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/obj/Debug/net6.0/ref/Comments.Core.dll

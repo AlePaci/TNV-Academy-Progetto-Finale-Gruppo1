@@ -3,7 +3,7 @@
     <div class="col-12 col-md-8 offset-md-2 rounded-2 mt-2 ">
       <div *ngIf="this.logged; then isLogged else notLogged"></div>
       <ng-template #notLogged>
-      <div class="card">
+      <div class="card border-light">
         <!-- MACRO SEZIONE HEADER-->
         <div class="card-header bg-light">
           <h1 class="text-center">Bentornato</h1>
@@ -14,8 +14,8 @@
         <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
                   <!-- richiesta username-->
         <div class=" form-group mb-3"> 
-            <label for="username" class="form-lable">Username</label>
-        <input type="text" class="form-control " id="username" placeholder="username" 
+            <label for="username" class="form-lable ">Username</label>
+        <input type="text" class="form-control border-light" id="username" placeholder="username" 
             required
           [ngModel] name="username" #username="ngModel"> 
         <div [hidden]="username.valid "
@@ -28,11 +28,11 @@
           <div class="row">
             <div class="col-11">
         <label for="password" class="form-lable">Password</label>
-        <input  [type]="show ? 'text' : 'password'" class="form-control" id="password" placeholder="password"
+        <input  [type]="show ? 'text' : 'password'" class="form-control border-light" id="password" placeholder="password"
           required
           [ngModel] name="password" #password="ngModel"></div>
-          <div class="col-1 pt-4 ps-0 mt-2">
-            <fa-icon (mousedown)="show = !show" (mouseup)="show = !show" class=" icon " size="lg" [icon]="eyeOpen"></fa-icon></div></div>
+          <div class="col-1 pt-4 ps-0 mt-3">
+            <fa-icon (mousedown)="show = !show" (mouseup)="show = !show" class=" icon text-primary" size="lg" [icon]="eyeOpen"></fa-icon></div></div>
           <div [hidden]="password.valid"
           class="alert alert-danger">
        Inserisci una password

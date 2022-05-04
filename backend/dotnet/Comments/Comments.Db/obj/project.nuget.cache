@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lpMFMDW2v8TkvTcwMLFaxzXqyf2esj1DihnLEai09bQGbCvrrBOxo2wc+5Cgu0UwRT6a2E9h8pSCY+7hmO91Ww==",
+  "dgSpecHash": "YqrBchKhzivJuDTOeYSoF/LSKi2CHFHBZcLu8UpqPNHQPAGXpypkV47Opvgfh21lN0r90e5DNo4eU3TG2RiIhg==",
   "success": true,
-  "projectFilePath": "/home/al/Desktop/convalida/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj",
+  "projectFilePath": "/home/al/Desktop/progetto finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj",
   "expectedPackageFiles": [
     "/home/al/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/home/al/.nuget/packages/microsoft.entityframeworkcore/6.0.1/microsoft.entityframeworkcore.6.0.1.nupkg.sha512",
