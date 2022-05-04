@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("UserService")
 public class UserService {
     UserRepositoryDAO userRepositoryDAO;
@@ -112,5 +114,9 @@ public class UserService {
             throw new NoPasswordException();
         }
         return new RequestResponse(user,"UPDATE_ERR");
+    }
+
+    public Iterable<User> getAllUsers(){
+        return this.userRepositoryDAO.findAll();
     }
 }

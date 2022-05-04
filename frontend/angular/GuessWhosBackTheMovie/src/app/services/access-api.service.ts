@@ -18,4 +18,8 @@ export class AccessApiService {
   loginUser(user:RegistrationUser |null){
     return this.http.put<UserDataObject>("http://localhost:8080/login/",user);
   }
+  
+  allUsers(){
+    return this.http.get<User[]>("http://localhost:8080/users");
+  }
 }

@@ -69,4 +69,9 @@ public class UserController {
             return new RequestResponse(new User(username), noPasswordException.printException());
         }
     }
+
+    @GetMapping("/users")
+    public Iterable<User> getAllUsers(){
+        return this.userService.getAllUsers();
+    }
 }
