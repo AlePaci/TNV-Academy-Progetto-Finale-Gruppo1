@@ -1,0 +1,31 @@
+<button class="btn btn-primary text-white" type="button" data-bs-toggle="collapse"
+data-bs-target="#produzione" aria-expanded="false" aria-controls="produzione">
+ Produzione</button>
+<div style="min-height: 80px;">
+<div class="collapse collapse-horizontal" id="produzione">
+ <div class="card card-body border-light" style="width: 300px;">
+     <div class="row">
+    <div class="dropdown col-6">
+      <button class="btn btn-light dropdown-toggle" type="button" id="paesi" data-bs-toggle="dropdown" aria-expanded="false">
+        Paesi:
+      </button>
+      <ul class="dropdown-menu scrollable-menu" aria-labelledby="paesi">
+        <li *ngFor="let p of detail?.production_countries"> {{p.name}}</li>
+      </ul>
+    </div>
+    <div class="dropdown col-6">
+      <button class="btn btn-light dropdown-toggle" type="button" id="paesi" data-bs-toggle="dropdown" aria-expanded="false">
+        Compagnie:
+      </button>
+      <ul class="dropdown-menu scrollable-menu" aria-labelledby="paesi">
+        <li *ngFor="let p of detail?.production_companies"> {{p.name}}</li>
+      </ul>
+    </div>
+
+  </div>
+  
+ </div>
+
+</div>
+
+</div>

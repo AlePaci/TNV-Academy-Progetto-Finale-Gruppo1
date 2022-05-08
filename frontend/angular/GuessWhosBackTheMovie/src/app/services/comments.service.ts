@@ -13,7 +13,7 @@ export class CommentsService {
     return this.http.post<CommentData>("http://localhost:5201/comment",newComment);
   }
 
-  getComment(userId: number, movieId: number){
+  getComment(userId: number, movieId: number ){
     return this.http.get<CommentData>(`http://localhost:5201/comment/byid/${movieId}/${userId}`);
   }
 

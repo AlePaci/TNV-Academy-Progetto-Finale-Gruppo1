@@ -1,0 +1,30 @@
+<button class="btn btn-primary text-white" type="button" data-bs-toggle="collapse"
+data-bs-target="#cast" aria-expanded="false" aria-controls="cast">
+ Cast - Regia</button>
+<div style="min-height: 80px;">
+<div class="collapse collapse-horizontal" id="cast">
+ <div class="card card-body border-light" style="width: 300px;">
+     <div class="row">
+
+     <div class="dropdown col-6">
+       <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+         Attori:
+       </button>
+       <ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton1">
+         <li *ngFor="let a of credits?.cast">{{a.name}}</li>
+       </ul>
+       </div>
+
+       <div class="dropdown col-6">
+         <button class="btn btn-light dropdown-toggle" type="button" id="regia" data-bs-toggle="dropdown" aria-expanded="false">
+           Regia:
+         </button>
+         <ul class="dropdown-menu scrollable-menu" aria-labelledby="regia">
+           <li *ngFor="let r of director"> {{r.name}}</li>
+         </ul>
+       </div>
+
+     </div>
+ </div>
+</div>
+</div>
