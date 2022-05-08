@@ -14,6 +14,13 @@ import { GiocoComponent } from './components/gioco/gioco.component';
 import { SaveComponent } from './components/save/save.component';
 import { CommonModule } from '@angular/common';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { CommentComponent } from './components/child-components/comment/comment.component';
+import { RatingsComponent } from './components/child-components/ratings/ratings.component';
+import { PosterComponent } from './components/child-components/poster/poster.component';
+import { MovieTableComponent } from './components/child-components/movie-table/movie-table.component';
+import { CastDetailComponent } from './components/child-components/cast-detail/cast-detail.component';
+import { ProductionDetailComponent } from './components/child-components/production-detail/production-detail.component';
+import { SinossiComponent } from './components/child-components/sinossi/sinossi.component';
 
 
 
@@ -35,7 +42,14 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
     HomeComponent,
     GiocoComponent,
     SaveComponent,
-   MovieListComponent
+   MovieListComponent,
+   CommentComponent,
+   RatingsComponent,
+   PosterComponent,
+   MovieTableComponent,
+   CastDetailComponent,
+   ProductionDetailComponent,
+   SinossiComponent
   ],
 
 

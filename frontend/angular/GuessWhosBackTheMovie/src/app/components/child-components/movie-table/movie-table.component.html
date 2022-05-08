@@ -1,0 +1,8 @@
+<ul class="list-group ">
+    <li class="list-group-item border-light"><div class="row"> <div class="col-6">Data di uscita:</div><div class="col-6"> {{detail?.release_date |date}}</div></div></li>
+    <li class="list-group-item border-light"><div class="row"> <div class="col-6">Durata:</div><div class="col-6"> {{detail?.runtime }} min</div></div></li>
+    <li class="list-group-item border-light"><div class="row"> <div class="col-6">Budget:</div><div class="col-6">{{detail?.budget | currency }}</div></div></li>
+    <li class="list-group-item border-light"><div class="row"> <div class="col-6">Incassi:</div><div class="col-6">{{detail?.revenue |currency}}</div></div></li>
+    <li class="list-group-item border-light"><div class="row"> <div class="col-6">Lingua Originale:</div> <div class="col-6">{{detail?.original_language}}</div></div></li>
+    <li class="list-group-item border-light"><div class="row"> <div class="col-6">Titolo Originale: </div> <div class="col-6">{{detail?.original_title}}</div></div></li>
+  </ul>
