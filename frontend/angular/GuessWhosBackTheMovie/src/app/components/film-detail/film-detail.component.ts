@@ -63,24 +63,18 @@ export class FilmDetailComponent implements OnInit{
 
       this.ratingService.getRating(this.sessionService.getUserId(),this.movieId).subscribe({
         next: (res)=>{
-          console.log(res)
           this.ratingValue = res.Ratings.data[0].movie_rating;
           this.ratingId = res.Ratings.data[0].id;
           
           for(let i=0;i<this.ratingValue;i++){
             this.starArray.push(0);
           }
-          
-          console.log(this.starArray);
         },
         error: (res)=> console.log(res)
       });
 
       this.commentService.getComment(this.sessionService.getUserId(),this.movieId).subscribe({
-        next: (res)=>{
-          this.comment = res.data;
-          console.log(this.comment);
-        },
+        next: (res)=>this.comment = res.data,
         error: (res)=>console.log(res) 
       });
 

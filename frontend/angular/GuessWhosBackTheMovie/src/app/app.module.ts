@@ -24,14 +24,9 @@ import { SinossiComponent } from './components/child-components/sinossi/sinossi.
 import { MovieScoreComponent } from './components/child-components/movie-score/movie-score.component';
 import { MovieListBodyComponent } from './components/child-components/movie-list-body/movie-list-body.component';
 import { SavingFormComponent } from './components/child-components/saving-form/saving-form.component';
-
-
-
-
-
-
-
-
+import { TimeComponent } from './components/child-components/time/time.component';
+import { GameResultComponent } from './components/child-components/game-result/game-result.component';
+import { GuessDataComponent } from './components/child-components/guess-data/guess-data.component';
 
 
 
@@ -55,12 +50,11 @@ import { SavingFormComponent } from './components/child-components/saving-form/s
    SinossiComponent,
    MovieScoreComponent,
    MovieListBodyComponent,
-   SavingFormComponent
+   SavingFormComponent,
+   TimeComponent,
+   GameResultComponent,
+   GuessDataComponent,
   ],
-
-
-
-
 
 
   imports: [
@@ -70,8 +64,6 @@ import { SavingFormComponent } from './components/child-components/saving-form/s
     HttpClientModule,
     FormsModule,
     FontAwesomeModule
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]

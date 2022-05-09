@@ -26,15 +26,12 @@ export class MovieListComponent implements OnInit {
         this.prefferedMovies=res;
         this.prefferedMovies.forEach(element => {
           this.movieService.getMovieDetails(element.movieId).subscribe({
-          next: (res)=> {
-            this.movieList.push({movieDetail:res,movieScore:element.gameScore});
-            console.log(this.movieList)
-        }, 
-        error: (res) => console.log(res)
+          next: (res)=> this.movieList.push({movieDetail:res,movieScore:element.gameScore}),
+          error: (res) => console.log(res)
         });
        });  
       },
-    error:(res) => console.log(res)
+      error:(res) => console.log(res)
     });    
   }
 
