@@ -15,6 +15,10 @@ $form-range-thumb-bg: #da4d3a;
 $form-range-track-bg: #fcc7a8e8;
 @import 'bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300&display=swap');
+@font-face {
+    font-family: "digital-7";
+    src: local("digital-7"), url(./assets/fonts/digital-7.ttf) format("truetype");
+}
  body{
     font-family: 'Roboto', sans-serif;
  }

@@ -1,0 +1,19 @@
+<form #savingForm="ngForm" (submit)="save(savingForm)">
+    <!-- sezione voto-->
+    <div class="mb-3">
+        <label for="rating" class="form-label">Dai un voto:{{savingForm.value.rating}}</label>
+        <input [ngModel] name="rating" type="range" class="form-range " min="0" max="5"  id="range" required >
+    </div>
+
+    <!--   sezione recensione-->
+    <div class="mb-3">
+        <label for="review" class="form-label">Scrivi una recensione:</label>
+        <textarea [ngModel] name="review" minlength="10" maxlength="160" class="form-control border-light" id="review" #review="ngModel" rows="3" required></textarea>
+        <div [hidden]="review.valid "
+            class="alert alert-danger">
+            Inserisci recensione di almeno 10 caratteri!
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary text-white"[disabled]="!savingForm.form.valid" >
+        <fa-icon [icon]="saveIcon"></fa-icon> Salva</button>
+</form>

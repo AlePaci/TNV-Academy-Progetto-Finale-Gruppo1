@@ -1,0 +1,2 @@
+<div class="alert alert-success" role="alert" *ngIf="this.win" ><fa-icon [icon]="winIcon"></fa-icon> Hai vinto! {{points}}pt. <fa-icon [icon]="winIcon"></fa-icon></div>
+<div class="alert alert-danger" role="alert" *ngIf="!this.win "><fa-icon [icon]="loseIcon"></fa-icon> Hai perso! {{points}}pt. <fa-icon [icon]="loseIcon"></fa-icon></div>

@@ -1,6 +1,5 @@
 <div class="container-fluid fs-3">
     <div class="row">
-    
         <div class="col-12 col-md-8 offset-md-2 border border-primary border-3 rounded-2  mt-2">
             <div *ngIf="this.start; then thenBlock else elseBlock"></div>
                     <!--    MACRO-SEZIONE GIOCO     -->
@@ -11,88 +10,33 @@
                         <h2 class="mt-1" *ngIf="this.finish">{{movieDetails?.title}}</h2>
                     </div>
                     <div class="col-6 text-center">
-                        <h2 *ngIf="!this.finish" >{{minutes}}:{{seconds}}<fa-icon class="text-primary" [icon]="time"></fa-icon></h2>
-                        <div class="alert alert-success" role="alert" *ngIf="this.win" ><fa-icon [icon]="winIcon"></fa-icon> Hai vinto! {{points}}pt. <fa-icon [icon]="winIcon"></fa-icon></div>
-                        <div class="alert alert-danger" role="alert" *ngIf="!this.win && this.finish"><fa-icon [icon]="loseIcon"></fa-icon> Hai perso! {{points}}pt. <fa-icon [icon]="loseIcon"></fa-icon></div>
+                        <app-time *ngIf="!this.finish" [minutes]="this.minutes!" [seconds]="this.seconds!" [time]="this.time" ></app-time>
+                        <app-game-result *ngIf="this.finish" [points]="this.points!" [win]="this.win"></app-game-result>
                     </div>
                 </div>
                      <!--   Sezione dati da indovinare   -->
                 <div class="row text-center">
-
-
-                    <div class="col-12 col-md-7">
-                        <img  [ngStyle]="{'filter': blurString}" [src]="this.newMovieService.getMoviePoster(this.movieDetails?.poster_path)" alt="poster image" width="75%">
-
-
-
-                    </div>
-
-                    <div class="col-12 col-md-5 align-self-center justify-content-center border border-primary border-2 rounded-2">  
-                        
-                      <dl class="row ">
-
-                        <div class="col-6 col-md-12 justify-content-center text center ">
-                        <h3 class="text-primary" >Uscita:</h3>
-                        <div  >
-                            <p [hidden]="!showDate" >{{movieDetails?.release_date | date}}</p>
-                            <p [hidden]="showDate" ><fa-icon [icon]="guessIcon"></fa-icon></p>
-                        </div> 
-
-                        
-                        <h3 class="text-primary">Genere:</h3>
-                        <div>
-                            <p [hidden]="!showGenres[0]" > {{genres[0].name}} </p>
-                            <p [hidden]="showGenres[0]" > <fa-icon [icon]="guessIcon"></fa-icon></p>
-                            
-                        </div>
-                        <h3 class="text-primary">Lingua:</h3>
-                        <div>
-                            <p [hidden]="!showGenres[1]" > {{movieDetails?.original_language}} </p>
-                            <p [hidden]="showGenres[1]" > <fa-icon [icon]="guessIcon"></fa-icon></p>
-                            
-                        </div>
-                        </div>
-
-                        <div class="col-6 col-md-12 ">
-                        <h3 class="text-primary">Regista:</h3>
-                        <div  >
-                            <p [hidden]="!showDirector"> {{director[0].name}}</p>
-                            <p [hidden]="showDirector"> <fa-icon [icon]="guessIcon"></fa-icon> </p>
-                        </div>
-
-                        <h3 class="text-primary">Attori:</h3>
-                        <div >
-                            <p [hidden]="!showActors[0]"> {{cast[0].name}} </p>
-                            <p [hidden]="showActors[0]"> <fa-icon [icon]="guessIcon"></fa-icon></p>
-                            <p [hidden]="!showActors[1]"> {{cast[1].name}} </p>
-                            <p [hidden]="showActors[1]"> <fa-icon [icon]="guessIcon"></fa-icon> </p>
-                            <p [hidden]="!showActors[2]"> {{cast[2].name}} </p> 
-                            <p [hidden]="showActors[2]"> <fa-icon [icon]="guessIcon"></fa-icon></p>  
-
-                        </div>
-
-                        </div>
-                      </dl>
+                    <app-poster class="col-12 col-md-7" [ngStyle]="{'filter': blurString}" [detail]="this.movieDetails!"></app-poster>
+                    <app-guess-data class="col-12 col-md-5 align-self-center  border border-primary border-2 rounded-2"
+                    [movieDetails]="this.movieDetails!" [showActors]="this.showActors" [showDate]="this.showDate" [showDirector]="this.showDirector"
+                    [showGenres]="this.showGenres" [cast]="this.cast!" [director]="this.director"></app-guess-data>
                     
-                    </div>
                 </div>
                     <!--    MACRO-SEZIONE INDOVINA/RIGIOCA/SALVA-->
-                 <div *ngIf="this.finish; then conclusionBlock else guessingBlock"></div>
+                <div *ngIf="this.finish; then conclusionBlock else guessingBlock"></div>
 
                     <!--    sezione dedicata ad inserimento titolo       -->
                 <ng-template #guessingBlock>
-                <form  #guessForm="ngForm" (submit)="guess(guessForm)">
-                    <div class="mb-3 text-center">
-                      <label for="guessTitle" class="form-label">Titolo:</label>
-                      <input [ngModel] name="guessTitle" type="text" class="form-control" id="guessTitle" aria-describedby="guess">
-                      <div id="guess" class="form-text">Concentrati e cerca di indovinare prima che il tempo scada. Hai tutti i tentativi che desideri!</div>
+                    <form  #guessForm="ngForm" (submit)="guess(guessForm)">
+                        <div class="mb-3 text-center">
+                        <label for="guessTitle" class="form-label">Titolo:</label>
+                        <input [ngModel] name="guessTitle" type="text" class="form-control" id="guessTitle" aria-describedby="guess">
+                        <div id="guess" class="form-text">Concentrati e cerca di indovinare prima che il tempo scada. Hai tutti i tentativi che desideri!</div>
 
-                    <button type="submit" class="btn btn-primary position-relative text-white mt-2">Indovina
-                         <span class="position-absolute top-0 start-100 translate-middle p-1 bg-light text-primary border border-primary rounded-3 pt-0 pb-0">{{this.trys}}</span></button>
-
-                    </div>
-                    
-                </form>
+                        <button type="submit" class="btn btn-primary position-relative text-white mt-2">Indovina
+                            <span class="position-absolute top-0 start-100 translate-middle p-1 bg-light text-primary border border-primary rounded-3 pt-0 pb-0">{{this.trys}}</span></button>
+                        </div>
+                    </form>
                 </ng-template>
                      <!-- sezione dedicata rigioca salva-->
                 <ng-template #conclusionBlock>
@@ -102,8 +46,6 @@
                     <button  type="button" class="btn btn-primary me-1 text-white" (click)="save()"><fa-icon [icon]="saveIcon"></fa-icon> Salva Film</button></div>
 
                 </ng-template>
-                
-
             </ng-template>
                     <!--   MACRO-SESSIONE PREGIOCO    sezione del pulsante di inizio       -->
             <ng-template #elseBlock>

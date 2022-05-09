@@ -21,14 +21,12 @@ import { MovieTableComponent } from './components/child-components/movie-table/m
 import { CastDetailComponent } from './components/child-components/cast-detail/cast-detail.component';
 import { ProductionDetailComponent } from './components/child-components/production-detail/production-detail.component';
 import { SinossiComponent } from './components/child-components/sinossi/sinossi.component';
-
-
-
-
-
-
-
-
+import { MovieScoreComponent } from './components/child-components/movie-score/movie-score.component';
+import { MovieListBodyComponent } from './components/child-components/movie-list-body/movie-list-body.component';
+import { SavingFormComponent } from './components/child-components/saving-form/saving-form.component';
+import { TimeComponent } from './components/child-components/time/time.component';
+import { GameResultComponent } from './components/child-components/game-result/game-result.component';
+import { GuessDataComponent } from './components/child-components/guess-data/guess-data.component';
 
 
 
@@ -49,12 +47,14 @@ import { SinossiComponent } from './components/child-components/sinossi/sinossi.
    MovieTableComponent,
    CastDetailComponent,
    ProductionDetailComponent,
-   SinossiComponent
+   SinossiComponent,
+   MovieScoreComponent,
+   MovieListBodyComponent,
+   SavingFormComponent,
+   TimeComponent,
+   GameResultComponent,
+   GuessDataComponent,
   ],
-
-
-
-
 
 
   imports: [
@@ -64,8 +64,6 @@ import { SinossiComponent } from './components/child-components/sinossi/sinossi.
     HttpClientModule,
     FormsModule,
     FontAwesomeModule
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]
