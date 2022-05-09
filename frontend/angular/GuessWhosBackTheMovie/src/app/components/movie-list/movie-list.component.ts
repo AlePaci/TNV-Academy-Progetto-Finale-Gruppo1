@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../model/movie.model';
 import { PreferredMovieService } from '../../services/preferred-movie.service';
-import { MovieDetails } from '../../model/movieDetails.model';
 import { Prefferd } from '../../model/prefferd.model';
 import { SessionStorageService } from '../../services/session-storage.service';
 import { TMDBApiService } from '../../services/tmdb-api.service';
-import { faCoins } from '@fortawesome/free-solid-svg-icons';
-
-
 
 @Component({
   selector: 'app-movie-list',
@@ -15,13 +11,12 @@ import { faCoins } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./movie-list.component.scss']
 })
 export class MovieListComponent implements OnInit {
+
   prefferedMovies:Prefferd[] = [];
   movieList:Movie[]= [];
-  coins = faCoins;
   
-  
-
-  constructor(private prefferedService: PreferredMovieService,
+  constructor(
+    private prefferedService: PreferredMovieService,
     private sessionService: SessionStorageService,
     public movieService:TMDBApiService) { }
 
@@ -36,21 +31,11 @@ export class MovieListComponent implements OnInit {
             console.log(this.movieList)
         }, 
         error: (res) => console.log(res)
-      });
-       });
-      
-       
+        });
+       });  
       },
     error:(res) => console.log(res)
-    });
-
-     
-      
-   
-    
-
-    console.log("this.movieList");
-    
+    });    
   }
 
 }

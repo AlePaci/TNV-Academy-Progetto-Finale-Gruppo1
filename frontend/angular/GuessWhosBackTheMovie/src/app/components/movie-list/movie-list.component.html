@@ -1,23 +1,15 @@
 <div class="container-fluid fs-3 ">
-    <div class="row">
-        <div class="col-12 col-md-8 offset-md-2 border-primary  mt-2">
-            <div class="row">
-
-            <div *ngFor="let movie of this.movieList" class="card col-6 col-sm-4 col-md-4 col-lg-3 text-center mt-2 border-primary " >
-              <div class="position-relative">
-                <app-poster [detail]="this.movie.movieDetail"></app-poster>
-                <div class="position-absolute rounded-3 bg-primary punti top-0"><p class="ms-1 mb-0 me-1">{{movie.movieScore}}<fa-icon  [icon]="coins"></fa-icon> </p></div>
-
-              </div>
-                <div class="card-body d-flex flex-column">
-                  <h5 class="card-title">{{movie.movieDetail.title}}</h5>
-                
-
-                  <a [routerLink]="['/film', movie.movieDetail.id]" class="btn btn-primary mt-auto text-white btn-sm ">Dettagli</a>
-
-                </div>
-              </div>
-            </div>    
+  <div class="row">
+    <div class="col-12 col-md-8 offset-md-2 border-primary  mt-2">
+      <div class="row">
+        <div *ngFor="let movie of this.movieList" class="card col-6 col-sm-4 col-md-4 col-lg-3 text-center mt-2 border-primary " >
+          <div class="position-relative mt-1">
+            <app-poster [detail]="this.movie.movieDetail"></app-poster>
+            <app-movie-score [movie]="this.movie"></app-movie-score>
+          </div>
+          <app-movie-list-body class="card-body d-flex flex-column" [movie]="this.movie"></app-movie-list-body>  
         </div>
+      </div>    
     </div>
+  </div>
 </div>
