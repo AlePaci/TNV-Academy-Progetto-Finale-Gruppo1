@@ -36,7 +36,7 @@ class RatingController extends Controller
         $validator = Validator::make(
             $request->only(['movie_rating','movie_id','user_id']),
             [
-                'movie_rating' => 'required|integer|between:1,5',
+                'movie_rating' => 'required|integer|between:0,5',
                 'movie_id' => 'required|integer|min:0',
                 'user_id' => 'required|integer|min:0'
             ]);
@@ -82,7 +82,7 @@ class RatingController extends Controller
         $validator = Validator::make(
             $request->only(['movie_rating']),
             [
-                'movie_rating' => 'required|integer|between:1,5'
+                'movie_rating' => 'required|integer|between:0,5'
             ]);
 
         if ($validator->fails()) {

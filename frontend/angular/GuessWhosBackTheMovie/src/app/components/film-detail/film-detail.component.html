@@ -3,7 +3,8 @@
       <div class="col-12 col-md-8 offset-md-2 border border-2 border-primary rounded-2  mt-2">
 
         <div class="row bg-primary">
-          <app-ratings class="col-5 ps-0 pe-0" [starArray]="this.starArray"></app-ratings>
+          <app-ratings *ngIf="!this.isModificaRating" class="col-5 ps-0 pe-0" [starArray]="this.starArray" (callParentFunc)="modificaRating()" ></app-ratings>
+          <app-update-rating *ngIf="this.isModificaRating" class="col-5 ps-0 pe-0" [ratingId]="this.ratingId" (callParentFunc)="modificaRating()"></app-update-rating>
           <h1 class="text-center text-white pe-0 ps-0 col-7">{{this.detail?.title}}</h1>
         </div>
 

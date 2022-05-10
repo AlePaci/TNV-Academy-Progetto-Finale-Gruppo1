@@ -1,4 +1,4 @@
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component, OnInit ,Input, Output, EventEmitter} from '@angular/core';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,6 +9,7 @@ import { faPencil } from '@fortawesome/free-solid-svg-icons';
 })
 export class RatingsComponent implements OnInit {
   @Input(('starArray')) starArray!:number[] ;
+  @Output() callParentFunc: EventEmitter<any> = new EventEmitter<any>();
 
 
   star = faStar;
@@ -18,7 +19,9 @@ export class RatingsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
   }
 
+  modifica(){
+   this.callParentFunc.emit();
+  }
 }

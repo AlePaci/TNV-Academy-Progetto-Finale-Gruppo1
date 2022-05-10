@@ -9,6 +9,7 @@ import {faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import { RatingsService } from '../../services/ratings.service';
 import { PreferredMovieService } from 'src/app/services/preferred-movie.service';
 import { Comment } from 'src/app/model/comment.model';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -24,7 +25,7 @@ export class FilmDetailComponent implements OnInit{
   ratingValue:number |null = null;
 
   movieId:number = 0;
-  
+  isModificaRating: boolean = false;
 
 // info film
   detail: MovieDetails |null = null
@@ -38,7 +39,7 @@ export class FilmDetailComponent implements OnInit{
 
   trash = faTrashCan;
   
-  
+  isUpdate:boolean=false;
 
 
   constructor(
@@ -61,17 +62,7 @@ export class FilmDetailComponent implements OnInit{
         error:(res)=> console.log(res)
       });
 
-      this.ratingService.getRating(this.sessionService.getUserId(),this.movieId).subscribe({
-        next: (res)=>{
-          this.ratingValue = res.Ratings.data[0].movie_rating;
-          this.ratingId = res.Ratings.data[0].id;
-          
-          for(let i=0;i<this.ratingValue;i++){
-            this.starArray.push(0);
-          }
-        },
-        error: (res)=> console.log(res)
-      });
+      this.getRating();
 
       this.commentService.getComment(this.sessionService.getUserId(),this.movieId).subscribe({
         next: (res)=>this.comment = res.data,
@@ -103,7 +94,7 @@ export class FilmDetailComponent implements OnInit{
       error: (res)=> console.log(res)
     })
   
-    this.ratingService.deleteRating(this.commentId).subscribe({
+    this.ratingService.deleteRating(this.ratingId).subscribe({
       next: (res)=>console.log(res),
       error: (res) => console.log(res)
     });
@@ -120,6 +111,24 @@ export class FilmDetailComponent implements OnInit{
    
   }
 
+  modificaRating(){
+    this.isModificaRating = !this.isModificaRating;
+    this.getRating();
+  }
+
+  getRating(){
+    this.ratingService.getRating(this.sessionService.getUserId(),this.movieId).subscribe({
+      next: (res)=>{
+        this.ratingValue = res.Ratings.data[0].movie_rating;
+        this.ratingId = res.Ratings.data[0].id;
+        this.starArray.length = 0;
+        for(let i=0;i<this.ratingValue;i++){
+          this.starArray.push(0);
+        }
+      },
+      error: (res)=> console.log(res)
+    });
+  }
 
 
   }

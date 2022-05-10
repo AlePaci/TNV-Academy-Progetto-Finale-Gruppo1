@@ -21,5 +21,9 @@ export class RatingsService {
     return this.http.delete<DeleteMessage>(`http://localhost:8000/api/ratings/${ratingId}`);
   }
 
+  updateRatings(ratingId:number, newRating: NewRating){
+    return this.http.put<RatingData>(`http://127.0.0.1:8000/api/ratings/${ratingId}`,newRating);
+  }
+
   
 }
