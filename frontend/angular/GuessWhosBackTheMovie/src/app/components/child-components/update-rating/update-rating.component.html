@@ -1,0 +1,9 @@
+<form #savingForm="ngForm" (submit)="save(savingForm)">
+    <!-- sezione voto-->
+    <div class="mb-0">
+        <label for="rating" class="form-label text-white ">Modifica Voto:{{savingForm.value.rating}}</label>
+        <input [ngModel] name="rating" type="range" class="form-range thumb-light" min="0" max="5"  id="range" required >
+    </div>
+    <button type="submit" class="btn btn-light text-primary"[disabled]="!savingForm.form.valid">
+        <fa-icon [icon]="saveIcon"></fa-icon> Salva</button>
+</form>

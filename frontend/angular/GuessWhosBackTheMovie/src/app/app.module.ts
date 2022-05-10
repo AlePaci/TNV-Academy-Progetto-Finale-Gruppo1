@@ -27,6 +27,7 @@ import { SavingFormComponent } from './components/child-components/saving-form/s
 import { TimeComponent } from './components/child-components/time/time.component';
 import { GameResultComponent } from './components/child-components/game-result/game-result.component';
 import { GuessDataComponent } from './components/child-components/guess-data/guess-data.component';
+import { UpdateRatingComponent } from './components/child-components/update-rating/update-rating.component';
 
 
 
@@ -54,6 +55,7 @@ import { GuessDataComponent } from './components/child-components/guess-data/gue
    TimeComponent,
    GameResultComponent,
    GuessDataComponent,
+   UpdateRatingComponent,
   ],
 
 
