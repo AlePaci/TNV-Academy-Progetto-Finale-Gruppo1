@@ -1,0 +1,10 @@
+<form  #guessForm="ngForm" (submit)="guess(guessForm)">
+    <div class="mb-3 text-center">
+    <label for="guessTitle" class="form-label">Titolo:</label>
+    <input [ngModel] name="guessTitle" type="text" class="form-control" id="guessTitle" aria-describedby="guess">
+    <div id="guess" class="form-text">Concentrati e cerca di indovinare prima che il tempo scada. Hai tutti i tentativi che desideri!</div>
+
+    <button type="submit" class="btn btn-primary position-relative text-white mt-2">Indovina
+        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-light text-primary border border-primary rounded-3 pt-0 pb-0">{{this.trys}}</span></button>
+    </div>
+</form>

@@ -1,10 +1,15 @@
 <div class="container-fluid fs-3">
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2 border border-primary border-3 rounded-2  mt-2">
-            <div *ngIf="this.start; then thenBlock else elseBlock"></div>
-                    <!--    MACRO-SEZIONE GIOCO     -->
-            <ng-template #thenBlock>
-                    <!-- sezione titolo e timer     -->
+                      <!--   Inizio Gioco       -->
+            <div *ngIf="!this.start" class="text-center mb-2 mt-2"> 
+                <button (click)="onStart()" type="button" class="btn btn-primary text-white">
+                <fa-icon [icon]="playIcon"></fa-icon> Inizia</button>
+            </div>
+
+                    <!--   gioco avviato    -->
+           <div *ngIf="this.start">
+                    <!--  titolo e timer     -->
                 <div class="row pt-2">
                     <div class="col-6 text-center">
                         <h2 class="mt-1" *ngIf="this.finish">{{movieDetails?.title}}</h2>
@@ -14,44 +19,25 @@
                         <app-game-result *ngIf="this.finish" [points]="this.points!" [win]="this.win"></app-game-result>
                     </div>
                 </div>
-                     <!--   Sezione dati da indovinare   -->
+                     <!--   dati da indovinare   -->
                 <div class="row text-center">
                     <app-poster class="col-12 col-md-7" [ngStyle]="{'filter': blurString}" [detail]="this.movieDetails!"></app-poster>
                     <app-guess-data class="col-12 col-md-5 align-self-center  border border-primary border-2 rounded-2"
                     [movieDetails]="this.movieDetails!" [showActors]="this.showActors" [showDate]="this.showDate" [showDirector]="this.showDirector"
                     [showGenres]="this.showGenres" [cast]="this.cast!" [director]="this.director"></app-guess-data>
                     
+                </div>  
+                    <!--    inserimento titolo       -->
+                <app-guess-form *ngIf="!this.finish" [movieDetails]="this.movieDetails!" (callParentFunc)="guessed()"></app-guess-form>
+               
+                     <!-- fine gioco rigioca/salva-->
+                <div *ngIf="this.finish" class="text-center" >     
+                    <button  type="button" class="btn btn-primary me-1 text-white" (click)="playAgain()">
+                        <fa-icon [icon]="playIcon"></fa-icon> Rigioca</button>
+                    <button  type="button" class="btn btn-primary me-1 text-white" (click)="save()">
+                        <fa-icon [icon]="saveIcon"></fa-icon> Salva Film</button>
                 </div>
-                    <!--    MACRO-SEZIONE INDOVINA/RIGIOCA/SALVA-->
-                <div *ngIf="this.finish; then conclusionBlock else guessingBlock"></div>
-
-                    <!--    sezione dedicata ad inserimento titolo       -->
-                <ng-template #guessingBlock>
-                    <form  #guessForm="ngForm" (submit)="guess(guessForm)">
-                        <div class="mb-3 text-center">
-                        <label for="guessTitle" class="form-label">Titolo:</label>
-                        <input [ngModel] name="guessTitle" type="text" class="form-control" id="guessTitle" aria-describedby="guess">
-                        <div id="guess" class="form-text">Concentrati e cerca di indovinare prima che il tempo scada. Hai tutti i tentativi che desideri!</div>
-
-                        <button type="submit" class="btn btn-primary position-relative text-white mt-2">Indovina
-                            <span class="position-absolute top-0 start-100 translate-middle p-1 bg-light text-primary border border-primary rounded-3 pt-0 pb-0">{{this.trys}}</span></button>
-                        </div>
-                    </form>
-                </ng-template>
-                     <!-- sezione dedicata rigioca salva-->
-                <ng-template #conclusionBlock>
-                    <div class="text-center">
-
-                    <button  type="button" class="btn btn-primary me-1 text-white" (click)="playAgain()"><fa-icon [icon]="playIcon"></fa-icon> Rigioca</button>
-                    <button  type="button" class="btn btn-primary me-1 text-white" (click)="save()"><fa-icon [icon]="saveIcon"></fa-icon> Salva Film</button></div>
-
-                </ng-template>
-            </ng-template>
-                    <!--   MACRO-SESSIONE PREGIOCO    sezione del pulsante di inizio       -->
-            <ng-template #elseBlock>
-                <div class="text-center mb-2 mt-2"> 
-                <button (click)="onStart()" type="button" class="btn btn-primary text-white"><fa-icon [icon]="playIcon"></fa-icon> Inizia</button></div>
-            </ng-template>
+            </div>
         </div> 
     </div>
 </div>

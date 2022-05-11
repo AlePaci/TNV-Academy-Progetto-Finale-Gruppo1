@@ -53,7 +53,7 @@ export class GiocoComponent implements OnInit {
   blurString: string = "string";
 
   points: number | null = 0;
-  trys:number = 0;
+  
 
   giaGiocati: number[]=[]
   myMovies: Prefferd[]=[];
@@ -163,20 +163,11 @@ export class GiocoComponent implements OnInit {
 
       }else this.retirveMovie();
   }
-  
-// Metodo per valutare l input sul tentativo titolo
-  guess(guessForm: NgForm){
-    if(this.movieDetails?.title.toLowerCase()===guessForm.value.guessTitle){
-      this.finish = true;
-      this.win = true;
-      this.points = this.subscribeTimer;
-      this.blurString = `blur(0)`;      
-      console.log("indovinato");
-    }
-    else{
-      this.trys+=1;
-      console.log("Sbagliato");
-    }
+  guessed(){
+    this.finish = true;
+    this.win = true;
+    this.points = this.subscribeTimer;
+    this.blurString = `blur(0)`;  
   }
 
   // metodo per fare una nuova partita

@@ -29,6 +29,7 @@ import { GameResultComponent } from './components/child-components/game-result/g
 import { GuessDataComponent } from './components/child-components/guess-data/guess-data.component';
 import { UpdateRatingComponent } from './components/child-components/update-rating/update-rating.component';
 import { UpdateCommentComponent } from './components/child-components/update-comment/update-comment.component';
+import { GuessFormComponent } from './components/child-components/guess-form/guess-form.component';
 
 
 
@@ -58,6 +59,7 @@ import { UpdateCommentComponent } from './components/child-components/update-com
    GuessDataComponent,
    UpdateRatingComponent,
    UpdateCommentComponent,
+   GuessFormComponent,
   ],
 
 
