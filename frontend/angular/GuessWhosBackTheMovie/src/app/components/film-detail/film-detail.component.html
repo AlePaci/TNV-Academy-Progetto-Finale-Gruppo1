@@ -12,7 +12,8 @@
           <app-poster class="col-12 col-md-6 text-center" [detail]="this.detail!"></app-poster>
           <div class="col-12 col-md-6 align-self-center">
             <app-sinossi [detail]="this.detail!"></app-sinossi>
-            <app-comment [comment]="this.comment!"></app-comment>
+            <app-comment *ngIf="!this.isModificaComment" [comment]="this.comment!" (callParentFunc)="modificaComment()"></app-comment>
+            <app-update-comment *ngIf="this.isModificaComment" [comment]="this.comment!" (callParentFunc)="modificaComment()"></app-update-comment>
           </div> 
         </div>
 

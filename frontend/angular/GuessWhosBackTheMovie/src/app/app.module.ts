@@ -28,6 +28,7 @@ import { TimeComponent } from './components/child-components/time/time.component
 import { GameResultComponent } from './components/child-components/game-result/game-result.component';
 import { GuessDataComponent } from './components/child-components/guess-data/guess-data.component';
 import { UpdateRatingComponent } from './components/child-components/update-rating/update-rating.component';
+import { UpdateCommentComponent } from './components/child-components/update-comment/update-comment.component';
 
 
 
@@ -56,6 +57,7 @@ import { UpdateRatingComponent } from './components/child-components/update-rati
    GameResultComponent,
    GuessDataComponent,
    UpdateRatingComponent,
+   UpdateCommentComponent,
   ],
 
 

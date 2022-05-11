@@ -9,7 +9,7 @@ import {faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import { RatingsService } from '../../services/ratings.service';
 import { PreferredMovieService } from 'src/app/services/preferred-movie.service';
 import { Comment } from 'src/app/model/comment.model';
-import { faL } from '@fortawesome/free-solid-svg-icons';
+
 
 
 
@@ -26,6 +26,7 @@ export class FilmDetailComponent implements OnInit{
 
   movieId:number = 0;
   isModificaRating: boolean = false;
+  isModificaComment:boolean = false;
 
 // info film
   detail: MovieDetails |null = null
@@ -39,7 +40,7 @@ export class FilmDetailComponent implements OnInit{
 
   trash = faTrashCan;
   
-  isUpdate:boolean=false;
+ 
 
 
   constructor(
@@ -64,11 +65,7 @@ export class FilmDetailComponent implements OnInit{
 
       this.getRating();
 
-      this.commentService.getComment(this.sessionService.getUserId(),this.movieId).subscribe({
-        next: (res)=>this.comment = res.data,
-        error: (res)=>console.log(res) 
-      });
-
+      this.getComment();
 
       this.movieService.getMovieCredits( this.movieId).subscribe({
         next: (res) =>{
@@ -115,6 +112,10 @@ export class FilmDetailComponent implements OnInit{
     this.isModificaRating = !this.isModificaRating;
     this.getRating();
   }
+  modificaComment(){
+    this.isModificaComment =!this.isModificaComment;
+    this.getComment();
+  }
 
   getRating(){
     this.ratingService.getRating(this.sessionService.getUserId(),this.movieId).subscribe({
@@ -127,6 +128,16 @@ export class FilmDetailComponent implements OnInit{
         }
       },
       error: (res)=> console.log(res)
+    });
+  }
+
+  getComment(){
+    this.commentService.getComment(this.sessionService.getUserId(),this.movieId).subscribe({
+      next: (res)=>{
+        this.comment = res.data;
+        this.commentId = res.data.id;
+      },
+      error: (res)=>console.log(res) 
     });
   }
 
