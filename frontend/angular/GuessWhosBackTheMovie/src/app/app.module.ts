@@ -21,6 +21,7 @@ import { MovieTableComponent } from './components/child-components/movie-table/m
 import { CastDetailComponent } from './components/child-components/cast-detail/cast-detail.component';
 import { ProductionDetailComponent } from './components/child-components/production-detail/production-detail.component';
 import { SinossiComponent } from './components/child-components/sinossi/sinossi.component';
+import { RankingComponent } from './components/ranking/ranking.component';
 
 
 
@@ -49,7 +50,8 @@ import { SinossiComponent } from './components/child-components/sinossi/sinossi.
    MovieTableComponent,
    CastDetailComponent,
    ProductionDetailComponent,
-   SinossiComponent
+   SinossiComponent,
+   RankingComponent
   ],
 
 

@@ -8,6 +8,7 @@ import { GiocoComponent } from './components/gioco/gioco.component';
 
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { SaveComponent } from './components/save/save.component';
+import { RankingComponent } from './components/ranking/ranking.component';
 
 
 
@@ -18,8 +19,9 @@ const routes: Routes = [
   {path: 'film/:movieId', component: FilmDetailComponent},
   {path: 'gioco', component: GiocoComponent},
   {path: 'gioco/:movieId/:points', component: SaveComponent},
-  {path: 'film', component: MovieListComponent},  
-  {path: '', redirectTo: '/home', pathMatch: 'full'}
+  {path: 'film', component: MovieListComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: 'ranking',component:RankingComponent}
 
 ];
 
