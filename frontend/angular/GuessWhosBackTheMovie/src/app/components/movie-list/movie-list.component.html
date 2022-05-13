@@ -4,7 +4,9 @@
       <ul class="list-group  list-group-horizontal fs-5">
         <li class="list-group-item border-primary" (click)="ordinaPunteggio()">Punteggio <fa-icon [icon]="faScoreOrder"></fa-icon></li>
         <li class="list-group-item border-primary" (click)="ordinaTitolo()">Titolo <fa-icon [icon]="faTitleOrder"></fa-icon></li>
-        
+        <li class="form-group mt-1">   
+        <input class="border-primary" type="text" id="search" [ngModel]="searchText" (ngModelChange)="searchKey($event)" placeholder="Cerca per Titolo"
+        ngModel></li>
       </ul>
       <div class="row">
         <div *ngFor="let movie of this.movieList" class="card col-6 col-sm-4 col-md-4 col-lg-3 text-center mt-2 border-primary " >

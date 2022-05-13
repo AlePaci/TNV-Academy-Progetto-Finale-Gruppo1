@@ -14,6 +14,8 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 })
 export class MovieListComponent implements OnInit {
 
+  searchText: string ="";
+
   prefferedMovies:Prefferd[] = [];
   unsortedList:Movie[] = []
   movieList:Movie[]= [];
@@ -38,11 +40,11 @@ export class MovieListComponent implements OnInit {
         this.prefferedMovies.sort((a,b)=>b.gameScore -a.gameScore);
         this.prefferedMovies.forEach(element => {
           this.movieService.getMovieDetails(element.movieId).subscribe({
-          next: (res)=> this.movieList.push({movieDetail:res,movieScore:element.gameScore}),
+          next: (res)=> this.unsortedList.push({movieDetail:res,movieScore:element.gameScore}),
           error: (res) => console.log(res)
         });
        }); 
-      
+      this.search()
       },
       error:(res) => console.log(res)
     });  
@@ -81,5 +83,14 @@ export class MovieListComponent implements OnInit {
   
   }
 
+}
+searchKey(data: string) {
+  this.searchText = data;
+  console.log(this.searchText)
+  this.search();
+}
+search(){
+ this.movieList =  this.searchText === ""? this.unsortedList : this.unsortedList.filter((m)=> { return m.movieDetail.title.toLowerCase().includes(this.searchText.toLowerCase())})
+  console.log(this.movieList)
 }
 }
