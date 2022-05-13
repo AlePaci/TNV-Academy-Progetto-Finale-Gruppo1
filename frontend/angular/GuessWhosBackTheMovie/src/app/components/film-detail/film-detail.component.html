@@ -20,12 +20,12 @@
         <div class="row mt-2">
           <app-movie-table class="col-6" [detail]="this.detail!"></app-movie-table>
           <div class="col-6 align-self-center ">
-            <app-cast-detail [credits]="this.credits!"></app-cast-detail>
+            <app-cast-detail [credits]="this.credits!" [director]="this.director!"></app-cast-detail>
             <app-production-detail [detail]="this.detail!"></app-production-detail>
           </div>
         </div>
 
-      <div class="text-center mt-2"><button class="btn btn-primary text-white" type="submit" id="cancella" (click)="cancella()"><fa-icon [icon]="trash"></fa-icon> Cancella</button></div>
+      <div class="text-center mt-2 mb-2"><button class="btn btn-primary text-white" type="submit" id="cancella" (click)="cancella()"><fa-icon [icon]="trash"></fa-icon> Cancella</button></div>
     
     </div>
   </div>
