@@ -10,10 +10,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row" *ngFor="let i of userScore ; let s=index">1</th>
-      <td></td>
-      <td></td>
+    <tr *ngFor="let i of userScore ; let s=index">
+      <th scope="row">1</th>
+      <td >{{i.user}}</td>
+      <td >{{i.score}}</td>
       <td></td>
     </tr>
     <tr>
