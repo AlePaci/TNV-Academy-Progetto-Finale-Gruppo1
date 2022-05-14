@@ -22,4 +22,8 @@ export class AccessApiService {
   allUsers(){
     return this.http.get<User[]>("http://localhost:8080/users");
   }
+
+  getUserById(userId:number){
+    return this.http.get<User>(`http://localhost:8080/users/${userId}`);
+  }
 }

@@ -74,4 +74,11 @@ public class UserController {
     public Iterable<User> getAllUsers(){
         return this.userService.getAllUsers();
     }
+
+    @GetMapping("/users/{userId}")
+    public User getUserById(@PathVariable("userId")  int userId){
+        return this.userService.getUsersById(userId);
+    }
+
+
 }
