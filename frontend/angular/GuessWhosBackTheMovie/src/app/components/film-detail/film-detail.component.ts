@@ -9,6 +9,11 @@ import {faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import { RatingsService } from '../../services/ratings.service';
 import { PreferredMovieService } from 'src/app/services/preferred-movie.service';
 import { Comment } from 'src/app/model/comment.model';
+import { AccessApiService } from 'src/app/services/access-api.service';
+import { UserScore } from 'src/app/model/user.model';
+import { faRankingStar } from '@fortawesome/free-solid-svg-icons';
+import { Prefferd } from 'src/app/model/prefferd.model';
+
 
 
 
@@ -24,7 +29,8 @@ export class FilmDetailComponent implements OnInit{
   ratingValue:number |null = null;
 
   movieId:number = 0;
-  
+  isModificaRating: boolean = false;
+  isModificaComment:boolean = false;
 
 // info film
   detail: MovieDetails |null = null
@@ -35,10 +41,13 @@ export class FilmDetailComponent implements OnInit{
   commentId:number =0;
   ratingId:number = 0;
   preffId:number = 0;
+  topPosition:UserScore[] = [];
+  podium:Prefferd[] = [];
 
   trash = faTrashCan;
+  rank = faRankingStar;
   
-  
+ 
 
 
   constructor(
@@ -48,7 +57,8 @@ export class FilmDetailComponent implements OnInit{
     private ratingService: RatingsService,
     private sessionService:SessionStorageService,
     private preffService:PreferredMovieService,
-    private router: Router
+    private router: Router,
+    private accessService: AccessApiService
     ) {
 
    }
@@ -56,60 +66,38 @@ export class FilmDetailComponent implements OnInit{
   ngOnInit(): void {
       this.activatedRoute.params.subscribe((val) => this.movieId = +val['movieId'])
 
-      this.preffService.findPreffUserMovie(this.sessionService.getUserId(),this.movieId).subscribe({
-        next: (res)=> this.preffId = res.id,
-        error:(res)=> console.log(res)
-      });
-
-      this.ratingService.getRating(this.sessionService.getUserId(),this.movieId).subscribe({
+      this.preffService.findAllMoviesByMovieID(this.movieId).subscribe({
         next: (res)=>{
-          console.log(res)
-          this.ratingValue = res.Ratings.data[0].movie_rating;
-          this.ratingId = res.Ratings.data[0].id;
-          
-          for(let i=0;i<this.ratingValue;i++){
-            this.starArray.push(0);
-          }
-          
-          console.log(this.starArray);
+       
+          res.sort((a,b)=>b.gameScore - a.gameScore);
+          this.podium = res.slice(0,3)
+          this.podium.forEach(element => { 
+            this.accessService.getUserById(element.userId).subscribe({
+              next:(res)=> this.topPosition.push({user:res ,score:element.gameScore}),
+              error:(res)=>console.log(res)
+            });
+          });       
         },
         error: (res)=> console.log(res)
       });
-
-      this.commentService.getComment(this.sessionService.getUserId(),this.movieId).subscribe({
-        next: (res)=>{
-          this.comment = res.data;
-          console.log(this.comment);
-        },
-        error: (res)=>console.log(res) 
-      });
-
-
-      this.movieService.getMovieCredits( this.movieId).subscribe({
-        next: (res) =>{
-          this.credits = res;
-          this.director = this.credits.crew?.filter(crew => crew.job ==="Director");
-        },
-        error:(res) => console.log(res)
-      });
-      
-      this.movieService.getMovieDetails(this.movieId).subscribe({
-        next: (res) =>{
-           this.detail = res;
-           this.genres = res?.genres;
-              },
-        error: (res) => console.log(res)    
-      });  
+      this.getRating();
+      this.getComment();
+      this.getCredits();
+      this.getDetails();
+   
   }
 
-
+/**
+ * Metodo per cancellare un determinato film preferito
+ * fa la chiamata del delete ad ogni api del backend
+ */
   cancella(){
     this.commentService.deleteComment(this.commentId).subscribe({
       next: (res)=> console.log(res),
       error: (res)=> console.log(res)
     })
   
-    this.ratingService.deleteRating(this.commentId).subscribe({
+    this.ratingService.deleteRating(this.ratingId).subscribe({
       next: (res)=>console.log(res),
       error: (res) => console.log(res)
     });
@@ -122,10 +110,59 @@ export class FilmDetailComponent implements OnInit{
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate(['/film'])
     
-
-   
   }
 
+  modificaRating(){
+    this.isModificaRating = !this.isModificaRating;
+    this.getRating();
+  }
+  modificaComment(){
+    this.isModificaComment =!this.isModificaComment;
+    this.getComment();
+  }
+
+  getRating(){
+    this.ratingService.getRating(this.sessionService.getUserId(),this.movieId).subscribe({
+      next: (res)=>{
+        this.ratingValue = res.Ratings.data[0].movie_rating;
+        this.ratingId = res.Ratings.data[0].id;
+        this.starArray.length = 0;
+        for(let i=0;i<this.ratingValue;i++){
+          this.starArray.push(0);
+        }
+      },
+      error: (res)=> console.log(res)
+    });
+  }
+
+  getComment(){
+    this.commentService.getComment(this.sessionService.getUserId(),this.movieId).subscribe({
+      next: (res)=>{
+        this.comment = res.data;
+        this.commentId = res.data.id;
+      },
+      error: (res)=>console.log(res) 
+    });
+  }
+  getCredits(){
+
+    this.movieService.getMovieCredits( this.movieId).subscribe({
+      next: (res) =>{
+        this.credits = res;
+        this.director = this.credits.crew?.filter(crew => crew.job ==="Director");
+      },
+      error:(res) => console.log(res)
+    });
+  }
+  getDetails(){
+    this.movieService.getMovieDetails(this.movieId).subscribe({
+      next: (res) =>{
+         this.detail = res;
+         this.genres = res?.genres;
+            },
+      error: (res) => console.log(res)    
+    });  
+  }
 
 
   }

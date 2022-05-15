@@ -6,8 +6,8 @@ import { MovieCredits,Cast, Crew} from 'src/app/model/movieCredits.model';
 import { MovieDetails,Genre } from 'src/app/model/movieDetails.model';
 import { TMDBApiService } from 'src/app/services/tmdb-api.service';
 
-import { faFloppyDisk, faCircleQuestion, faPlayCircle} from '@fortawesome/free-regular-svg-icons';
-import { faBurst, faTrophy, faHourglassStart, faHourglassEnd, faHourglassHalf, } from '@fortawesome/free-solid-svg-icons';
+import { faFloppyDisk, faPlayCircle} from '@fortawesome/free-regular-svg-icons';
+import { faHourglassStart, faHourglassEnd, faHourglassHalf } from '@fortawesome/free-solid-svg-icons';
 import { PreferredMovieService } from 'src/app/services/preferred-movie.service';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
 import { Prefferd } from 'src/app/model/prefferd.model';
@@ -53,16 +53,15 @@ export class GiocoComponent implements OnInit {
   blurString: string = "string";
 
   points: number | null = 0;
-  trys:number = 0;
+  
 
   giaGiocati: number[]=[]
   myMovies: Prefferd[]=[];
 
  //Icone 
   saveIcon = faFloppyDisk;
-  loseIcon = faBurst;
-  winIcon = faTrophy;
-  guessIcon = faCircleQuestion;
+
+ 
   time = faHourglassStart;
   half = faHourglassHalf;
   end = faHourglassEnd;
@@ -86,16 +85,10 @@ export class GiocoComponent implements OnInit {
         this.myMovies = res;
         for (const movie of this.myMovies) {
       this.giaGiocati.push(movie.movieId)  
-    }
-      },
+      }},
       error: (res) => console.log(res)
     });
-    
-    
-
   }
-
-
 
    getRandomInt(max:number) {
     return Math.floor(Math.random() * max);
@@ -109,7 +102,6 @@ export class GiocoComponent implements OnInit {
       this.start = true;
       this.countDownTimer();
       console.log('sleep');
-     
       }, 1000);
       
 
@@ -171,20 +163,11 @@ export class GiocoComponent implements OnInit {
 
       }else this.retirveMovie();
   }
-  
-// Metodo per valutare l input sul tentativo titolo
-  guess(guessForm: NgForm){
-    if(this.movieDetails?.title.toLowerCase()===guessForm.value.guessTitle){
-      this.finish = true;
-      this.win = true;
-      this.points = this.subscribeTimer;
-      this.blurString = `blur(0)`;      
-      console.log("indovinato");
-    }
-    else{
-      this.trys+=1;
-      console.log("Sbagliato");
-    }
+  guessed(){
+    this.finish = true;
+    this.win = true;
+    this.points = this.subscribeTimer;
+    this.blurString = `blur(0)`;  
   }
 
   // metodo per fare una nuova partita

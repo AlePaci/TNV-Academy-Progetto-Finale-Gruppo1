@@ -20,7 +20,9 @@ export interface RegistrationUser{
     password: string;
     confirmPassword: string;
 }
- export interface UserScore{
-   user:User;
-   score:number;
- }
+
+export interface UserScore{
+    user:User;
+    score:number;
+  }
+

@@ -1,0 +1,13 @@
+<form #savingForm="ngForm" (submit)="save(savingForm)">
+    
+    <div class="mb-3 rounded-2 bg-primary mt-2">
+        <label for="review" class="form-label text-white mt-2 mb-0"><h3 class="mb-0">Modifica parere:</h3></label>
+        <textarea [(ngModel)]="this.comment.commentText" name="review" minlength="10" maxlength="160" class="form-control border-light" id="review"  #review="ngModel" rows="3" required></textarea>
+        <div [hidden]="review.valid "
+            class="alert alert-danger">
+            Inserisci recensione di almeno 10 caratteri!
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary text-white"[disabled]="!savingForm.form.valid || savingForm.form.pristine" >
+        <fa-icon [icon]="saveIcon"></fa-icon> Salva</button>
+</form>

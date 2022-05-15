@@ -21,7 +21,11 @@ export class PreferredMovieService {
     return this.http.delete<PreffDelete>(`http://localhost:8081/movies/${id}`);
   }
 
-  findPreffUserMovie(user_id : number | null, movie_id : number| null){
+  findPreffUserMovie(user_id:number, movie_id:number){
     return this.http.get<Prefferd>(`http://localhost:8081/idmovie/${user_id}/${movie_id}`);
+  }
+
+  findAllMoviesByMovieID(movieId:number){
+    return this.http.get<Prefferd[]>(`http://localhost:8081/moviemovies/${movieId}`);
   }
 }

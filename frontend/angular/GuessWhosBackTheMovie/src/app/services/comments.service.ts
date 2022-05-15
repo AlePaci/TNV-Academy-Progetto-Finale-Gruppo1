@@ -21,4 +21,9 @@ export class CommentsService {
     return this.http.delete<CommentDelete>(`http://localhost:5201/comment/delete/${id}`);
   }
 
+  updateComment(id: number,comment:PartComment){
+    return this.http.put<CommentData>(` http://localhost:5201/comment/update/${id}`,comment);
+
+  }
+
 }

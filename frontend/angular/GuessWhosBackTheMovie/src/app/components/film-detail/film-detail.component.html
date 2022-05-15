@@ -3,27 +3,47 @@
       <div class="col-12 col-md-8 offset-md-2 border border-2 border-primary rounded-2  mt-2">
 
         <div class="row bg-primary">
-          <app-ratings class="col-5 ps-0 pe-0" [starArray]="this.starArray"></app-ratings>
+          <app-ratings *ngIf="!this.isModificaRating" class="col-5 ps-0 pe-0" [starArray]="this.starArray" (callParentFunc)="modificaRating()" ></app-ratings>
+          <app-update-rating *ngIf="this.isModificaRating" class="col-5 ps-0 pe-0" [ratingId]="this.ratingId" (callParentFunc)="modificaRating()"></app-update-rating>
           <h1 class="text-center text-white pe-0 ps-0 col-7">{{this.detail?.title}}</h1>
         </div>
 
         <div class="row mt-2">
           <app-poster class="col-12 col-md-6 text-center" [detail]="this.detail!"></app-poster>
           <div class="col-12 col-md-6 align-self-center">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"><fa-icon class="text-primary" [icon]="rank"></fa-icon></th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Punteggio</th>
+                  
+                </tr>
+              </thead>
+              <tbody class="border-primary">
+                <tr  *ngFor=" let position of this.topPosition; let i=index">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{position.user.username}}</td>
+                  <td>{{position.score}}</td>   
+                </tr>
+              </tbody>
+            </table>
+            
             <app-sinossi [detail]="this.detail!"></app-sinossi>
-            <app-comment [comment]="this.comment!"></app-comment>
+            <app-comment *ngIf="!this.isModificaComment" [comment]="this.comment!" (callParentFunc)="modificaComment()"></app-comment>
+            <app-update-comment *ngIf="this.isModificaComment" [comment]="this.comment!" (callParentFunc)="modificaComment()"></app-update-comment>
           </div> 
         </div>
 
         <div class="row mt-2">
           <app-movie-table class="col-6" [detail]="this.detail!"></app-movie-table>
           <div class="col-6 align-self-center ">
-            <app-cast-detail [credits]="this.credits!"></app-cast-detail>
+            <app-cast-detail [credits]="this.credits!" [director]="this.director!"></app-cast-detail>
             <app-production-detail [detail]="this.detail!"></app-production-detail>
           </div>
         </div>
 
-      <div class="text-center mt-2"><button class="btn btn-primary text-white" type="submit" id="cancella" (click)="cancella()"><fa-icon [icon]="trash"></fa-icon> Cancella</button></div>
+      <div class="text-center mt-2 mb-2"><button class="btn btn-primary text-white" type="submit" id="cancella" (click)="cancella()"><fa-icon [icon]="trash"></fa-icon> Cancella</button></div>
     
     </div>
   </div>

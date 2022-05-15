@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service("UserService")
 public class UserService {
@@ -96,7 +96,7 @@ public class UserService {
                 if(passwordEncoder.matches(user.getPassword(),userCredentials.getPassword())){
                     if(this.userRepositoryDAO.findByUsername(newUsername) == null){
                         this.userRepositoryDAO.updateUsernameByUsername(newUsername,user.getUsername());
-                        return new RequestResponse(this.userRepositoryDAO.findByUsername(newUsername),"UPDATE_SUCESSFUL");
+                        return new RequestResponse(this.userRepositoryDAO.findByUsername(newUsername),"UPDATE_SUCCESSFUL");
                     }else{
                         throw new UsernameExistException();
                     }
@@ -118,5 +118,12 @@ public class UserService {
 
     public Iterable<User> getAllUsers(){
         return this.userRepositoryDAO.findAll();
+    }
+
+    public User getUsersById(int userId){
+        Optional<User> user = this.userRepositoryDAO.findById(userId);
+        if(user.isPresent())
+            return user.get();
+        else throw new NoUserFoundException();
     }
 }
