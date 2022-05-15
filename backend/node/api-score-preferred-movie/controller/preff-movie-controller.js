@@ -1,5 +1,10 @@
 import Movie from "../model/preferred_movie.js";
 
+/**
+ * metodo per salvare un nuovo film preferito
+ * @param {*} req 
+ * @param {*} res 
+ */
 export const createPreffMovie = async (req, res) => {
     try {
         const prefMovie = await Movie.create(req.body);
@@ -12,7 +17,11 @@ export const createPreffMovie = async (req, res) => {
         res.sendStatus(500);
     }
 }
-
+/**
+ * Metodo per recuperare tutti i film preferiti
+ * @param {*} req 
+ * @param {*} res 
+ */
 export const getPrefMovies = async (req, res) => {
     try {
         const prefMovies = await Movie.findAll();
@@ -21,7 +30,11 @@ export const getPrefMovies = async (req, res) => {
         console.log(err);
     }
 }
-
+/**
+ *  Metodo per recuperare un film preferito cercando per Id
+ * @param {*} req 
+ * @param {*} res 
+ */
 export const getPrefMovieById = async (req, res) => {
     try {
         const prefMovie = await Movie.findOne({
@@ -40,7 +53,11 @@ export const getPrefMovieById = async (req, res) => {
         res.sendStatus(500);
     }
 }
-
+/**
+ * Metodo per recuperare tutti i film preferiti cercando per userId
+ * @param {*} req 
+ * @param {*} res 
+ */
 export const getPrefMoviesbyUserId = async (req, res) => {
     try {
         const prefMovies = await Movie.findAll({
@@ -53,7 +70,28 @@ export const getPrefMoviesbyUserId = async (req, res) => {
         console.log(err);
     }
 }
-
+/**
+ * Metodo per recuperare tutti i film preferiti cercando per movieId
+ * @param {*} req 
+ * @param {*} res 
+ */
+export const getPrefMoviesbyMovieId = async (req, res) => {
+    try {
+        const prefMovies = await Movie.findAll({
+            where : {
+                movieId : req.params.movieId
+            }
+        });
+        res.send(prefMovies);
+    } catch (err) {
+        console.log(err);
+    }
+}
+/**
+ * Metodo per recuperare un film preferito cercando per movieId e userId
+ * @param {*} req 
+ * @param {*} res 
+ */
 export const getPrefMoviesbyUserIdMovieId = async (req, res) => {
     try {
         const prefMovies = await Movie.findOne({
@@ -68,7 +106,11 @@ export const getPrefMoviesbyUserIdMovieId = async (req, res) => {
     }
 }
 
-
+/**
+ * Metodo per cancellare un film preferito dall id
+ * @param {*} req 
+ * @param {*} res 
+ */
 export const deletePrefMovie = async (req, res) => {
     try {
         await Movie.destroy({
