@@ -21,16 +21,7 @@ import { MovieTableComponent } from './components/child-components/movie-table/m
 import { CastDetailComponent } from './components/child-components/cast-detail/cast-detail.component';
 import { ProductionDetailComponent } from './components/child-components/production-detail/production-detail.component';
 import { SinossiComponent } from './components/child-components/sinossi/sinossi.component';
-
 import { RankingComponent } from './components/ranking/ranking.component';
-
-
-
-
-
-
-
-
 import { MovieScoreComponent } from './components/child-components/movie-score/movie-score.component';
 import { MovieListBodyComponent } from './components/child-components/movie-list-body/movie-list-body.component';
 import { SavingFormComponent } from './components/child-components/saving-form/saving-form.component';
@@ -54,28 +45,25 @@ import { GuessFormComponent } from './components/child-components/guess-form/gue
     HomeComponent,
     GiocoComponent,
     SaveComponent,
-   MovieListComponent,
-   CommentComponent,
-   RatingsComponent,
-   PosterComponent,
-   MovieTableComponent,
-   CastDetailComponent,
-   ProductionDetailComponent,
-   SinossiComponent,
-
-   RankingComponent
-
-   MovieScoreComponent,
-   MovieListBodyComponent,
-   SavingFormComponent,
-   TimeComponent,
-   GameResultComponent,
-   GuessDataComponent,
-   UpdateRatingComponent,
-   UpdateCommentComponent,
-   GuessFormComponent,
-
-  ],
+    MovieListComponent,
+     CommentComponent,
+    RatingsComponent,
+    PosterComponent,
+    MovieTableComponent,
+    CastDetailComponent,
+    ProductionDetailComponent,
+    SinossiComponent,
+    RankingComponent,
+    MovieScoreComponent,
+    MovieListBodyComponent,
+    SavingFormComponent,
+    TimeComponent,
+    GameResultComponent,
+    GuessDataComponent,
+    UpdateRatingComponent,
+    UpdateCommentComponent,
+    GuessFormComponent,
+],
 
 
   imports: [
