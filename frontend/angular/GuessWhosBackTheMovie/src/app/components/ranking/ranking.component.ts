@@ -11,7 +11,6 @@ import { AccessApiService } from '../../services/access-api.service';
 })
 export class RankingComponent implements OnInit {
   movie : Prefferd [] | null=null;
-  userid : User [] = [];
   userScore : UserScore [] = [];
 
 
@@ -24,9 +23,9 @@ export class RankingComponent implements OnInit {
 
   ngOnInit(): void {
     this.user.allUsers().subscribe({
-      next : (res) => {this.userid = res;
-        this.userid.forEach(rank => {
-          this.preffered.findAllMoviesbyUserId(rank.id).subscribe({
+      next : (res) => {
+        res.forEach(user => {
+          this.preffered.findAllMoviesbyUserId(user.id).subscribe({
              next : (res) =>{
                let score : number = 0;
                res.forEach(
@@ -34,11 +33,13 @@ export class RankingComponent implements OnInit {
                    score += totalRank.gameScore
                  }
                )
-               this.userScore.push({user : rank , score : score})
+               this.userScore.push({user : user , score : score})
+               this.userScore = this.order();
              }
           })
         });
        console.log (this.userScore)
+       
       },
       error: (res)=>console.log(res)
     })
@@ -47,5 +48,7 @@ export class RankingComponent implements OnInit {
 
   }
 
-
+  order(){
+    return this.userScore.sort((a,b)=> b.score - a.score)
+  }
 }
