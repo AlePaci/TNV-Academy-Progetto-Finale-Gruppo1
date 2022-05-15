@@ -96,7 +96,7 @@ public class UserService {
                 if(passwordEncoder.matches(user.getPassword(),userCredentials.getPassword())){
                     if(this.userRepositoryDAO.findByUsername(newUsername) == null){
                         this.userRepositoryDAO.updateUsernameByUsername(newUsername,user.getUsername());
-                        return new RequestResponse(this.userRepositoryDAO.findByUsername(newUsername),"UPDATE_SUCESSFUL");
+                        return new RequestResponse(this.userRepositoryDAO.findByUsername(newUsername),"UPDATE_SUCCESSFUL");
                     }else{
                         throw new UsernameExistException();
                     }

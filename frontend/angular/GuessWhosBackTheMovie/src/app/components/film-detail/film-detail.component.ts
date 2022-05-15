@@ -12,6 +12,7 @@ import { Comment } from 'src/app/model/comment.model';
 import { AccessApiService } from 'src/app/services/access-api.service';
 import { UserScore } from 'src/app/model/user.model';
 import { faRankingStar } from '@fortawesome/free-solid-svg-icons';
+import { Prefferd } from 'src/app/model/prefferd.model';
 
 
 
@@ -41,6 +42,7 @@ export class FilmDetailComponent implements OnInit{
   ratingId:number = 0;
   preffId:number = 0;
   topPosition:UserScore[] = [];
+  podium:Prefferd[] = [];
 
   trash = faTrashCan;
   rank = faRankingStar;
@@ -66,15 +68,15 @@ export class FilmDetailComponent implements OnInit{
 
       this.preffService.findAllMoviesByMovieID(this.movieId).subscribe({
         next: (res)=>{
-          console.log(res)
-          res.forEach(element => { 
-            console.log(element)
+       
+          res.sort((a,b)=>b.gameScore - a.gameScore);
+          this.podium = res.slice(0,3)
+          this.podium.forEach(element => { 
             this.accessService.getUserById(element.userId).subscribe({
               next:(res)=> this.topPosition.push({user:res ,score:element.gameScore}),
               error:(res)=>console.log(res)
             });
-          });
-         
+          });       
         },
         error: (res)=> console.log(res)
       });
@@ -82,8 +84,7 @@ export class FilmDetailComponent implements OnInit{
       this.getComment();
       this.getCredits();
       this.getDetails();
-       console.log(this.topPosition);
-     
+   
   }
 
 /**
@@ -109,8 +110,6 @@ export class FilmDetailComponent implements OnInit{
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate(['/film'])
     
-
-   
   }
 
   modificaRating(){
