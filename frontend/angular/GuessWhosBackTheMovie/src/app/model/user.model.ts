@@ -25,3 +25,4 @@ export interface UserScore{
     user:User;
     score:number;
   }
+

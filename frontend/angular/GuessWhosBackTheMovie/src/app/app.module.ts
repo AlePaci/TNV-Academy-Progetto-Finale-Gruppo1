@@ -21,6 +21,16 @@ import { MovieTableComponent } from './components/child-components/movie-table/m
 import { CastDetailComponent } from './components/child-components/cast-detail/cast-detail.component';
 import { ProductionDetailComponent } from './components/child-components/production-detail/production-detail.component';
 import { SinossiComponent } from './components/child-components/sinossi/sinossi.component';
+
+import { RankingComponent } from './components/ranking/ranking.component';
+
+
+
+
+
+
+
+
 import { MovieScoreComponent } from './components/child-components/movie-score/movie-score.component';
 import { MovieListBodyComponent } from './components/child-components/movie-list-body/movie-list-body.component';
 import { SavingFormComponent } from './components/child-components/saving-form/saving-form.component';
@@ -30,6 +40,7 @@ import { GuessDataComponent } from './components/child-components/guess-data/gue
 import { UpdateRatingComponent } from './components/child-components/update-rating/update-rating.component';
 import { UpdateCommentComponent } from './components/child-components/update-comment/update-comment.component';
 import { GuessFormComponent } from './components/child-components/guess-form/guess-form.component';
+
 
 
 
@@ -51,6 +62,9 @@ import { GuessFormComponent } from './components/child-components/guess-form/gue
    CastDetailComponent,
    ProductionDetailComponent,
    SinossiComponent,
+
+   RankingComponent
+
    MovieScoreComponent,
    MovieListBodyComponent,
    SavingFormComponent,
@@ -60,6 +74,7 @@ import { GuessFormComponent } from './components/child-components/guess-form/gue
    UpdateRatingComponent,
    UpdateCommentComponent,
    GuessFormComponent,
+
   ],
 
 
