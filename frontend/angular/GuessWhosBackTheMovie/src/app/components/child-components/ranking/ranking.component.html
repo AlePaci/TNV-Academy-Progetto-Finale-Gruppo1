@@ -1,0 +1,20 @@
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><fa-icon class="text-primary" [icon]="rank"></fa-icon></th>
+      <th scope="col">Nome</th>
+      <th scope="col">Punteggio</th>
+      <th scope="col">Film</th>  
+    </tr>
+  </thead>
+  <tbody class="border-primary">
+    <tr *ngFor="let i of userScore | slice:0:10 ; let s=index">
+      <th scope="row">{{s+1}}</th>
+      <td >{{i.user.username}}</td>
+      <td >{{i.score}}</td>
+      <td >{{i.film}}</td>
+    </tr>
+    
+  </tbody>
+</table>
