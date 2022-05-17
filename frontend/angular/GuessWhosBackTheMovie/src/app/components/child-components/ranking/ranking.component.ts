@@ -1,8 +1,8 @@
-import { PreferredMovieService } from './../../services/preferred-movie.service';
+import { PreferredMovieService } from '../../../services/preferred-movie.service';
 import { Component, OnInit } from '@angular/core';
-import { User, UserScore } from '../../model/user.model';
-import { Prefferd } from '../../model/prefferd.model';
-import { AccessApiService } from '../../services/access-api.service';
+import { UserRanking } from '../../../model/user.model';
+import { AccessApiService } from '../../../services/access-api.service';
+import { faRankingStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-ranking',
@@ -10,8 +10,10 @@ import { AccessApiService } from '../../services/access-api.service';
   styleUrls: ['./ranking.component.scss']
 })
 export class RankingComponent implements OnInit {
-  movie : Prefferd [] | null=null;
-  userScore : UserScore [] = [];
+
+  
+  userScore : UserRanking [] = [];
+  rank = faRankingStar;
 
 
   constructor(
@@ -28,24 +30,19 @@ export class RankingComponent implements OnInit {
           this.preffered.findAllMoviesbyUserId(user.id).subscribe({
              next : (res) =>{
                let score : number = 0;
-               res.forEach(
-                 totalRank=>{
-                   score += totalRank.gameScore
-                 }
-               )
-               this.userScore.push({user : user , score : score})
+               let partite: number =0;
+               res.forEach(movie=>{ 
+                 score += movie.gameScore;
+                partite+= 1;
+                });
+               this.userScore.push({user : user , score : score, film : partite});
                this.userScore = this.order();
              }
           })
-        });
-       console.log (this.userScore)
-       
+        });       
       },
       error: (res)=>console.log(res)
     })
-
-
-
   }
 
   order(){

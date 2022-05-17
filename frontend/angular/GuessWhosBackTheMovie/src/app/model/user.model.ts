@@ -25,4 +25,10 @@ export interface UserScore{
     user:User;
     score:number;
   }
+  
+  export interface UserRanking{
+    user:User;
+    score:number;
+    film:number;
+  }
 
