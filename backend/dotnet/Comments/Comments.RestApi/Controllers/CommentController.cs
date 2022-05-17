@@ -30,7 +30,7 @@ namespace Comments.RestApi.Controllers
         /// <exception cref="InvalidCommentTextLenghtException"></exception>
         /// <returns>400 http response with message and timestamp</returns>
         [HttpPost]
-        public ActionResult<CommentDTO> CreateComment([FromBody] CommentParameters parameters)
+        public  ActionResult<CommentDTO> CreateComment([FromBody] CommentParameters parameters)
         {
             try
             {
@@ -240,7 +240,7 @@ namespace Comments.RestApi.Controllers
         /// <exception cref="CommentNotFoundException"></exception>
         [HttpDelete]
         [Route("delete/{comment-id}")]
-        public ActionResult<MessageResponse> DeleteComment([FromRoute(Name = "comment-id")]int commentId)
+        public  ActionResult<MessageResponse> DeleteComment([FromRoute(Name = "comment-id")]int commentId)
         {
             try
             {

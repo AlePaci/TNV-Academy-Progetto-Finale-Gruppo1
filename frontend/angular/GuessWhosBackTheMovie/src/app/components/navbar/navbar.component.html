@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light fs-3">
     <div class="container-fluid">
-      <a class="navbar-brand lo text-primary" href="#"><fa-icon [icon]="film"></fa-icon> GuessWho's<br>BackTheMovie</a>
+      <a class="navbar-brand lo text-primary" href="#"><fa-icon [icon]="filmIcon"></fa-icon> GuessWho's<br>BackTheMovie</a>
       <button #navbarToggler class="navbar-toggler text-primary" type="button" data-toggle="collapse" 
       data-target="#navbarNav" aria-controls="navbarNav"  aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -17,16 +17,25 @@
             <a class="nav-link" routerLink="/gioco" routerLinkActive="active" >Gioca</a>
           </li></ng-template>
           <ng-template #elseBlock>
-          <li class="nav-item position-absolute me-2 end-0" > 
-            <a class="nav-link" routerLink="/login" routerLinkActive="active" >Login<fa-icon  [icon]="login"></fa-icon></a>   
+          <li class="nav-item position-absolute me-2 end-0 " > <button class=" btn btn-primary text-white" routerLink="/login" >
+            Login<fa-icon  [icon]="loginIcon"></fa-icon></button>   
           </li></ng-template>
           <li class="nav-item"  >
             <a *ngIf="this.sessionService.getLogged()" class="nav-link" routerLink="/film" routerLinkActive="active">FilmPreferiti</a>
           </li>
           <li class="nav-item position-absolute me-2 end-0">
             <div *ngIf="this.sessionService.getLogged()">
-              <a class="nav-link" href="#" (click)="logout()" >{{username}}<fa-icon [icon]="falogout"></fa-icon></a></div>
-
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{username}} <fa-icon [icon]="userIcon"></fa-icon>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" routerLink="/profilo">Profilo</a></li>
+                  <li><a class="dropdown-item" href="#">Amici</a></li>
+                  <li><a class="dropdown-item" href="#" (click)="logout()">Logout <fa-icon [icon]="logoutIcon"></fa-icon></a></li>
+                </ul>
+              </div>
+              </div>
           </li>
         </ul>
       </div>

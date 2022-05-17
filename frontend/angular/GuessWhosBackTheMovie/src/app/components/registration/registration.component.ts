@@ -13,7 +13,9 @@ import { faEye} from '@fortawesome/free-regular-svg-icons';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
-  eyeOpen = faEye;
+
+  eyeIcon = faEye;
+  exist:boolean = false
   show:boolean = false;
   user: UserDataObject| null = null;
   error: boolean = false;
@@ -31,12 +33,15 @@ export class RegistrationComponent implements OnInit {
     if(registrationForm.value.password === registrationForm.value.confirmPassword){
       this.accessApi.registerUser(registrationForm.value).subscribe({
         next: (res) =>{ 
-          this.user = res;
-          this.registered = true;
-          setTimeout(() => {
-            console.log('sleep');
-            this.router.navigate(["/login"]);
-            }, 2000); 
+          if(res.message === "USERNAME_EXISTS")this.exist =true;
+          else{
+            this.user = res;
+            this.registered = true;
+            setTimeout(() => {
+              console.log('sleep');
+              this.router.navigate(["/login"]);
+              }, 2000); 
+          }
         },
         error: () => console.log('error'),
       });

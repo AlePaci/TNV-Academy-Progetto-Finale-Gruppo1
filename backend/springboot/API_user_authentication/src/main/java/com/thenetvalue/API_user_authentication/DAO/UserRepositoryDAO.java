@@ -25,6 +25,6 @@ public interface UserRepositoryDAO extends CrudRepository<User,String> {
     int updatePasswordByUsername(String password, String username);
 
 
-
     Optional<User> findById(int s);
+
 }

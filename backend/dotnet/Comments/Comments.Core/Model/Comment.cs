@@ -13,7 +13,7 @@ namespace Comments.Core.Model
 
         public const int MIN_COMMENT_SIZE = 10;
 
-        public const int MAX_COMMENT_SIZE = 150;
+        public const int MAX_COMMENT_SIZE = 160;
         
         
     }

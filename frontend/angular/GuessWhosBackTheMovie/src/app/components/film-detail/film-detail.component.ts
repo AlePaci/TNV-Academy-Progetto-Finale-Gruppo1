@@ -65,7 +65,10 @@ export class FilmDetailComponent implements OnInit{
 // metodo che recupera tutte le informazioni utili dall Api esterna
   ngOnInit(): void {
       this.activatedRoute.params.subscribe((val) => this.movieId = +val['movieId'])
-
+      this.preffService.findPreffUserMovie(this.sessionService.getUserId(),this.movieId).subscribe({
+        next:(res)=>this.preffId=res.id,
+        error:(res)=>console.log(res)
+      });
       this.preffService.findAllMoviesByMovieID(this.movieId).subscribe({
         next: (res)=>{
        

@@ -68,8 +68,8 @@ public class UserService {
             if (this.userRepositoryDAO.findByUsername(username) != null) {
                 User userCredentials = this.userRepositoryDAO.findByUsername(username);
                 if (passwordEncoder.matches(password.getOldOne(), userCredentials.getPassword())) {
-                    this.userRepositoryDAO.updatePasswordByUsername(username, passwordEncoder.encode(password.getNewOne()));
-                    return new RequestResponse(this.userRepositoryDAO.findByUsername(username), "UPDATE_SUCESSFUL");
+                    this.userRepositoryDAO.updatePasswordByUsername(passwordEncoder.encode(password.getNewOne()) , username);
+                    return new RequestResponse(this.userRepositoryDAO.findByUsername(username), "UPDATE_SUCCESSFUL");
                 } else {
                     throw new WrongPasswordException();
                 }
@@ -125,5 +125,10 @@ public class UserService {
         if(user.isPresent())
             return user.get();
         else throw new NoUserFoundException();
+    }
+
+    public void deleteUserById(int userId){
+        User user = userRepositoryDAO.findById(userId).get();
+        this.userRepositoryDAO.delete(user);
     }
 }

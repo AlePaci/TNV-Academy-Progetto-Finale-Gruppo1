@@ -27,7 +27,7 @@ namespace Comments.Core.Service.Impl
         /// <exception cref="InvalidCommentTextLenghtException">if the text dose not respect Min Max lenght</exception>
         public Comment CreateComment(int userId,int movieId,string commentText)
         {
-            if (commentText.Length is > Comment.MIN_COMMENT_SIZE or < Comment.MIN_COMMENT_SIZE)
+            if (commentText.Length is >= Comment.MIN_COMMENT_SIZE or <= Comment.MIN_COMMENT_SIZE)
             {
                 return _efService.CreateComment(userId, movieId, commentText);
             }
