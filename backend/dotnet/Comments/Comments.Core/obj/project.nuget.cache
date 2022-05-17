@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4kz0zOjpFJPgHqQVEH+tBkOXOxzmm689wjj2qCARNw00QpJxskgTLk4PMA6RyPrpUzyS+z3xF9rdHZbBLQuEBg==",
+  "dgSpecHash": "QYOVHFGxzSAGOirP2wUJPdtsMCAZwJW6XkIPy9I6K+59BaEQ69yqineVT10WjBlFHzZw9mENQkOekDWMOhD6wg==",
   "success": true,
-  "projectFilePath": "/home/al/Desktop/progetto finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj",
+  "projectFilePath": "/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

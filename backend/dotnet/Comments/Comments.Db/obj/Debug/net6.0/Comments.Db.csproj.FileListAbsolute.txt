@@ -117,3 +117,20 @@ C:/Users/Marco/Collaudo/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comme
 /home/al/Desktop/progetto finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/Debug/net6.0/Comments.Db.pdb
 /home/al/Desktop/progetto finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/Debug/net6.0/Comments.Db.genruntimeconfig.cache
 /home/al/Desktop/progetto finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/Debug/net6.0/ref/Comments.Db.dll
+/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/bin/Debug/net6.0/Comments.Db.deps.json
+/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/bin/Debug/net6.0/Comments.Db.runtimeconfig.json
+/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/bin/Debug/net6.0/Comments.Db.dll
+/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/bin/Debug/net6.0/Comments.Db.pdb
+/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/bin/Debug/net6.0/Comments.Core.dll
+/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/bin/Debug/net6.0/Comments.Core.pdb
+/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/Debug/net6.0/Comments.Db.csproj.AssemblyReference.cache
+/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/Debug/net6.0/Comments.Db.GeneratedMSBuildEditorConfig.editorconfig
+/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/Debug/net6.0/Comments.Db.AssemblyInfoInputs.cache
+/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/Debug/net6.0/Comments.Db.AssemblyInfo.cs
+/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/Debug/net6.0/Comments.Db.csproj.CoreCompileInputs.cache
+/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/Debug/net6.0/Comments.Db.csproj.CopyComplete
+/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/Debug/net6.0/Comments.Db.dll
+/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/Debug/net6.0/refint/Comments.Db.dll
+/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/Debug/net6.0/Comments.Db.pdb
+/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/Debug/net6.0/Comments.Db.genruntimeconfig.cache
+/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/Debug/net6.0/ref/Comments.Db.dll
