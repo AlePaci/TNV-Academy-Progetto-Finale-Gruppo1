@@ -6,7 +6,7 @@
 <h2>Strumenti necessari</h2>
    <p>XAMPP, intellij IDEA </p>
 <h2>Composizione</h2>
-<p>Clonare o scaricare la repositorie, avviare XAMPP e su phpMyAdmin inserire il seguente codice per creare i database: </p>
+<p>Clonarela repositorie o scaricare una delle release, avviare XAMPP e su phpMyAdmin inserire il seguente codice per creare i database: </p>
 <p><code>CREATE DATABASE ratings COLLATE utf8_unicode_ci;</code><br><code> CREATE DATABASE movies;</code><br><code> CREATE DATABASE users; </code>
 <p>Aprire la cartella dell intero progetto su vsCode e seguire le istruzioni per ogni modulo</p>
    <h3>Frontend</h3>
@@ -42,8 +42,7 @@
      <dd>API gestione <i><b>lista film giocati</b></i> con relativo tempo.</dd>
          <p> aprire su terminale la cartella <code>TNV-Academy-Progetto-Finale-Gruppo1/backend/node/api-score-preferred-movie</code> ed eseguire i comandi<br>
          <code> npm install </code><br>
-       <code> node server.js</code></p>
-      
+       <code> node server.js</code></p> 
      <dt>API esterna</dt>
      <dd><a href="https://www.themoviedb.org/documentation/api" >TMDB API</a> usata per recuperare tutti i <b><i>film utilizzati</b></i> nel progetto.</dd>
 </dl>
