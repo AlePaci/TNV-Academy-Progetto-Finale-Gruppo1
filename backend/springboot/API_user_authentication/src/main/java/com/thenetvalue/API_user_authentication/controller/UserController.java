@@ -80,5 +80,10 @@ public class UserController {
         return this.userService.getUsersById(userId);
     }
 
+    @DeleteMapping("/users/{userId}")
+    public String deleteUser(@PathVariable("userId") int userId){
+        this.userService.deleteUserById(userId);
+        return "USER_DELETE";
 
+    }
 }

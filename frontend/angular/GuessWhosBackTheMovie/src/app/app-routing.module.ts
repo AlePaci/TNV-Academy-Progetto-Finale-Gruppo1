@@ -5,9 +5,9 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FilmDetailComponent } from './components/film-detail/film-detail.component';
 import { GiocoComponent } from './components/gioco/gioco.component';
-
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { SaveComponent } from './components/save/save.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -20,7 +20,9 @@ const routes: Routes = [
   {path: 'gioco', component: GiocoComponent},
   {path: 'gioco/:movieId/:points', component: SaveComponent},
   {path: 'film', component: MovieListComponent},
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'profilo', component: ProfileComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'}
+  
   
 
 ];

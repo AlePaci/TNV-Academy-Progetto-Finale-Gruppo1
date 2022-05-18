@@ -19,6 +19,9 @@
                         class="alert alert-danger">
                         Inserisci un username
                         </div>
+                        <div *ngIf="exist" class="alert alert-danger" role="alert">
+                            Username gia esistente!
+                        </div>
                     </div>
                     <div class="form-group mb-3" >
                         <div class="row">
@@ -29,7 +32,7 @@
                                 [ngModel] name="password" #password="ngModel">
                             </div>
                             <div class="col-1 pt-4 ps-0 mt-3">
-                                <fa-icon (mousedown)="show = !show" (mouseup)="show = !show" class=" icon text-primary" size="lg" [icon]="eyeOpen"></fa-icon></div>
+                                <fa-icon (mousedown)="show = !show" (mouseup)="show = !show" class=" icon text-primary" size="lg" [icon]="eyeIcon"></fa-icon></div>
                         </div>
                         <div [hidden]="password.valid "
                         class="alert alert-danger">
@@ -45,7 +48,7 @@
                                 [ngModel] name="confirmPassword" #confirmPassword="ngModel">
                             </div>
                             <div class="col-1 pt-4 ps-0 mt-3">
-                                <fa-icon (mousedown)="show = !show" (mouseup)="show = !show" class=" icon text-primary" size="lg" [icon]="eyeOpen"></fa-icon></div>
+                                <fa-icon (mousedown)="show = !show" (mouseup)="show = !show" class=" icon text-primary" size="lg" [icon]="eyeIcon"></fa-icon></div>
                         </div>
                         <div [hidden]="confirmPassword.valid"
                         class="alert alert-danger">

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RegistrationUser, User, UserDataObject } from '../model/user.model';
+import { RegistrationUser, UpdatePassword, User, UserDataObject } from '../model/user.model';
 
 
 
@@ -25,5 +25,17 @@ export class AccessApiService {
 
   getUserById(userId:number){
     return this.http.get<User>(`http://localhost:8080/users/${userId}`);
+  }
+
+  updateUsername(newUsername:string, user: RegistrationUser){
+  return this.http.put<UserDataObject>(`http://localhost:8080/usernameUpdate/${newUsername}/`, user);
+  }
+
+  updatePassword(username:string, password :UpdatePassword){
+    return this.http.put<UserDataObject>(`http://localhost:8080/passwordUpdate/${username}/`,password);
+  }
+
+  deleteUser(userId:number){
+    return this.http.delete<string>(`http://localhost:8080/users/${userId}`);
   }
 }

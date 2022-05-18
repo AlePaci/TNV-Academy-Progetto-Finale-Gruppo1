@@ -1,5 +1,6 @@
 using Comments.Core.Model;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 namespace Comments.Core.Service
 {
     
@@ -22,6 +23,6 @@ namespace Comments.Core.Service
 
         Comment? UpdateComment(int commentId, string updatedCommentProp);
 
-        bool DeleteComment(int commentId);
+        Task DeleteComment(int commentId);
     }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
 import { faFilm, faRightToBracket, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { AccessApiService } from 'src/app/services/access-api.service';
 
 
@@ -11,9 +12,10 @@ import { AccessApiService } from 'src/app/services/access-api.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  film = faFilm;
-  login = faRightToBracket;
-  falogout = faRightFromBracket;
+  filmIcon = faFilm;
+  loginIcon = faRightToBracket;
+  logoutIcon = faRightFromBracket;
+  userIcon = faUser;
   username:string=""
 
   constructor(
@@ -35,9 +37,11 @@ export class NavbarComponent implements OnInit {
   }
 
   getUsername(){
+    if(this.sessionService.getLogged()){
     this.accessService.getUserById(this.sessionService.getUserId()).subscribe({
       next: (res)=> this.username = res.username,
       error: (res)=> console.log(res)
     });
   }
+}
 }

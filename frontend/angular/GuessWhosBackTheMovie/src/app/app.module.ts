@@ -31,6 +31,7 @@ import { GuessDataComponent } from './components/child-components/guess-data/gue
 import { UpdateRatingComponent } from './components/child-components/update-rating/update-rating.component';
 import { UpdateCommentComponent } from './components/child-components/update-comment/update-comment.component';
 import { GuessFormComponent } from './components/child-components/guess-form/guess-form.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -63,6 +64,7 @@ import { GuessFormComponent } from './components/child-components/guess-form/gue
     UpdateRatingComponent,
     UpdateCommentComponent,
     GuessFormComponent,
+    ProfileComponent,
 ],
 
 

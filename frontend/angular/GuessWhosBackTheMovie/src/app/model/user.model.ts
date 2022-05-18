@@ -31,4 +31,8 @@ export interface UserScore{
     score:number;
     film:number;
   }
+  export interface UpdatePassword{
+    oldOne: string;
+    newOne: string;
+  }
 
