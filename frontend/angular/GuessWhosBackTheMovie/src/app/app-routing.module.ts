@@ -8,6 +8,7 @@ import { GiocoComponent } from './components/gioco/gioco.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { SaveComponent } from './components/save/save.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { FriendsComponent } from './components/friends/friends.component';
 
 
 
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'gioco/:movieId/:points', component: SaveComponent},
   {path: 'film', component: MovieListComponent},
   {path: 'profilo', component: ProfileComponent},
+  {path: 'amici', component: FriendsComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
   
   

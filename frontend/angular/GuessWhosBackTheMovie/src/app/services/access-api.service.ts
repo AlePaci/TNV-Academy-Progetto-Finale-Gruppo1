@@ -38,4 +38,8 @@ export class AccessApiService {
   deleteUser(userId:number){
     return this.http.delete<string>(`http://localhost:8080/users/${userId}`);
   }
+
+  getUserBuUsername(name:string){
+    return this.http.get<UserDataObject>(`http://localhost:8080/username/${name}`);
+  }
 }

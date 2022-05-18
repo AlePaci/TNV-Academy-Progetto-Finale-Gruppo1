@@ -4,7 +4,7 @@ import com.thenetvalue.API_user_authentication.DAO.UserRepositoryDAO;
 import com.thenetvalue.API_user_authentication.model.StringUpdate;
 import com.thenetvalue.API_user_authentication.model.exceptions.*;
 import com.thenetvalue.API_user_authentication.model.User;
-import com.thenetvalue.API_user_authentication.model.RequestResponse;
+import com.thenetvalue.API_user_authentication.model.UserRequestResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,13 +23,13 @@ public class UserService {
         this.userRepositoryDAO = userRepositoryDAO;
     }
 
-    public RequestResponse userRegistration(User newUser) {
+    public UserRequestResponse userRegistration(User newUser) {
         if (newUser.getUsername() != null && newUser.getPassword() != null) {
             if (this.userRepositoryDAO.findByUsername(newUser.getUsername()) == null) {
                 newUser.setEnabled((byte) 1);
                 newUser.setAuthority("ROLE_USER");
                 newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
-                return new RequestResponse(this.userRepositoryDAO.save(newUser), "REGISTRATION_COMPLETE");
+                return new UserRequestResponse(this.userRepositoryDAO.save(newUser), "REGISTRATION_COMPLETE");
             } else {
                 throw new UsernameExistException();
             }
@@ -41,14 +41,14 @@ public class UserService {
                 throw new NoPasswordException();
             }
         }
-        return new RequestResponse(newUser, "REGISTRATION_ERR");
+        return new UserRequestResponse(newUser, "REGISTRATION_ERR");
     }
 
-    public RequestResponse userLogin(User userValidation) {
+    public UserRequestResponse userLogin(User userValidation) {
         if (userValidation.getPassword() != null && userValidation.getUsername() != null) {
             User userCredentials = userRepositoryDAO.findByUsername(userValidation.getUsername());
             if (passwordEncoder.matches(userValidation.getPassword(), userCredentials.getPassword())) {
-                return new RequestResponse(userCredentials, "LOGIN");
+                return new UserRequestResponse(userCredentials, "LOGIN");
             } else {
                 throw new WrongPasswordException();
             }
@@ -59,17 +59,17 @@ public class UserService {
             if (userValidation.getPassword() == null) {
                 throw new NoPasswordException();
             }
-            return new RequestResponse(userValidation, "LOGIN_ERR");
+            return new UserRequestResponse(userValidation, "LOGIN_ERR");
         }
     }
 
-    public RequestResponse passwordUpdate(String username, StringUpdate password) {
+    public UserRequestResponse passwordUpdate(String username, StringUpdate password) {
         if (username != null && password.getNewOne() != null && password.getOldOne() != null) {
             if (this.userRepositoryDAO.findByUsername(username) != null) {
                 User userCredentials = this.userRepositoryDAO.findByUsername(username);
                 if (passwordEncoder.matches(password.getOldOne(), userCredentials.getPassword())) {
                     this.userRepositoryDAO.updatePasswordByUsername(passwordEncoder.encode(password.getNewOne()) , username);
-                    return new RequestResponse(this.userRepositoryDAO.findByUsername(username), "UPDATE_SUCCESSFUL");
+                    return new UserRequestResponse(this.userRepositoryDAO.findByUsername(username), "UPDATE_SUCCESSFUL");
                 } else {
                     throw new WrongPasswordException();
                 }
@@ -80,7 +80,7 @@ public class UserService {
             if (password.getOldOne() == null || password.getNewOne() == null)
                 throw new NoPasswordException();
         }
-        return new RequestResponse(new User(username,password.getOldOne()),"UPDATE_ERR");
+        return new UserRequestResponse(new User(username,password.getOldOne()),"UPDATE_ERR");
     }
 
     /**
@@ -89,14 +89,14 @@ public class UserService {
      * @param user
      * @return
      */
-    public RequestResponse usernameUpdate( String newUsername, User user){
+    public UserRequestResponse usernameUpdate(String newUsername, User user){
         if(newUsername !=null && user.getUsername() != null && user.getPassword() != null){
             if(this.userRepositoryDAO.findByUsername(user.getUsername())!= null){
                 User userCredentials = this.userRepositoryDAO.findByUsername(user.getUsername());
                 if(passwordEncoder.matches(user.getPassword(),userCredentials.getPassword())){
                     if(this.userRepositoryDAO.findByUsername(newUsername) == null){
                         this.userRepositoryDAO.updateUsernameByUsername(newUsername,user.getUsername());
-                        return new RequestResponse(this.userRepositoryDAO.findByUsername(newUsername),"UPDATE_SUCCESSFUL");
+                        return new UserRequestResponse(this.userRepositoryDAO.findByUsername(newUsername),"UPDATE_SUCCESSFUL");
                     }else{
                         throw new UsernameExistException();
                     }
@@ -113,7 +113,7 @@ public class UserService {
         if(user.getPassword()==null){
             throw new NoPasswordException();
         }
-        return new RequestResponse(user,"UPDATE_ERR");
+        return new UserRequestResponse(user,"UPDATE_ERR");
     }
 
     public Iterable<User> getAllUsers(){
@@ -130,5 +130,11 @@ public class UserService {
     public void deleteUserById(int userId){
         User user = userRepositoryDAO.findById(userId).get();
         this.userRepositoryDAO.delete(user);
+    }
+
+    public User getUserByUsername(String name){
+       User user = this.userRepositoryDAO.findByUsername(name);
+       if(user != null) return user;
+       else throw new NoUserFoundException();
     }
 }
