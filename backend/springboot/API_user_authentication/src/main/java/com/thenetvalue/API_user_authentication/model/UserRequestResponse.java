@@ -1,12 +1,10 @@
 package com.thenetvalue.API_user_authentication.model;
 
-import com.thenetvalue.API_user_authentication.model.User;
-
-public class RequestResponse {
+public class UserRequestResponse {
     private User user;
     private String message;
 
-    public RequestResponse(User user, String message) {
+    public UserRequestResponse(User user, String message) {
         this.user = user;
         this.message = message;
     }
