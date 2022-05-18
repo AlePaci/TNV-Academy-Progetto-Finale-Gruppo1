@@ -33,4 +33,8 @@ public class FriendRequestService {
     public List<FriendRequest> findAllBySender(int senderId){
         return this.friendRequestDAO.findBySender(senderId);
     }
+
+    public FriendRequestResponse findById(int id){
+        return new FriendRequestResponse(this.friendRequestDAO.findById(id).get(),"REQUEST_FOUND");
+    }
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FriendRequest, FriendRequestData, NewRequest } from '../model/friends.model';
+import { Friend, FriendData, FriendRequest, FriendRequestData, NewFriend, NewRequest } from '../model/friends.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,4 +24,19 @@ export class FriendsService {
  deleteRequest(requestId:number){
    return this.http.delete<FriendRequestData>(`http://localhost:8080/request/${requestId}`);
  }
+
+ getRequestById(requestId:number){
+   return this.http.get<FriendRequestData>(`http://localhost:8080/request/${requestId}`);
+ }
+
+ createFriend(newFriend:NewFriend){
+   return this.http.post<FriendData>('http://localhost:8080/friend/',newFriend);
+ }
+
+ getFriendsbyA(id:number){
+   return this.http.get<Friend[]>(`http://localhost:8080/friend/bya/${id}`)
+ }
+ getFriendsbyB(id:number){
+  return this.http.get<Friend[]>(`http://localhost:8080/friend/byb/${id}`)
+}
 }

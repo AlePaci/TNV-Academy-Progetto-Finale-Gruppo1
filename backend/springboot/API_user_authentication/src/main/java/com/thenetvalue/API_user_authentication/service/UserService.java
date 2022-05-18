@@ -131,4 +131,10 @@ public class UserService {
         User user = userRepositoryDAO.findById(userId).get();
         this.userRepositoryDAO.delete(user);
     }
+
+    public User getUserByUsername(String name){
+       User user = this.userRepositoryDAO.findByUsername(name);
+       if(user != null) return user;
+       else throw new NoUserFoundException();
+    }
 }

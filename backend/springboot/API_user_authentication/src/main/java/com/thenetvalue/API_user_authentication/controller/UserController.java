@@ -84,6 +84,18 @@ public class UserController {
     public String deleteUser(@PathVariable("userId") int userId){
         this.userService.deleteUserById(userId);
         return "USER_DELETE";
+    }
+    @GetMapping("/username/{name}")
+    public UserRequestResponse getUserByUsername(@PathVariable("name")String name){
+        try {
+            return new UserRequestResponse(this.userService.getUserByUsername(name),"USER_FOUND");
+        }
+        catch(NoUserFoundException e){
+            return new UserRequestResponse(new User(name),e.printException());
+        }
 
     }
+
+
+
 }

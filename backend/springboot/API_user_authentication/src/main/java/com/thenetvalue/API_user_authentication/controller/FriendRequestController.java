@@ -38,4 +38,9 @@ public class FriendRequestController {
     public List<FriendRequest> getAllByReceiver(@PathVariable("receiverId")int receiverId){
         return this.friendRequestService.findAllByReceiver(receiverId);
     }
+
+    @GetMapping("{id}")
+    public FriendRequestResponse getById(@PathVariable("id")int id){
+        return this.friendRequestService.findById(id);
+    }
 }
