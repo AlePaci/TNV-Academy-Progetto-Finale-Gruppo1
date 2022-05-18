@@ -74,14 +74,13 @@ export class ProfileComponent implements OnInit {
     });
 }
 
-cancella(){
+ cancella(){
   this.preferredService.findAllMoviesbyUserId(this.sessionService.getUserId()).subscribe({
-    next: (res) =>{
-       res.forEach(movie => {
-         console.log(movie)
-         this.deleteComment(movie.movieId);
-         this.deleteRating(movie.movieId);
-         this.preferredService.deletePreferredMovie(movie.id).subscribe({
+    next: (res) =>  {
+        res.forEach(movie => {
+        this.deleteComment(movie.movieId);
+        this.deleteRating(movie.movieId);
+        this.preferredService.deletePreferredMovie(movie.id).subscribe({
            next:(res) => console.log(res),
            error:(res)=> console.log(res)
          }); 
@@ -96,7 +95,7 @@ cancella(){
       this.sessionService.deleteUser();
           this.sessionService.setLogged(false);
           this.router.navigate([""]);
-      }, 1000);
+      }, 2000);
     
    
     },
@@ -105,7 +104,7 @@ cancella(){
 
 }
 
-deleteComment(movieId:number){
+ deleteComment(movieId:number){
   this.commentService.getComment(this.sessionService.getUserId(),movieId).subscribe({
     next:(res) => this.commentService.deleteComment(res.data.id).subscribe({
       next:(res)=> console.log(res),

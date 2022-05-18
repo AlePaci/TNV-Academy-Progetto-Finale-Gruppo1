@@ -5,6 +5,7 @@ using Comments.Core.Model;
 using Comments.Core.Service;
 using Comments.Db.Entities;
 using Comments.Db.Mappers;
+using System.Threading.Tasks;
 
 
 namespace Comments.Db
@@ -110,13 +111,14 @@ namespace Comments.Db
         /// </summary>
         /// <param name="commentId">id of comment to delete</param>
         /// <returns>true or false</returns>
-        public bool DeleteComment(int commentId)
+        public async Task DeleteComment(int commentId)
         {
-            var comment = _context.Comments.Find(commentId);
-            if (comment == null) return false;
-            _context.Comments.Remove(comment);
-            _context.SaveChanges();
-            return true;
+            var getComment = Task.Factory.StartNew(()=>{ return _context.Comments.Find(commentId);});
+            var comment = await getComment;
+            if (comment != null){
+            var delete = Task.Factory.StartNew(()=>{_context.Comments.Remove(comment);}); 
+            var save = Task.Factory.StartNew(()=>{ _context.SaveChanges();});
+            }
         }
         
     }

@@ -27,7 +27,7 @@ namespace Comments.Core.Service.Impl
         /// <exception cref="InvalidCommentTextLenghtException">if the text dose not respect Min Max lenght</exception>
         public Comment CreateComment(int userId,int movieId,string commentText)
         {
-            if (commentText.Length is >= Comment.MIN_COMMENT_SIZE or <= Comment.MIN_COMMENT_SIZE)
+            if (commentText.Length  >= Comment.MIN_COMMENT_SIZE  || commentText.Length  <= Comment.MIN_COMMENT_SIZE)
             {
                 return _efService.CreateComment(userId, movieId, commentText);
             }
@@ -111,14 +111,11 @@ namespace Comments.Core.Service.Impl
         /// <param name="commentId"> id to delete</param>
         /// <returns>ture if the id existed</returns>
         /// <exception cref="CommentNotFoundException"> if the id was not exist</exception>
-        public bool DeleteComment(int commentId)
+        public void DeleteComment(int commentId)
         {
-            if (_efService.GetCommentById(commentId) != null)
-            {
-                return _efService.DeleteComment(commentId);
-            }
-            throw new CommentNotFoundException("id",commentId);
-
-        }
-    }
+           
+            
+                 _efService.DeleteComment(commentId);
+        }  
+         }
 }

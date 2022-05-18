@@ -242,25 +242,16 @@ namespace Comments.RestApi.Controllers
         [Route("delete/{comment-id}")]
         public  ActionResult<MessageResponse> DeleteComment([FromRoute(Name = "comment-id")]int commentId)
         {
-            try
-            {
-                var outPut = _coreService.DeleteComment(commentId);
+            
+                _coreService.DeleteComment(commentId);
                 return Ok(new MessageResponse()
                     {
                         Message = $"Comment whith id {commentId} deleted",
                         TimeStamp = DateTime.Now
                     });
-            }
-            catch (CommentNotFoundException ex)
-            {
-                return NotFound(new ErrorResponse()
-                {
-                    ErrorMessage = ex.Message,
-                    TimeStamp = DateTime.Now
-                });
+         
             }
         }
+        }
         
-        
-    }
-}
+
