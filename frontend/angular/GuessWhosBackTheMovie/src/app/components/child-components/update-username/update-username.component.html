@@ -1,0 +1,37 @@
+<form class="mb-3" #updateUsername="ngForm" (submit)="updateUsernameFunc(updateUsername)">
+
+    <label for="password" class="form-lable">Password</label>
+    <div class="row">
+        <div class="col-11">
+            <input  [type]="show ? 'text' : 'password'" class="form-control border-light" id="password" placeholder="password"
+            required
+            [ngModel] name="password" #password="ngModel">
+        </div>
+        <fa-icon (mousedown)="show = !show" (mouseup)="show = !show" class="col-1 ps-0 icon text-primary" size="lg" [icon]="eyeIcon"></fa-icon>
+    </div>
+
+    <div [hidden]="password.valid"
+        class="alert alert-danger">
+        Inserisci una password
+    </div>
+
+    <label for="newUsername" class="form-lable">Nuovo Username</label>
+    <input   type="text" class="form-control border-light" 
+    id="newUsername" placeholder="Nuovo Username"
+    required
+    [ngModel] name="newUsername" #newUsername="ngModel">
+
+    <div *ngIf="wrongPass" class="alert alert-danger" role="alert">
+        Password errata!
+    </div>
+
+    <div *ngIf="userExist" class="alert alert-danger" role="alert">
+        Username gia preso!
+    </div>
+    
+    
+    <button type="submit" class="btn btn-primary text-white"
+    [disabled]="!updateUsername.form.valid || updateUsername.form.pristine" >
+    Modifica</button>
+
+</form>

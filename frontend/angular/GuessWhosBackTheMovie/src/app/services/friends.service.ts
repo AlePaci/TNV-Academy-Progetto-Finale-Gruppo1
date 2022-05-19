@@ -34,9 +34,13 @@ export class FriendsService {
  }
 
  getFriendsbyA(id:number){
-   return this.http.get<Friend[]>(`http://localhost:8080/friend/bya/${id}`)
+   return this.http.get<Friend[]>(`http://localhost:8080/friend/bya/${id}`);
  }
  getFriendsbyB(id:number){
-  return this.http.get<Friend[]>(`http://localhost:8080/friend/byb/${id}`)
+  return this.http.get<Friend[]>(`http://localhost:8080/friend/byb/${id}`);
+}
+
+deleteFriend(id:number){
+  return this.http.delete<FriendData>(`http://localhost:8080/friend/${id}`);
 }
 }

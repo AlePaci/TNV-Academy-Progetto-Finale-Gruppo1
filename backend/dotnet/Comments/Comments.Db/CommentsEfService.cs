@@ -113,11 +113,10 @@ namespace Comments.Db
         /// <returns>true or false</returns>
         public async Task DeleteComment(int commentId)
         {
-            var getComment = Task.Factory.StartNew(()=>{ return _context.Comments.Find(commentId);});
-            var comment = await getComment;
+            var comment =  await  _context.Comments.FindAsync(commentId);
             if (comment != null){
-            var delete = Task.Factory.StartNew(()=>{_context.Comments.Remove(comment);}); 
-            var save = Task.Factory.StartNew(()=>{ _context.SaveChanges();});
+            _context.Comments.Remove(comment); 
+            await _context.SaveChangesAsync();
             }
         }
         

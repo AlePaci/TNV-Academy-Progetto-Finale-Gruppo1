@@ -33,6 +33,9 @@ import { UpdateCommentComponent } from './components/child-components/update-com
 import { GuessFormComponent } from './components/child-components/guess-form/guess-form.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FriendsComponent } from './components/friends/friends.component';
+import { UpdatePasswordComponent } from './components/child-components/update-password/update-password.component';
+import { UpdateUsernameComponent } from './components/child-components/update-username/update-username.component';
+
 
 
 
@@ -67,6 +70,9 @@ import { FriendsComponent } from './components/friends/friends.component';
     GuessFormComponent,
     ProfileComponent,
     FriendsComponent,
+    UpdatePasswordComponent,
+    UpdateUsernameComponent
+    
 ],
 
 
