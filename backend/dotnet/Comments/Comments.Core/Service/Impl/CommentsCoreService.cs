@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Comments.Core.Exceptions;
 using Comments.Core.Model;
+using System.Threading.Tasks;
 
 
 namespace Comments.Core.Service.Impl
@@ -111,11 +112,11 @@ namespace Comments.Core.Service.Impl
         /// <param name="commentId"> id to delete</param>
         /// <returns>ture if the id existed</returns>
         /// <exception cref="CommentNotFoundException"> if the id was not exist</exception>
-        public void DeleteComment(int commentId)
+        public async Task DeleteComment(int commentId)
         {
            
             
-                 _efService.DeleteComment(commentId);
+               await _efService.DeleteComment(commentId);
         }  
          }
 }

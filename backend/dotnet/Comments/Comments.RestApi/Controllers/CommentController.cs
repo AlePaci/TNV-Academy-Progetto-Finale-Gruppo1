@@ -240,15 +240,15 @@ namespace Comments.RestApi.Controllers
         /// <exception cref="CommentNotFoundException"></exception>
         [HttpDelete]
         [Route("delete/{comment-id}")]
-        public  ActionResult<MessageResponse> DeleteComment([FromRoute(Name = "comment-id")]int commentId)
+        public  async Task<MessageResponse> DeleteComment([FromRoute(Name = "comment-id")]int commentId)
         {
             
-                _coreService.DeleteComment(commentId);
-                return Ok(new MessageResponse()
+               await _coreService.DeleteComment(commentId);
+                return new MessageResponse()
                     {
                         Message = $"Comment whith id {commentId} deleted",
                         TimeStamp = DateTime.Now
-                    });
+                    };
          
             }
         }

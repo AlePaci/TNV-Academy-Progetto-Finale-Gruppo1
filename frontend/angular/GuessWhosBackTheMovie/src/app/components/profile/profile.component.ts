@@ -55,11 +55,11 @@ export class ProfileComponent implements OnInit {
   this.preferredService.findAllMoviesbyUserId(this.sessionService.getUserId()).subscribe({
     next: (res) =>  {
         res.forEach(movie => {
-        this.deleteComment(movie.movieId);
-        this.deleteRating(movie.movieId);
-        this.preferredService.deletePreferredMovie(movie.id).subscribe({
-           next:(res) => console.log(res),
-           error:(res)=> console.log(res)
+          this.deleteComment(movie.movieId);
+          this.deleteRating(movie.movieId);
+          this.preferredService.deletePreferredMovie(movie.id).subscribe({
+            next:(res) => console.log(res),
+            error:(res)=> console.log(res)
          }); 
        });
        setTimeout(() => {
