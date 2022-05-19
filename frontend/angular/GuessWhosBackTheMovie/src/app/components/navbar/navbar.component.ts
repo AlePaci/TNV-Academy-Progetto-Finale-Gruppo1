@@ -12,6 +12,7 @@ import { AccessApiService } from 'src/app/services/access-api.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  
   filmIcon = faFilm;
   loginIcon = faRightToBracket;
   logoutIcon = faRightFromBracket;
@@ -31,11 +32,18 @@ export class NavbarComponent implements OnInit {
     this.getUsername();
     
   }
+
+  /**
+   * Metodo che permette il logout
+   */
   logout(){
     this.sessionService.setLogged(false);
     this.sessionService.deleteUser();
   }
 
+  /**
+   * metodo che recupera l username da usare nel bottone dopo il login
+   */
   getUsername(){
     if(this.sessionService.getLogged()){
     this.accessService.getUserById(this.sessionService.getUserId()).subscribe({

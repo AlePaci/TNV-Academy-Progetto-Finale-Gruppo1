@@ -1,18 +1,19 @@
 import { CommentsService } from './../../services/comments.service';
 import { TMDBApiService } from './../../services/tmdb-api.service';
-import { Component, OnInit} from '@angular/core';
-import { MovieDetails, Genre } from '../../model/movieDetails.model';
-import { ActivatedRoute, Router } from '@angular/router';
-import {  Crew, MovieCredits } from '../../model/movieCredits.model';
-import { SessionStorageService } from 'src/app/services/session-storage.service';
-import {faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import { RatingsService } from '../../services/ratings.service';
 import { PreferredMovieService } from 'src/app/services/preferred-movie.service';
-import { Comment } from 'src/app/model/comment.model';
+import { SessionStorageService } from 'src/app/services/session-storage.service';
 import { AccessApiService } from 'src/app/services/access-api.service';
-import { UserScore } from 'src/app/model/user.model';
-import { faRankingStar } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MovieDetails, Genre } from '../../model/movieDetails.model';
+import { Crew, MovieCredits } from '../../model/movieCredits.model';
 import { Prefferd } from 'src/app/model/prefferd.model';
+import { UserScore } from 'src/app/model/user.model';
+import { Comment } from 'src/app/model/comment.model';
+import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
+
+
 
 
 
@@ -25,31 +26,38 @@ import { Prefferd } from 'src/app/model/prefferd.model';
 })
 
 export class FilmDetailComponent implements OnInit{
-  starArray: number[] = []
-  ratingValue:number |null = null;
-
-  movieId:number = 0;
+ 
+ //Proprità per la visulaizzazione dei contenuti della pagina
   isModificaRating: boolean = false;
   isModificaComment:boolean = false;
 
-// info film
+  //Proprietà info film
+  movieId:number = 0;
   detail: MovieDetails |null = null
   credits: MovieCredits |null = null
   director: Crew[] | null = null
   genres: Genre[] | undefined = [];
+
+  //Proprietà per il commento del film
   comment: Comment | null = null;
   commentId:number =0;
+
+  //Proprietà per il rating del film
   ratingId:number = 0;
+  starArray: number[] = []
+  ratingValue:number |null = null;
+
+  //proprietà per il film preferito
   preffId:number = 0;
+
+  //proprietà per la top3
   topPosition:UserScore[] = [];
   podium:Prefferd[] = [];
 
+  //proprietà per le icone
   trash = faTrashCan;
-  rank = faRankingStar;
+
   
- 
-
-
   constructor(
     private activatedRoute: ActivatedRoute,
     public movieService:TMDBApiService,
@@ -59,35 +67,39 @@ export class FilmDetailComponent implements OnInit{
     private preffService:PreferredMovieService,
     private router: Router,
     private accessService: AccessApiService
-    ) {
-
-   }
-// metodo che recupera tutte le informazioni utili dall Api esterna
+    ) {}
+   
+// Metodo che recupera tutte le informazioni utili dall Api esterna
   ngOnInit(): void {
       this.activatedRoute.params.subscribe((val) => this.movieId = +val['movieId'])
       this.preffService.findPreffUserMovie(this.sessionService.getUserId(),this.movieId).subscribe({
         next:(res)=>this.preffId=res.id,
         error:(res)=>console.log(res)
       });
-      this.preffService.findAllMoviesByMovieID(this.movieId).subscribe({
-        next: (res)=>{
-       
-          res.sort((a,b)=>b.gameScore - a.gameScore);
-          this.podium = res.slice(0,3)
-          this.podium.forEach(element => { 
-            this.accessService.getUserById(element.userId).subscribe({
-              next:(res)=> this.topPosition.push({user:res ,score:element.gameScore}),
-              error:(res)=>console.log(res)
-            });
-          });       
-        },
-        error: (res)=> console.log(res)
-      });
+      this.getPodium();
       this.getRating();
       this.getComment();
       this.getCredits();
-      this.getDetails();
-   
+      this.getDetails(); 
+  }
+
+  /**
+   * Metodo per recuperare tutti gli utenti che han giocato con il film e creare la top tre
+   */
+  getPodium(){
+    this.preffService.findAllMoviesByMovieID(this.movieId).subscribe({
+      next: (res)=>{ 
+        res.sort((a,b)=>b.gameScore - a.gameScore);
+        this.podium = res.slice(0,3)
+        this.podium.forEach(element => { 
+          this.accessService.getUserById(element.userId).subscribe({
+            next:(res)=> this.topPosition.push({user:res ,score:element.gameScore}),
+            error:(res)=>console.log(res)
+          });
+        });       
+      },
+      error: (res)=> console.log(res)
+    });
   }
 
 /**
@@ -114,16 +126,25 @@ export class FilmDetailComponent implements OnInit{
     this.router.navigate(['/film'])
     
   }
-
+/**
+ * Metodo che permette di cambiare la visuale tra commento e modifica commento.
+ */
   modificaRating(){
     this.isModificaRating = !this.isModificaRating;
     this.getRating();
   }
+
+  /**
+   * Metodo che permette di cambiare la visuale tra commento e modifica commento.
+   */
   modificaComment(){
     this.isModificaComment =!this.isModificaComment;
     this.getComment();
   }
 
+/**
+ * Metodo per recuperare il rating del film utilizzando chiamata api del backend di Laravel.
+ */
   getRating(){
     this.ratingService.getRating(this.sessionService.getUserId(),this.movieId).subscribe({
       next: (res)=>{
@@ -138,6 +159,9 @@ export class FilmDetailComponent implements OnInit{
     });
   }
 
+  /**
+   * Metodo per recuperare il commento di un film utilizzando chiamata api del backend di .NET
+   */
   getComment(){
     this.commentService.getComment(this.sessionService.getUserId(),this.movieId).subscribe({
       next: (res)=>{
@@ -147,8 +171,11 @@ export class FilmDetailComponent implements OnInit{
       error: (res)=>console.log(res) 
     });
   }
-  getCredits(){
 
+/**
+ * Metodo per recuperare tutto il cast e la crew di un film attraverso chiamata ad api esterna di TMBD
+ */
+  getCredits(){
     this.movieService.getMovieCredits( this.movieId).subscribe({
       next: (res) =>{
         this.credits = res;
@@ -157,6 +184,10 @@ export class FilmDetailComponent implements OnInit{
       error:(res) => console.log(res)
     });
   }
+
+  /**
+   * Metodo per recuperare tutti i dettagli di un film attraverso chiamata ad Api esterna di TMBD
+   */
   getDetails(){
     this.movieService.getMovieDetails(this.movieId).subscribe({
       next: (res) =>{

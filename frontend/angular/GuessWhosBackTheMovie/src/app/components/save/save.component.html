@@ -3,17 +3,13 @@
         <div class="col-12 col-md-8 offset-md-2 rounded-2 border border-2 border-primary mt-2">
             <div class="row">               
                
-                    <!-- MACRO SEZIONE DETTAGLI FILM-->
                 <app-poster class="col-12 col-md-6 pb-2 mt-2" [detail]="this.detail!"></app-poster>
                
-                        <!-- MACRO SEZIONE FORM-->
                 <div class="col-12 col-md-6 align-self-center " >  
                     <h1>{{detail?.title}}</h1>                           
-                    <div class="card border-primary">
-                        
+                    <div class="card border-primary"> 
                         <h3 class="card-header bg-light" >Inserisci voto e recensione</h3>
-                        <app-saving-form  class="card-body" [movieId]="this.movieId" [points]="this.points!"></app-saving-form>
-                       
+                        <app-saving-form  class="card-body" [movieId]="this.movieId" [points]="this.points!"></app-saving-form> 
                     </div>           
                 </div>
             </div>

@@ -1,0 +1,16 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col"><fa-icon class="text-primary" [icon]="rank"></fa-icon></th>
+            <th scope="col">Nome</th>
+            <th scope="col">Punteggio</th> 
+        </tr>
+    </thead>
+    <tbody class="border-primary">
+        <tr  *ngFor=" let position of this.topPosition; let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{position.user.username}}</td>
+            <td>{{position.score}}</td>   
+        </tr>
+    </tbody>
+</table>

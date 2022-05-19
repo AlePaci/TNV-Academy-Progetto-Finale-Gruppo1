@@ -35,6 +35,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { FriendsComponent } from './components/friends/friends.component';
 import { UpdatePasswordComponent } from './components/child-components/update-password/update-password.component';
 import { UpdateUsernameComponent } from './components/child-components/update-username/update-username.component';
+import { Top3FilmComponent } from './components/child-components/top3-film/top3-film.component';
+import { CaroselloComponent } from './components/child-components/carosello/carosello.component';
 
 
 
@@ -71,7 +73,9 @@ import { UpdateUsernameComponent } from './components/child-components/update-us
     ProfileComponent,
     FriendsComponent,
     UpdatePasswordComponent,
-    UpdateUsernameComponent
+    UpdateUsernameComponent,
+    Top3FilmComponent,
+    CaroselloComponent
     
 ],
 
