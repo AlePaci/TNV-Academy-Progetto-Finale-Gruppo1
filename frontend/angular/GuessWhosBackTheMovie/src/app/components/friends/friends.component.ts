@@ -13,12 +13,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./friends.component.scss']
 })
 export class FriendsComponent implements OnInit {
+  //proprietà usate per gli ngif
   error:boolean = false;
   newRequest:boolean = false;
+
+  //Proprietà che contengono i diversi tipi di amici
   pendingRequest:StoreFriend[]=[];
   yourRequest:StoreFriend[]=[];
   friends:StoreFriend[]=[];
 
+  //Proprietà per icone
   minusIcon = faCircleMinus;
   plusIcon = faCirclePlus;
 
@@ -35,6 +39,11 @@ export class FriendsComponent implements OnInit {
     this.getFriends();
   }
 
+  /**
+   * Metodo che attraverso l utilizzo delle chiamate Api al backend di SpringBoot recupera
+   * e inserisce nella proprieta "pendingRequest" tutte le richieste di amicizia 
+   * effettuate dall utente e ancora in attesa di risposta.
+   */
   getPendingRequest(){
     this.friendService.getRequestsBySender(this.sessionService.getUserId()).subscribe({
       next:(res)=> {
@@ -50,6 +59,11 @@ export class FriendsComponent implements OnInit {
     });
   }
 
+  /**
+   * Metodo che attraverso l utilizzo delle chiamate Api al backend di SpringBoot recupera
+   * e inseriscde nella proprieta "yourRequest" tutte le richieste di amicizia
+   * arrivate all utente.
+   */
   getYourRequests(){
     this.friendService.getRequestByReceiver(this.sessionService.getUserId()).subscribe({
       next:(res)=> {
@@ -65,8 +79,13 @@ export class FriendsComponent implements OnInit {
     });
   }
 
+
+  /**
+   * Metodo che attraverso l utilizzo delle chianate Api al backend di Springboot recupera
+   * e inserisce nella proprieta "frinds" tutti gli amici dell utente. 
+   */
   getFriends(){
-    this.friends.length=0
+    this.friends.length=0;
       this.friendService.getFriendsbyA(this.sessionService.getUserId()).subscribe({
         next:(res)=>{
           res.forEach(element => {
@@ -91,26 +110,35 @@ export class FriendsComponent implements OnInit {
       });
   }
 
+  /**
+   * Metodo che permette attraverso un form di inviare una nuova richiesta di amicizia
+   * attraverso chiamata Api al backend di SpringBoot.
+   * @param newrequest username recuperato dal form
+   */
   sendRequest(newrequest:NgForm){
     this.accessService.getUserBuUsername(newrequest.value.username).subscribe({
       next:(res) => {
+        if(res.message==="USER_FOUND"){
         this.friendService.createFriendRequest({sender: this.sessionService.getUserId(),receiver: res.user.id}).subscribe({
-          next:(res)=> console.log(res),
+          next:(res)=>{
+            this.newRequest = !this.newRequest;
+            this.ngOnInit();
+            this.cd.detectChanges();
+          },
           error:(res)=>console.log(res)
         });
+      }else{
+        this.error = true;
+      }
       },
       error:(res)=> console.log(res)
     });
-    this.newRequest = !this.newRequest;
-    this.getPendingRequest();
   }
-
-
-
-  addOne(){
-    this.newRequest = !this.newRequest;
-  }
-
+    
+/**
+ * Metodo che permette di cancellare una richiesta di amicizia sia essa fatta dal user o arrivata a lui.
+ * @param id della richiesta di amicizia 
+ */
   cancelRequest(id:number){
     this.friendService.deleteRequest(id).subscribe({
       next:(res)=> {
@@ -122,19 +150,50 @@ export class FriendsComponent implements OnInit {
     });
   }
 
+  /**
+   * Metodo che permette di tramutare una richiesta di amicizia ricevuta in un amicizia
+   * attraverso l utilizzo delle chiamate Api del Backend di SpringBoot.
+   * @param id della richiesta di amicizia ricevuta
+   */
   addFriend(id: number){
     this.friendService.getRequestById(id).subscribe({
       next:(res)=>{
         this.friendService.createFriend({friendA: res.request.receiver,friendB:res.request.sender}).subscribe({
-          next:(res)=> console.log(res),
+          next:(res)=> { 
+            this.friendService.deleteRequest(id).subscribe({
+              next:(res)=> { 
+                this.ngOnInit();
+                this.cd.detectChanges();},
+              error:(res)=>console.log(res)
+            });
+           },
           error:(res)=> console.log(res)
         });
-        this.friendService.deleteRequest(res.request.id).subscribe({
-          next:(res)=> console.log(res),
-          error:(res)=>console.log(res)
-        });
-      }
-    })
+     
+       
+      },
+      error:(res)=>console.log(res)
+    });
   }
+
+  /**
+   * Metodo che attraverso chiamata Api as backend SpringBoot cancella un amicizia
+   * @param id dell amicizia da cancellare
+   */
+  cancelFriend(id:number){
+    this.friendService.deleteFriend(id).subscribe({
+      next:(res)=>{
+        this.ngOnInit();
+        this.cd.detectChanges();
+      },
+      error:(res)=>console.log(res)
+    });
+  }
+
+  //Metodo che permette di cambiare l elemento visualizzato
+  addOne(){
+    this.newRequest = !this.newRequest;
+  }
+
 
 }

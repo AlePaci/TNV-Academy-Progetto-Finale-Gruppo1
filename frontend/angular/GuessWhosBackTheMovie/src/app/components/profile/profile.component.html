@@ -1,76 +1,16 @@
 <div class="container-fluid fs-3 ">
     <div class="row">
-      <div class="col-12 col-md-8 offset-md-2 border-primary  mt-2">
-         <h1 class="text-center">{{user?.username}}</h1>
-         <div class="row">
-             <div class="col-6  border rounded-2 border-primary">
-                <form class="mb-3" #updateUsername="ngForm" (submit)="updateUsernameFunc(updateUsername)">
-                        <label for="password" class="form-lable">Password</label>
-                        <div class="row">
-                        <div class="col-11">
-                            <input  [type]="show ? 'text' : 'password'" class="form-control border-light" id="password" placeholder="password"
-                            required
-                            [ngModel] name="password" #password="ngModel">
-                        </div>
-                         <div class="col-1 ps-0 ">
-                            <fa-icon (mousedown)="show = !show" (mouseup)="show = !show" class=" icon text-primary" size="lg" [icon]="eyeIcon"></fa-icon>
-                        </div></div>
-
-                     <div [hidden]="password.valid"
-                        class="alert alert-danger">
-                        Inserisci una password
-                    </div>
-                    <label for="username" class="form-lable">Nuovo Username</label>
-                    <input   type="text" class="form-control border-light" id="username" placeholder="Nuovo Username"
-                    required
-                    [ngModel] name="username" #username="ngModel">
-              
-    
-                    <button type="submit" class="btn btn-primary text-white"[disabled]="!updateUsername.form.valid || updateUsername.form.pristine" >
-                         Modifica</button>
-                </form></div>
-            
-             <div class="col-6 border rounded-2 border-primary">
-                <form  class="mb-3"  #updatePassword="ngForm" (submit)="updatePasswordFunc(updatePassword)">
-                    <label for="password" class="form-lable">Password</label>
-                    <div class="row">
-                    <div class="col-11">
-                        <input  [type]="show ? 'text' : 'password'" class="form-control border-light" id="password" placeholder="password"
-                        required
-                        [ngModel] name="password" #password="ngModel">
-                    </div>
-                     <div class="col-1 ps-0 ">
-                        <fa-icon (mousedown)="show = !show" (mouseup)="show = !show" class=" icon text-primary" size="lg" [icon]="eyeIcon"></fa-icon>
-                    </div></div>
-
-                 <div [hidden]="password.valid"
-                    class="alert alert-danger">
-                    Inserisci una password
-                </div>
-                <label for="nuovaPassword" class="form-lable"> Nuova Password</label>
-                <div class="row">
-                <div class="col-11">
-                    <input  [type]="show ? 'text' : 'password'" class="form-control border-light" id="nuovaPassword" placeholder=" nuova password"
-                    required
-                    [ngModel] name="nuovaPassword" #nuovaPassword="ngModel">
-                </div>
-                 <div class="col-1 ps-0 ">
-                    <fa-icon (mousedown)="show = !show" (mouseup)="show = !show" class=" icon text-primary" size="lg" [icon]="eyeIcon"></fa-icon>
-                </div></div>
-
-             <div [hidden]="password.valid"
-                class="alert alert-danger">
-                Inserisci una password
-            </div>
-          
-
-                <button type="submit" class="btn btn-primary text-white"[disabled]="!updatePassword.form.valid || updatePassword.form.pristine" >
-                     Modifica</button>
-            </form>
-             </div>
+        <div class="col-12 col-md-8 offset-md-2 border-primary  mt-2">
+            <h1 class="text-center">{{user?.username}}</h1>
+            <div class="row">
+                <app-update-username class="col-6  border rounded-2 border-primary"
+                [username]="this.username" (callParentFunc)="reloadCurrentRoute()"></app-update-username>
+                <app-update-password  class="col-6 border rounded-2 border-primary" 
+                [username]="this.username" (callParentFunc)="reloadCurrentRoute()"></app-update-password>  
             </div>
             <div class="text-center">
-            <button class="btn btn-primary text-white" (click)="cancella()">Cancella</button></div>
-         </div>
-      </div>
+                <button class="btn btn-primary text-white" (click)="cancella()">Cancella</button>
+            </div>
+        </div>
     </div>
+</div>

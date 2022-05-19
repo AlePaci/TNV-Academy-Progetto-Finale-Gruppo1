@@ -6,57 +6,48 @@
                 <h3 class="text-center">AMICI</h3>
                 <ul class="list-group">
                     <li *ngFor="let req of friends" class="list-group-item">{{req.name }}
-                    <fa-icon  class="position-absolute text-primary end-0 me-2" (click)="cancelRequest(req.id)" [icon]="minusIcon"></fa-icon></li>
-                   
-                  </ul>
+                    <fa-icon  class="position-absolute text-primary end-0 me-2" (click)="cancelFriend(req.id)" [icon]="minusIcon"></fa-icon></li>
+                </ul>
             </div>
             <div class="col-6">
-                
-                <h3 class="text-center">RICHIESTE</h3>
-                <div *ngIf="!this.newRequest">
-                <p class="bg-primary rounded-2 text-white position-relative"> in attesa 
+              <h3 class="text-center">RICHIESTE</h3>
+              <div *ngIf="!this.newRequest">
+                <p class="bg-primary rounded-2 text-white position-relative"> in attesa di risposta
                 <fa-icon  class="position-absolute end-0 me-2" (click)="addOne()" [icon]="plusIcon"></fa-icon></p>
                 <ul class="list-group">
                     <li *ngFor="let req of pendingRequest" class="list-group-item">{{req.name }}
                     <fa-icon  class="position-absolute text-primary end-0 me-2" (click)="cancelRequest(req.id)" [icon]="minusIcon"></fa-icon></li>
-                   
-                  </ul>
-
-                </div>
-                <div *ngIf="this.newRequest">
-                <form #newrequest="ngForm" (ngSubmit)="sendRequest(newrequest)">
-                    <!-- richiesta username-->
+                </ul>
+              </div>
+              <div *ngIf="this.newRequest">
+                <form #newrequest="ngForm" (ngSubmit)="sendRequest(newrequest)"> 
                 <div class=" form-group mb-3"> 
-                    <label for="username" class="form-lable ">Username</label>
-                <input type="text" class="form-control border-light" id="username" placeholder="username" 
-                    required
-                    [ngModel] name="username" #username="ngModel"> 
-                <div [hidden]="username.valid "
-                    class="alert alert-danger">
-                    Inserisci un username
+                  <label for="username" class="form-lable ">Username</label>
+                  <input type="text" class="form-control border-light" id="username" placeholder="username" 
+                  required
+                  [ngModel] name="username" #username="ngModel"> 
+                  <div [hidden]="username.valid "
+                  class="alert alert-danger">
+                  Inserisci un username
+                  </div>
                 </div>
-                </div>
-       
                 <div class="text-center">
-                    <div *ngIf="error" class="alert alert-danger" role="alert">
-                    Username o Password errati!
-                    </div>
-          <button type="submit" class="btn btn-primary text-white" [disabled]="!newrequest.form.valid">Aggiungi</button>
-         
-          </div>
-          </form></div>
-          <p class="bg-primary rounded-2 text-white mt-3" >tue richieste</p>
-          <ul class="list-group">
-            <li *ngFor="let req of yourRequest" class="list-group-item">{{req.name }}
-            <span class="position-absolute text-primary end-0" >
-            <fa-icon  class="me-2" (click)="cancelRequest(req.id)" [icon]="minusIcon"></fa-icon>
-            <fa-icon  class="me-2" (click)="addFriend(req.id)" [icon]="plusIcon"></fa-icon></span></li>
-           
-          </ul>
-
+                  <div *ngIf="error" class="alert alert-danger" role="alert">
+                  Username non trovato!
+                  </div>
+                <button type="submit" class="btn btn-primary text-white" [disabled]="!newrequest.form.valid">Aggiungi</button>
+                </div>
+                </form>
+              </div>
+              <p class="bg-primary rounded-2 text-white mt-3" >richieste arrivate</p>
+              <ul class="list-group">
+                <li *ngFor="let req of yourRequest" class="list-group-item">{{req.name }}
+                <span class="position-absolute text-primary end-0" >
+                <fa-icon  class="me-2" (click)="cancelRequest(req.id)" [icon]="minusIcon"></fa-icon>
+                <fa-icon  class="me-2" (click)="addFriend(req.id)" [icon]="plusIcon"></fa-icon></span></li>
+              </ul>
             </div>
           </div>
-
       </div>
     </div>
 </div>
