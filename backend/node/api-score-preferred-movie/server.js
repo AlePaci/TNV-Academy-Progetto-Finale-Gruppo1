@@ -3,6 +3,7 @@ import db from "./config/database.js"
 import Movie from "./model/preferred_movie.js";
 import router from "./routes/preff-movie-routes.js";
 import cors from "cors";
+import Suggested from "./model/suggested_movie.js";
 
 
 
@@ -18,6 +19,7 @@ app.use(cors({
 }))
 // database connection e sync
 db.movie = Movie;
+db.suggested = Suggested;
 try {
     await db.authenticate();
     console.log('Connection has been established successfully.');

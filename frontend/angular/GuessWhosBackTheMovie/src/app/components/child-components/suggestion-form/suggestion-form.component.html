@@ -1,0 +1,6 @@
+<form  #suggestionForm="ngForm" (ngSubmit)="suggest(suggestionForm)">
+    <select [ngModel] name="suggestion" #suggestion="ngModel" class="form-select border-primary" aria-label="Default select example" required>
+      <option id="suggestion" name="suggestion" *ngFor="let friend of friends" ngValue={{friend.id}}>{{friend.name}}</option> 
+    </select>
+    <button class="btn btn-primary text-white" type="submit" id="cancella" [disabled]="!suggestionForm.form.valid"> Suggerisci</button>
+</form>

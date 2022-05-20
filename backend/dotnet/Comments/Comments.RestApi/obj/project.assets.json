@@ -884,11 +884,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.RestApi/Comments.RestApi.csproj",
+      "projectUniqueName": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.RestApi/Comments.RestApi.csproj",
       "projectName": "Comments.RestApi",
-      "projectPath": "/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.RestApi/Comments.RestApi.csproj",
+      "projectPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.RestApi/Comments.RestApi.csproj",
       "packagesPath": "/home/al/.nuget/packages/",
-      "outputPath": "/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.RestApi/obj/",
+      "outputPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.RestApi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/al/.nuget/NuGet/NuGet.Config"
@@ -903,8 +903,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj": {
-              "projectPath": "/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj"
+            "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj": {
+              "projectPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj"
             }
           }
         }
