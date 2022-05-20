@@ -12,6 +12,10 @@ import { Prefferd } from 'src/app/model/prefferd.model';
 import { UserScore } from 'src/app/model/user.model';
 import { Comment } from 'src/app/model/comment.model';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
+import { StoreFriend } from 'src/app/model/friends.model';
+import { FriendsService } from 'src/app/services/friends.service';
+import { NgForm } from '@angular/forms';
+import { SuggestedMovieService } from 'src/app/services/suggested-movie.service';
 
 
 
@@ -54,6 +58,9 @@ export class FilmDetailComponent implements OnInit{
   topPosition:UserScore[] = [];
   podium:Prefferd[] = [];
 
+  friends:StoreFriend[]=[];
+
+
   //proprietà per le icone
   trash = faTrashCan;
 
@@ -66,7 +73,9 @@ export class FilmDetailComponent implements OnInit{
     private sessionService:SessionStorageService,
     private preffService:PreferredMovieService,
     private router: Router,
-    private accessService: AccessApiService
+    private accessService: AccessApiService,
+    private friendService:FriendsService,
+    private suggestionService:SuggestedMovieService
     ) {}
    
 // Metodo che recupera tutte le informazioni utili dall Api esterna
@@ -81,6 +90,7 @@ export class FilmDetailComponent implements OnInit{
       this.getComment();
       this.getCredits();
       this.getDetails(); 
+      this.getFriends();
   }
 
   /**
@@ -197,6 +207,37 @@ export class FilmDetailComponent implements OnInit{
       error: (res) => console.log(res)    
     });  
   }
+
+
+  /**
+   * Metodo che attraverso l utilizzo delle chianate Api al backend di Springboot recupera
+   * e inserisce nella proprieta "frinds" tutti gli amici dell utente. 
+   */
+  getFriends(){
+      this.friendService.getFriendsbyA(this.sessionService.getUserId()).subscribe({
+        next:(res)=>{
+          res.forEach(element => {
+            this.accessService.getUserById(element.friendB).subscribe({
+              next:(res)=>this.friends.push({name:res.username, id: element.friendB}),
+              error:(res)=> console.log(res)
+            });
+          });
+        },
+        error:(res)=>console.log(res)
+      });
+      this.friendService.getFriendsbyB(this.sessionService.getUserId()).subscribe({
+        next:(res)=>{
+          res.forEach(element => {
+            this.accessService.getUserById(element.friendA).subscribe({
+              next:(res)=> this.friends.push({name:res.username, id: element.friendA}),
+              error:(res)=> console.log(res)
+            });
+          });
+        },
+        error:(res)=>console.log(res)
+      });
+  }
+
 
 
   }

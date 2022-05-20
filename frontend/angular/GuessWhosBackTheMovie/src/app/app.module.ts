@@ -37,6 +37,7 @@ import { UpdatePasswordComponent } from './components/child-components/update-pa
 import { UpdateUsernameComponent } from './components/child-components/update-username/update-username.component';
 import { Top3FilmComponent } from './components/child-components/top3-film/top3-film.component';
 import { CaroselloComponent } from './components/child-components/carosello/carosello.component';
+import { SuggestionFormComponent } from './components/child-components/suggestion-form/suggestion-form.component';
 
 
 
@@ -75,7 +76,8 @@ import { CaroselloComponent } from './components/child-components/carosello/caro
     UpdatePasswordComponent,
     UpdateUsernameComponent,
     Top3FilmComponent,
-    CaroselloComponent
+    CaroselloComponent,
+    SuggestionFormComponent
     
 ],
 

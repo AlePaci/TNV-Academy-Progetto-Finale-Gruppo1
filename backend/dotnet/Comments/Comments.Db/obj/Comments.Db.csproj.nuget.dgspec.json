@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj": {}
+    "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj": {}
   },
   "projects": {
-    "/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj": {
+    "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj",
+        "projectUniqueName": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj",
         "projectName": "Comments.Core",
-        "projectPath": "/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj",
+        "projectPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj",
         "packagesPath": "/home/al/.nuget/packages/",
-        "outputPath": "/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/obj/",
+        "outputPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/al/.nuget/NuGet/NuGet.Config"
@@ -56,14 +56,14 @@
         }
       }
     },
-    "/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj": {
+    "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj",
+        "projectUniqueName": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj",
         "projectName": "Comments.Db",
-        "projectPath": "/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj",
+        "projectPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/Comments.Db.csproj",
         "packagesPath": "/home/al/.nuget/packages/",
-        "outputPath": "/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/",
+        "outputPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Db/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/al/.nuget/NuGet/NuGet.Config"
@@ -78,8 +78,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj": {
-                "projectPath": "/home/al/Desktop/ProgettoFinale-aggiunta-amici/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj"
+              "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj": {
+                "projectPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj"
               }
             }
           }

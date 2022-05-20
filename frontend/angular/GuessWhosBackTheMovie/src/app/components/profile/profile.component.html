@@ -3,9 +3,9 @@
         <div class="col-12 col-md-8 offset-md-2 border-primary  mt-2">
             <h1 class="text-center">{{user?.username}}</h1>
             <div class="row">
-                <app-update-username class="col-6  border rounded-2 border-primary"
+                <app-update-username class="col-12 col-md-6  border rounded-2 border-primary"
                 [username]="this.username" (callParentFunc)="reloadCurrentRoute()"></app-update-username>
-                <app-update-password  class="col-6 border rounded-2 border-primary" 
+                <app-update-password  class="col-12 col-md-6 border rounded-2 border-primary" 
                 [username]="this.username" (callParentFunc)="reloadCurrentRoute()"></app-update-password>  
             </div>
             <div class="text-center">

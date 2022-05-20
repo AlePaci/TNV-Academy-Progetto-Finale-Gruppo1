@@ -17,7 +17,7 @@ export class GuessDataComponent implements OnInit {
   @Input(('showActors'))showActors!:boolean[];
   @Input(('showDate'))showDate!:boolean;
   @Input(('movieDetails'))movieDetails!:MovieDetails;
-  @Input(('director'))director!:Crew[];
+  @Input(('director'))director!:Crew;
   @Input(('cast'))cast!:Cast[];
   
   constructor() { }
