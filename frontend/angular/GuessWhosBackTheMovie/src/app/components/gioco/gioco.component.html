@@ -3,8 +3,14 @@
         <div class="col-12 col-md-8 offset-md-2 border border-primary border-3 rounded-2  mt-2">
                       <!--   Inizio Gioco       -->
             <div *ngIf="!this.start" class="text-center mb-2 mt-2"> 
-                <button (click)="onStart()" type="button" class="btn btn-primary fs-2 text-white">
-                <fa-icon [icon]="playIcon"></fa-icon> Inizia</button>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                    <button (click)="onStart(false)" type="button" class="btn btn-primary  fs-2 text-white" [disabled]="filmSuggeriti.length === 0">
+                    <fa-icon [icon]="playIcon"></fa-icon>Accetta Sfida</button></div>
+                    <div class="col-12 col-md-6">
+                    <button (click)="onStart(true)" type="button" class="btn btn-primary  fs-2 text-white">
+                    <fa-icon [icon]="playIcon"></fa-icon>Film Random</button></div>
+                </div>
                 <app-ranking></app-ranking>
             </div>
 

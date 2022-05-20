@@ -119,8 +119,8 @@ export class GiocoComponent implements OnInit {
   
  
  // metodo che fa partire la partita
-  onStart(){
-    this.retirveMovie();
+  onStart(num:boolean){
+    this.retirveMovie(num);
       setTimeout(() => {
       this.start = true;
       this.countDownTimer();
@@ -155,15 +155,21 @@ export class GiocoComponent implements OnInit {
   
   
   // metodo che recupera tutte le informazioni utili dall Api esterna e fa controli su presenza poster e gia giocati  
-    retirveMovie(){
+    retirveMovie(num: boolean){
     console.log(this.giaGiocati)
-    this.movieId = this.getRandomInt(this.maxRandom);
+    if(num)this.movieId = this.getRandomInt(this.maxRandom);
+    else {
+      this.movieId = this.filmSuggeriti[0];
+      this.filmSuggeriti.shift();
+      
+    }
+    
     if(!this.giaGiocati.includes(this.movieId)){
     this.newMovieService.getMovieDetails(this.movieId).subscribe({
       next: (res)=> {
         this.movieDetails = res;
         this.genres = res.genres;
-        if(this.movieDetails === null || this.movieDetails.poster_path === null) this.retirveMovie();
+        if(this.movieDetails === null || this.movieDetails.poster_path === null) this.retirveMovie(num);
         this.newMovieService.getMovieCredits(this.movieId).subscribe({
         next:(res)=>{
           this.movieCredits = res;
@@ -175,10 +181,10 @@ export class GiocoComponent implements OnInit {
       },
       error: (res)=> {
         console.log(res);
-        this.retirveMovie(); },
+        this.retirveMovie(num); },
         });
 
-      }else this.retirveMovie();
+      }else this.retirveMovie(num);
   }
   guessed(){
     this.finish = true;

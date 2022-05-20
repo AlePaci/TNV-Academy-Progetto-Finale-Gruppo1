@@ -2,14 +2,14 @@
     <div class="row">
       <div class="col-12 col-md-8 offset-md-2 border-primary  mt-2">
           <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <h3 class="text-center">AMICI</h3>
                 <ul class="list-group">
                     <li *ngFor="let req of friends" class="list-group-item">{{req.name }}
                     <fa-icon  class="position-absolute text-primary end-0 me-2" (click)="cancelFriend(req.id)" [icon]="minusIcon"></fa-icon></li>
                 </ul>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
               <h3 class="text-center">RICHIESTE</h3>
               <div *ngIf="!this.newRequest">
                 <p class="bg-primary rounded-2 text-white position-relative"> in attesa di risposta
