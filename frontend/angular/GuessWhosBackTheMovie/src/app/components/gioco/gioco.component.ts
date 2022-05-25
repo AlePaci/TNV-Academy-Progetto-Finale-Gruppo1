@@ -186,13 +186,14 @@ export class GiocoComponent implements OnInit {
 
       }else this.retirveMovie(num);
   }
+
   guessed(){
     this.finish = true;
     this.win = true;
     this.points = this.subscribeTimer;
     this.blurString = `blur(0)`; 
-    this.showActors.forEach(element => element = true);
-    this.showGenres.forEach(element=>element =true);
+    for(let i = 0; i<this.showActors.length; i++){this.showActors[i]=true}
+    for(let i = 0; i<this.showGenres.length; i++){this.showGenres[i]=true}
     this.showDirector = true;
     this.showDate = true;
   }

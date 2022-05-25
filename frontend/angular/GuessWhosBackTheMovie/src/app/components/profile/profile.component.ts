@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { PreferredMovieService } from 'src/app/services/preferred-movie.service';
 import { CommentsService } from 'src/app/services/comments.service';
 import { RatingsService } from 'src/app/services/ratings.service';
+import { FriendsService } from 'src/app/services/friends.service';
 
 
 
@@ -27,6 +28,7 @@ export class ProfileComponent implements OnInit {
     private commentService: CommentsService,
     private ratingService: RatingsService,
     private router: Router,
+    private friendService: FriendsService
   ) { }
 
   ngOnInit(): void {
@@ -52,6 +54,7 @@ export class ProfileComponent implements OnInit {
  * Metodo per cancellare un utente e tutti i suoi film preferiti, commenti e ratings
  */
  cancella(){
+  this.deleteFriends()
   this.preferredService.findAllMoviesbyUserId(this.sessionService.getUserId()).subscribe({
     next: (res) =>  {
         res.forEach(movie => {
@@ -113,6 +116,32 @@ reloadCurrentRoute() {
     let currentUrl = this.router.url;
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
         this.router.navigate([currentUrl]);
+    });
+}
+
+deleteFriends(){
+ 
+    this.friendService.getFriendsbyA(this.sessionService.getUserId()).subscribe({
+      next:(res)=>{
+        res.forEach(element => {
+          this.friendService.deleteFriend(element.id).subscribe({
+            next:(res)=> console.log(res),
+            error:(res)=> console.log(res)
+          });
+        });
+      },
+      error:(res)=>console.log(res)
+    });
+    this.friendService.getFriendsbyB(this.sessionService.getUserId()).subscribe({
+      next:(res)=>{
+        res.forEach(element => {
+          this.friendService.deleteFriend(element.id).subscribe({
+            next:(res)=> console.log(res),
+            error:(res)=> console.log(res)
+          });
+        });
+      },
+      error:(res)=>console.log(res)
     });
 }
 

@@ -19,7 +19,8 @@ export class GuessFormComponent implements OnInit {
   }
 
   guess(guessForm: NgForm){
-    if(this.movieDetails?.title.toLowerCase()===guessForm.value.guessTitle){
+   
+    if(this.movieDetails?.title.toLowerCase()===guessForm.value.guessTitle.toLowerCase()){
       this.callParentFunc.emit();
       console.log("indovinato");
     }

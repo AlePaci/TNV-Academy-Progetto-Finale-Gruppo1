@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj",
+      "projectUniqueName": "/home/al/Desktop/prova tutto funzionante/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj",
       "projectName": "Comments.Core",
-      "projectPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj",
+      "projectPath": "/home/al/Desktop/prova tutto funzionante/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/Comments.Core.csproj",
       "packagesPath": "/home/al/.nuget/packages/",
-      "outputPath": "/home/al/Desktop/Progetto-Finale/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/obj/",
+      "outputPath": "/home/al/Desktop/prova tutto funzionante/TNV-Academy-Progetto-Finale-Gruppo1/backend/dotnet/Comments/Comments.Core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/al/.nuget/NuGet/NuGet.Config"
